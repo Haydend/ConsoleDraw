@@ -1,0 +1,4 @@
+C:\Users\Hayden\Dropbox\Personal\Text\ConsoleDraw\bin\Release\ConsoleDraw.dll
+C:\Users\Hayden\Dropbox\Personal\Text\ConsoleDraw\bin\Release\ConsoleDraw.pdb
+C:\Users\Hayden\Dropbox\Personal\Text\ConsoleDraw\obj\Release\ConsoleDraw.dll
+C:\Users\Hayden\Dropbox\Personal\Text\ConsoleDraw\obj\Release\ConsoleDraw.pdb
