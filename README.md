@@ -9,6 +9,13 @@ This library allows graphical GUI Windows and Inputs to be used with the console
 The example text editing application TEXT shows what is possible. <br/>
 TEXT's source code can be found <a href="https://github.com/Haydend/ConsoleDraw">here</a>. <br/>
 <br/>
+<img src="http://i.imgur.com/mGBEADK.png"/> <br/>
+<br/>
+<img src="http://i.imgur.com/pju8BAU.png"> <br/>
+<br/>
+<img src="http://i.imgur.com/7f0xQ2T.png"> <br/>
+
+<br/>
 For questions and support email haydendunnicliffe@gmail.com. <br/>
 <br/>
 <br/>
