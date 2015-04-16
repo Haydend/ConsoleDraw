@@ -6,15 +6,22 @@ For commercial licenses, please contact me at haydendunnicliffe@gmail.com. <br/>
 <br/>
 This library allows graphical GUI Windows and Inputs to be used with the console. <br/>
 <br/>
-The example text editing application TEXT shows what is possible. <br/>
-TEXT's source code can be found <a href="https://github.com/Haydend/ConsoleDraw">here</a>. <br/>
+The example applications show what is possible and how to use the library <br/>
+TEXT is a text editing application simlar to Window's Edit <br/>
+Calculator is a simple calculation app <br/>
 <br/>
-<img src="http://i.imgur.com/mGBEADK.png"/> <br/>
-<br/>
-<img src="http://i.imgur.com/pju8BAU.png"> <br/>
-<br/>
-<img src="http://i.imgur.com/7f0xQ2T.png"> <br/>
 
+# Screenshots of Example Applications
+<img src="https://raw.githubusercontent.com/Haydend/ConsoleDraw/master/ScreenShots/Calculator.png"> <br/>
+<br/>
+<img src="https://raw.githubusercontent.com/Haydend/ConsoleDraw/master/ScreenShots/TEXT%201.png"/> <br/>
+<br/>
+<img src="https://raw.githubusercontent.com/Haydend/ConsoleDraw/master/ScreenShots/TEXT%202.png"> <br/>
+<br/>
+<img src="https://raw.githubusercontent.com/Haydend/ConsoleDraw/master/ScreenShots/TEXT%203.png"> <br/>
+<br/>
+
+# Help & Support
 <br/>
 For questions and support email haydendunnicliffe@gmail.com. <br/>
 <br/>
