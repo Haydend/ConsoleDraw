@@ -1,0 +1,13 @@
+C:\Users\Hayden\Dropbox\Personal\Text\Text\bin\Release\Text.exe.config
+C:\Users\Hayden\Dropbox\Personal\Text\Text\bin\Release\Text.exe.manifest
+C:\Users\Hayden\Dropbox\Personal\Text\Text\bin\Release\Text.application
+C:\Users\Hayden\Dropbox\Personal\Text\Text\bin\Release\Text.exe
+C:\Users\Hayden\Dropbox\Personal\Text\Text\bin\Release\Text.pdb
+C:\Users\Hayden\Dropbox\Personal\Text\Text\bin\Release\ConsoleDraw.dll
+C:\Users\Hayden\Dropbox\Personal\Text\Text\bin\Release\ConsoleDraw.pdb
+C:\Users\Hayden\Dropbox\Personal\Text\Text\obj\Release\Text.csprojResolveAssemblyReference.cache
+C:\Users\Hayden\Dropbox\Personal\Text\Text\obj\Release\Text.TrustInfo.xml
+C:\Users\Hayden\Dropbox\Personal\Text\Text\obj\Release\Text.exe.manifest
+C:\Users\Hayden\Dropbox\Personal\Text\Text\obj\Release\Text.application
+C:\Users\Hayden\Dropbox\Personal\Text\Text\obj\Release\Text.exe
+C:\Users\Hayden\Dropbox\Personal\Text\Text\obj\Release\Text.pdb

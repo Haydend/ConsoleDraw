@@ -1,0 +1,31 @@
+c:\users\hayden\documents\visual studio 2013\Projects\Text\Text\bin\Debug\Text.exe.config
+c:\users\hayden\documents\visual studio 2013\Projects\Text\Text\bin\Debug\Text.exe
+c:\users\hayden\documents\visual studio 2013\Projects\Text\Text\bin\Debug\Text.pdb
+c:\users\hayden\documents\visual studio 2013\Projects\Text\Text\obj\Debug\Text.csprojResolveAssemblyReference.cache
+c:\users\hayden\documents\visual studio 2013\Projects\Text\Text\obj\Debug\Text.exe
+c:\users\hayden\documents\visual studio 2013\Projects\Text\Text\obj\Debug\Text.pdb
+C:\Users\Hayden\Dropbox\Personal\Text\Text\bin\Debug\Text.exe.config
+C:\Users\Hayden\Dropbox\Personal\Text\Text\obj\Debug\Text.exe
+C:\Users\Hayden\Dropbox\Personal\Text\Text\obj\Debug\Text.pdb
+C:\Users\Hayden\Dropbox\Personal\Text\Text\bin\Debug\Text.exe
+C:\Users\Hayden\Dropbox\Personal\Text\Text\bin\Debug\Text.pdb
+C:\Users\Hayden\Dropbox\Personal\Text\Text\obj\Debug\Text.csprojResolveAssemblyReference.cache
+C:\Users\Hayden\Dropbox\Personal\Text\Text\bin\Debug\Text.exe.manifest
+C:\Users\Hayden\Dropbox\Personal\Text\Text\bin\Debug\Text.application
+C:\Users\Hayden\Dropbox\Personal\Text\Text\obj\Debug\Text.TrustInfo.xml
+C:\Users\Hayden\Dropbox\Personal\Text\Text\obj\Debug\Text.exe.manifest
+C:\Users\Hayden\Dropbox\Personal\Text\Text\obj\Debug\Text.application
+C:\Users\Hayden\Dropbox\Personal\Text\Text\bin\Debug\ConsoleDraw.dll
+C:\Users\Hayden\Dropbox\Personal\Text\Text\bin\Debug\ConsoleDraw.pdb
+C:\Users\Hayden\Desktop\Text\bin\Debug\Text.exe.config
+C:\Users\Hayden\Desktop\Text\obj\Debug\Text.exe
+C:\Users\Hayden\Desktop\Text\obj\Debug\Text.pdb
+C:\Users\Hayden\Desktop\Text\obj\Debug\Text.csprojResolveAssemblyReference.cache
+C:\Users\Hayden\Desktop\Text\bin\Debug\Text.exe.manifest
+C:\Users\Hayden\Desktop\Text\bin\Debug\Text.application
+C:\Users\Hayden\Desktop\Text\bin\Debug\Text.exe
+C:\Users\Hayden\Desktop\Text\bin\Debug\Text.pdb
+C:\Users\Hayden\Desktop\Text\bin\Debug\ConsoleDraw.dll
+C:\Users\Hayden\Desktop\Text\obj\Debug\Text.TrustInfo.xml
+C:\Users\Hayden\Desktop\Text\obj\Debug\Text.exe.manifest
+C:\Users\Hayden\Desktop\Text\obj\Debug\Text.application
