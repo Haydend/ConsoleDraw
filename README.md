@@ -12,15 +12,15 @@ Calculator is a simple calculation app <br/>
 <br/>
 
 # Supported Inputs
-Button
-TextBox
-TextArea
-CheckBox
-Radio Buttons
-Labels
-Dropdowns
-Menus
-FileBrowser
+Button <br/>
+TextBox <br/>
+TextArea <br/>
+CheckBox <br/>
+Radio Buttons <br/>
+Labels <br/>
+Dropdowns <br/>
+Menus <br/>
+FileBrowser <br/>
 
 # Screenshots of Example Applications
 <img src="https://raw.githubusercontent.com/Haydend/ConsoleDraw/master/ScreenShots/Calculator.png"> <br/>
