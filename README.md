@@ -11,6 +11,17 @@ TEXT is a text editing application simlar to Window's Edit <br/>
 Calculator is a simple calculation app <br/>
 <br/>
 
+# Supported Inputs
+Button
+TextBox
+TextArea
+CheckBox
+Radio Buttons
+Labels
+Dropdowns
+Menus
+FileBrowser
+
 # Screenshots of Example Applications
 <img src="https://raw.githubusercontent.com/Haydend/ConsoleDraw/master/ScreenShots/Calculator.png"> <br/>
 <br/>
