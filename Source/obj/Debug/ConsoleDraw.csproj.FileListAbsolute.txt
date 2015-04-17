@@ -1,4 +1,0 @@
-C:\Users\Hayden\Dropbox\Personal\Text\ConsoleDraw\bin\Debug\ConsoleDraw.dll
-C:\Users\Hayden\Dropbox\Personal\Text\ConsoleDraw\bin\Debug\ConsoleDraw.pdb
-C:\Users\Hayden\Dropbox\Personal\Text\ConsoleDraw\obj\Debug\ConsoleDraw.dll
-C:\Users\Hayden\Dropbox\Personal\Text\ConsoleDraw\obj\Debug\ConsoleDraw.pdb

@@ -1,0 +1,16 @@
+C:\Users\Hayden\Dropbox\Personal\Text\InlineTestApp\bin\Debug\InlineTestApp.exe.config
+C:\Users\Hayden\Dropbox\Personal\Text\InlineTestApp\bin\Debug\InlineTestApp.exe
+C:\Users\Hayden\Dropbox\Personal\Text\InlineTestApp\bin\Debug\InlineTestApp.pdb
+C:\Users\Hayden\Dropbox\Personal\Text\InlineTestApp\bin\Debug\ConsoleDraw.dll
+C:\Users\Hayden\Dropbox\Personal\Text\InlineTestApp\bin\Debug\ConsoleDraw.pdb
+C:\Users\Hayden\Dropbox\Personal\Text\InlineTestApp\obj\Debug\InlineTestApp.csprojResolveAssemblyReference.cache
+C:\Users\Hayden\Dropbox\Personal\Text\InlineTestApp\obj\Debug\InlineTestApp.exe
+C:\Users\Hayden\Dropbox\Personal\Text\InlineTestApp\obj\Debug\InlineTestApp.pdb
+C:\Users\Hayden\Dropbox\Personal\Projects\ConsoleDraw\InlineTestApp\bin\Debug\InlineTestApp.exe.config
+C:\Users\Hayden\Dropbox\Personal\Projects\ConsoleDraw\InlineTestApp\bin\Debug\InlineTestApp.exe
+C:\Users\Hayden\Dropbox\Personal\Projects\ConsoleDraw\InlineTestApp\bin\Debug\InlineTestApp.pdb
+C:\Users\Hayden\Dropbox\Personal\Projects\ConsoleDraw\InlineTestApp\bin\Debug\ConsoleDraw.dll
+C:\Users\Hayden\Dropbox\Personal\Projects\ConsoleDraw\InlineTestApp\bin\Debug\ConsoleDraw.pdb
+C:\Users\Hayden\Dropbox\Personal\Projects\ConsoleDraw\InlineTestApp\obj\Debug\InlineTestApp.csprojResolveAssemblyReference.cache
+C:\Users\Hayden\Dropbox\Personal\Projects\ConsoleDraw\InlineTestApp\obj\Debug\InlineTestApp.exe
+C:\Users\Hayden\Dropbox\Personal\Projects\ConsoleDraw\InlineTestApp\obj\Debug\InlineTestApp.pdb
