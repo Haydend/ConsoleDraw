@@ -14,7 +14,7 @@ The example applications show what is possible and how to use the library <br/>
 </ul>
 <br/>
 
-# Supported Inputs
+# Included Inputs
 Button <br/>
 TextBox <br/>
 TextArea <br/>
@@ -24,6 +24,12 @@ Labels <br/>
 Dropdowns <br/>
 Menus <br/>
 FileBrowser <br/>
+
+#Included Windows
+Alert <br/>
+Confirm <br/>
+Save <br/>
+Load <br/>
 
 # Screenshots of Example Applications
 <img src="https://raw.githubusercontent.com/Haydend/ConsoleDraw/master/ScreenShots/Calculator.png"> <br/>
