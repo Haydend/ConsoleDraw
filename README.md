@@ -9,6 +9,7 @@ This library allows graphical GUI Windows and Inputs to be used with the console
 The example applications show what is possible and how to use the library <br/>
 TEXT is a text editing application simlar to Window's Edit <br/>
 Calculator is a simple calculation app <br/>
+File Change is an alternative to the cd/chdir command for changing the directory of a console window. It provides a GUI for selecting the new path.
 <br/>
 
 # Supported Inputs
