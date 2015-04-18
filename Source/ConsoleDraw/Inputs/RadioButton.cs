@@ -25,7 +25,7 @@ namespace ConsoleDraw.Inputs
         public RadioButton(int x, int y, String iD, String radioGroup, Window parentWindow) : base(x, y, 1, 3, parentWindow, iD)
         {
             RadioGroup = radioGroup;
-
+            BackgroundColour = parentWindow.BackgroundColour;
             Selectable = true;
         }
 
@@ -74,7 +74,7 @@ namespace ConsoleDraw.Inputs
 
         public override void Draw()
         {
-            String Char = Checked ? "X" : " ";
+            String Char = Checked ? "■" : " ";
 
             if(Selected)
                 WindowManager.WirteText('[' + Char + ']', Xpostion, Ypostion, SelectedTextColour, SelectedBackgroundColour);

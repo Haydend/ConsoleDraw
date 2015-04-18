@@ -25,23 +25,23 @@ namespace Text
         public Dictionary<String, String> FileTypes;
 
         public LoadMenu(Dictionary<String, String> fileTypes, Window parentWindow)
-            : base("Load Menu", 10, 45, 60, 20, parentWindow)
+            : base("Load Menu", Math.Min(6, Console.WindowHeight - 22), (Console.WindowWidth / 2) - 30, 60, 20, parentWindow)
         {
             FileTypes = fileTypes;
-            
-            fileSelect = new FileSelect(12, 47, FileInfo.Path, "fileSelect", this, true, "txt");
+
+            fileSelect = new FileSelect(PostionX + 2, PostionY + 2, FileInfo.Path, "fileSelect", this, true, "txt");
             fileSelect.ChangeItem = delegate() { UpdateCurrentlySelectedFileName(); };
             fileSelect.SelectFile = delegate() { LoadFile(); };
 
-            var openLabel = new Label("Open", 26, 47, "openLabel", this);
-            openTxtBox = new TextBox(26, 53, "openTxtBox", this, 31) { Selectable = false };
+            var openLabel = new Label("Open", PostionX + 16, PostionY + 2, "openLabel", this);
+            openTxtBox = new TextBox(PostionX + 16, PostionY + 7, "openTxtBox", this, 31) { Selectable = false };
 
-            fileTypeDropdown = new Dropdown(28, 86, FileTypes.Select(x => x.Value).ToList(), "fileTypeDropdown", this, 17);
+            fileTypeDropdown = new Dropdown(PostionX + 18, PostionY + 40, FileTypes.Select(x => x.Value).ToList(), "fileTypeDropdown", this, 17);
             fileTypeDropdown.OnUnselect = delegate() { UpdateFileTypeFilter(); };
 
-            loadBtn = new Button(28, 48, "Load", "loadBtn", this);
+            loadBtn = new Button(PostionX + 18, PostionY + 2, "Load", "loadBtn", this);
             loadBtn.Action = delegate() { LoadFile(); };
-            cancelBtn = new Button(28, 56, "Cancel", "cancelBtn", this);
+            cancelBtn = new Button(PostionX + 18, PostionY + 9, "Cancel", "cancelBtn", this);
             cancelBtn.Action = delegate() { ExitWindow(); };
 
             Inputs.Add(fileSelect);

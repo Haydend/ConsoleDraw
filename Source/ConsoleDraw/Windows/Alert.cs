@@ -43,10 +43,9 @@ namespace ConsoleDraw.Windows
         private void Create(String Message, Window parentWindow)
         {
             var messageLabel = new Label(Message, PostionX + 2, PostionY + 2, "messageLabel", this);
-            messageLabel.BackgroudColour = BackgroundColour;
+            messageLabel.BackgroundColour = BackgroundColour;
 
             okBtn = new Button(PostionX + 6, PostionY + 2, "OK", "OkBtn", this);
-            okBtn.BackgroundColour = BackgroundColour;
             okBtn.Action = delegate() { ExitWindow(); };
 
             Inputs.Add(messageLabel);

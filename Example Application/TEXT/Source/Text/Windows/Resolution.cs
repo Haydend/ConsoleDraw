@@ -18,22 +18,22 @@ namespace Text
         private TextBox heightTxtBox;
 
         public Resolution(Window parentWindow)
-            : base("Change Resolution", 10, 45, 30, 8, parentWindow)
+            : base("Change Resolution", 6, (Console.WindowWidth / 2) - 15, 30, 8, parentWindow)
         {
-            var widthLabel = new Label("Width", 12, 48, "widthLabel", parentWindow);
-            widthTxtBox = new TextBox(12, 56, Console.WindowWidth.ToString(), "widthTxtBox", this, 5);
-            var widthMaxBtn = new Button(12, 64, "Max", "widthMaxBtn", this);
+            var widthLabel = new Label("Width", PostionX + 2, PostionY + 2, "widthLabel", parentWindow);
+            widthTxtBox = new TextBox(PostionX + 2, PostionY + 10, Console.WindowWidth.ToString(), "widthTxtBox", this, 5);
+            var widthMaxBtn = new Button(PostionX + 2, PostionY + 17, "Max", "widthMaxBtn", this);
             widthMaxBtn.Action = delegate() { widthTxtBox.SetText(Console.LargestWindowWidth.ToString()); };
 
-            var heightLabel = new Label("Height", 14, 48, "widthLabel", parentWindow);
-            heightTxtBox = new TextBox(14, 56, Console.WindowHeight.ToString(), "heightTxtBox", this, 5);
-            var heightMaxBtn = new Button(14, 64, "Max", "heighthMaxBtn", this);
+            var heightLabel = new Label("Height", PostionX + 4, PostionY + 2, "widthLabel", parentWindow);
+            heightTxtBox = new TextBox(PostionX + 4, PostionY + 10, Console.WindowHeight.ToString(), "heightTxtBox", this, 5);
+            var heightMaxBtn = new Button(PostionX + 4, PostionY + 17, "Max", "heighthMaxBtn", this);
             heightMaxBtn.Action = delegate() { heightTxtBox.SetText(Console.LargestWindowHeight.ToString()); };
 
-            applyBtn = new Button(16, 48, "Apply", "applyBtn", this);
+            applyBtn = new Button(PostionX + 6, PostionY + 2, "Apply", "applyBtn", this);
             applyBtn.Action = delegate() { Apply(); };
-            
-            exitBtn = new Button(16, 57, "Exit", "exitBtn", this);
+
+            exitBtn = new Button(PostionX + 6, PostionY + 10, "Exit", "exitBtn", this);
             exitBtn.Action = delegate() { ExitWindow(); };
 
             Inputs.Add(widthLabel);
@@ -67,7 +67,16 @@ namespace Text
                 return;
             }
 
-            WindowManager.UpdateWindow(newWidth, newHeight);
+            try
+            {
+                WindowManager.UpdateWindow(newWidth, newHeight);
+            }
+            catch (ArgumentOutOfRangeException e)
+            {
+                new Alert("Window can not be that size", this);
+            }
+
+
 
             ExitWindow();
         }

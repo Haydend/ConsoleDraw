@@ -32,6 +32,7 @@ namespace ConsoleDraw.Inputs
             Options = options;
             Text = Options.First();
             Length = length;
+            BackgroudColour = parentWindow.BackgroundColour;
 
             Selectable = true;
         }

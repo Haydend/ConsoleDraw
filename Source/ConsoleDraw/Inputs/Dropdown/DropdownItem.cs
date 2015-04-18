@@ -59,14 +59,12 @@ namespace ConsoleDraw.Inputs
 
         public override void BackSpace()
         {
-            //ParentWindow.ParentWindow.MoveToNextItem();
             ParentWindow.SelectFirstItem();
             ParentWindow.ExitWindow();
         }
 
         public override void CursorMoveDown()
         {
-            
             ParentWindow.MoveToNextItem();
         }
         public override void CursorMoveUp()

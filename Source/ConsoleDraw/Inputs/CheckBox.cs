@@ -23,6 +23,7 @@ namespace ConsoleDraw.Inputs
 
         public CheckBox(int x, int y, String iD, Window parentWindow) : base(x, y, 1, 3, parentWindow, iD)
         {
+            BackgroundColour = parentWindow.BackgroundColour;
              Selectable = true;
         }
 

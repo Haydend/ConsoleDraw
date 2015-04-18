@@ -35,7 +35,7 @@ namespace ConsoleDraw.Inputs
         public Action ChangeItem;
         public Action SelectFile;
 
-        public FileSelect(int x, int y, String path, String iD, Window parentWindow, bool includeFiles = false, string filterByExtension = "*") : base(x, y, 13, 56, parentWindow, iD)
+        public FileSelect(int x, int y, int width, int height, String path, String iD, Window parentWindow, bool includeFiles = false, string filterByExtension = "*") : base(x, y, height, width, parentWindow, iD)
         {
             CurrentPath = path;
             CurrentlySelectedFile = "";
@@ -58,27 +58,31 @@ namespace ConsoleDraw.Inputs
 
             var i = Offset;
             while (i < Math.Min(Folders.Count, Height + Offset - 1))
-            { 
+            {
+                var folderName = Folders[i].PadRight(Width - 2, ' ').Substring(0, Width - 2);
+
                 if(i == CursorX)
                     if(Selected)
-                        WindowManager.WirteText(Folders[i], Xpostion + i - Offset + 1, Ypostion + 1, SelectedTextColour, SelectedBackgroundColour);
+                        WindowManager.WirteText(folderName, Xpostion + i - Offset + 1, Ypostion + 1, SelectedTextColour, SelectedBackgroundColour);
                     else
-                        WindowManager.WirteText(Folders[i], Xpostion + i - Offset + 1, Ypostion + 1, SelectedTextColour, BackgroundColour);
+                        WindowManager.WirteText(folderName, Xpostion + i - Offset + 1, Ypostion + 1, SelectedTextColour, BackgroundColour);
                 else
-                    WindowManager.WirteText(Folders[i], Xpostion + i - Offset + 1, Ypostion + 1, TextColour, BackgroundColour);
+                    WindowManager.WirteText(folderName, Xpostion + i - Offset + 1, Ypostion + 1, TextColour, BackgroundColour);
 
                 i++;
             }
 
             while (i < Math.Min(Folders.Count + FileNames.Count, Height + Offset - 1))
             {
+                var fileName = FileNames[i - Folders.Count].PadRight(Width - 2, ' ').Substring(0, Width - 2);
+
                 if (i == CursorX)
                     if (Selected)
-                        WindowManager.WirteText(FileNames[i - Folders.Count], Xpostion + i - Offset + 1, Ypostion + 1, SelectedTextColour, SelectedBackgroundColour);
+                        WindowManager.WirteText(fileName, Xpostion + i - Offset + 1, Ypostion + 1, SelectedTextColour, SelectedBackgroundColour);
                     else
-                        WindowManager.WirteText(FileNames[i - Folders.Count], Xpostion + i - Offset + 1, Ypostion + 1, SelectedTextColour, BackgroundColour);
+                        WindowManager.WirteText(fileName, Xpostion + i - Offset + 1, Ypostion + 1, SelectedTextColour, BackgroundColour);
                 else
-                    WindowManager.WirteText(FileNames[i - Folders.Count], Xpostion + i - Offset + 1, Ypostion + 1, TextColour, BackgroundColour);
+                    WindowManager.WirteText(fileName, Xpostion + i - Offset + 1, Ypostion + 1, TextColour, BackgroundColour);
                 i++;
             }   
 
@@ -131,22 +135,23 @@ namespace ConsoleDraw.Inputs
         public override void CursorMoveDown()
         {
             if (CursorX != Folders.Count + FileNames.Count - 1)
+            {
                 CursorX++;
+                Draw();
+            }
             else
-                CursorX = 0;
-
-            Draw();
+                ParentWindow.MovetoNextItemDown(Xpostion, Ypostion, Width);    
         }
 
         public override void CursorMoveUp()
         {
             if (CursorX != 0)
+            {
                 CursorX--;
-            else
-                CursorX = Folders.Count + FileNames.Count - 1;
-
                 Draw();
-            
+            }
+            else
+                ParentWindow.MovetoNextItemUp(Xpostion, Ypostion, Width); 
         }
 
         public override void CursorMoveRight()
@@ -178,7 +183,7 @@ namespace ConsoleDraw.Inputs
             catch
             {
                 CurrentPath = Directory.GetParent(CurrentPath).FullName; //Change Path back to parent
-                new Alert("Ouch! An error has occured, Sorry :(", ParentWindow);
+                new Alert("Ouch! An error has occured, Sorry :(", ParentWindow, ConsoleColor.White);
             }
         }
 

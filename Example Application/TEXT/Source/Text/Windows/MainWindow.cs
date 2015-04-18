@@ -21,7 +21,7 @@ namespace Text
         public MainWindow()
             : base(0, 0, Console.WindowWidth, Console.WindowHeight, null)
         {
-            fileLabel = new Label(' ' + FileInfo.Filename + ' ', 2, 60, "fileLabel", this);
+            fileLabel = new Label(' ' + FileInfo.Filename + ' ', 2, (Console.WindowWidth/2)-(FileInfo.Filename.Count()+2), "fileLabel", this);
 
             fileMenu = BulidFileMenu();
             settingMenu = BuildSettingMenu(); 
@@ -86,7 +86,7 @@ namespace Text
             Menu settingMenu = new Menu("Settings", 1, 10, "settingMenu", this);
 
             var resolutionMenuItem = new MenuItem("Set Resolution", "settingMenuMenuItemResolution", fileMenu.MenuDropdown);
-            resolutionMenuItem.Action = delegate() { new Resolution(resolutionMenuItem.ParentWindow); };
+            resolutionMenuItem.Action = delegate() { new Resolution(resolutionMenuItem.ParentWindow); fileLabel.Ypostion = (Console.WindowWidth / 2) - (FileInfo.Filename.Count() + 2); Draw(); };
             menuItems.Add(resolutionMenuItem);
 
             settingMenu.MenuItems.AddRange(menuItems);

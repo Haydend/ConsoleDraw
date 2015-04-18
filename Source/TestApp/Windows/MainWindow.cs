@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using ConsoleDraw.Windows.Base;
 using ConsoleDraw.Inputs;
 using ConsoleDraw.Windows;
+using System.IO;
 
 namespace TestApp.Windows
 {
@@ -21,15 +22,19 @@ namespace TestApp.Windows
             var displayConfirmBtn = new Button(4, 20, "Display Confirm", "displayConfirmBtn", this) { Action = delegate() { new Confirm("This is a Confirm!", this, ConsoleColor.White); } };
             var exitBtn = new Button(6, 20, "Exit", "exitBtn", this) { Action = delegate() { ExitWindow(); } };
 
+            var displaySettingBtn = new Button(2, 40, "Display Settings", "displaySettingsBtn", this) { Action = delegate() { new SettingsWindow(this); } };
+            var displaySaveBtn = new Button(4, 40, "Display Save Menu", "displaySaveMenuBtn", this) { Action = delegate() { new SaveMenu("Untitled.txt", Directory.GetCurrentDirectory(), "Test Data", this); } };
+            var displayLoadBtn = new Button(6, 40, "Display Load Menu", "displayLoadMenuBtn", this) { Action = delegate() { new LoadMenu(Directory.GetCurrentDirectory(), new Dictionary<string, string>() {{"txt", "Text Document"}, {"*","All Files"}}, this); } };
+
             var oneCheckBox = new CheckBox(10, 2, "oneCheckBox", this);
             var oneCheckBoxLabel = new Label("Check Box One", 10, 6, "oneCheckBoxLabel", this);
-            var twoCheckBox = new CheckBox(12, 2, "twoCheckBox", this);
+            var twoCheckBox = new CheckBox(12, 2, "twoCheckBox", this) { Checked = true };
             var twoCheckBoxLabel = new Label("Check Box Two", 12, 6, "twoCheckBoxLabel", this);
             var threeCheckBox = new CheckBox(14, 2, "threeCheckBox", this);
             var threeCheckBoxLabel = new Label("Check Box Three", 14, 6, "threeCheckBoxLabel", this);
 
             var groupOneLabel = new Label("Radio Button Group One", 9, 25, "oneCheckBoxLabel", this);
-            var oneRadioBtnGroupOne = new RadioButton(10, 25, "oneRadioBtnGroupOne", "groupOne", this);
+            var oneRadioBtnGroupOne = new RadioButton(10, 25, "oneRadioBtnGroupOne", "groupOne", this) { Checked = true };
             var oneRadioBtnGroupOneLabel = new Label("Radio Button One", 10, 29, "oneCheckBoxLabel", this);
             var twoRadioBtnGroupOne = new RadioButton(12, 25, "twoRadioBtnGroupOne", "groupOne", this);
             var twoRadioBtnGroupOneLabel = new Label("Radio Button Two", 12, 29, "oneCheckBoxLabel", this);
@@ -37,9 +42,18 @@ namespace TestApp.Windows
             var threeRadioBtnGroupOneLabel = new Label("Radio Button Three", 14, 29, "oneCheckBoxLabel", this);
 
             var groupTwoLabel = new Label("Radio Button Group Two", 9, 50, "oneCheckBoxLabel", this);
-            var oneRadioBtnGroupTwo = new RadioButton(10, 50, "oneRadioBtnGroupTwo", "groupTwo", this);
+            var oneRadioBtnGroupTwo = new RadioButton(10, 50, "oneRadioBtnGroupTwo", "groupTwo", this) { Checked = true };
             var twoRadioBtnGroupTwo = new RadioButton(12, 50, "twoRadioBtnGroupTwo", "groupTwo", this);
             var threeRadioBtnGroupTwo = new RadioButton(14, 50, "threeRadioBtnGroupTwo", "groupTwo", this);
+
+            var textAreaLabel = new Label("Text Area", 16, 2, "textAreaLabel", this);
+            var textArea = new TextArea(17, 2, 60, 6, "txtArea", this);
+            textArea.BackgroundColour = ConsoleColor.DarkGray;
+
+            var txtBoxLabel = new Label("Text Box", 24, 2, "txtBoxLabel", this);
+            var txtBox = new TextBox(24, 11, "txtBox", this);
+
+            var fileSelect = new FileSelect(26, 2, 40, 10, Directory.GetCurrentDirectory(), "fileSelect", this, true);
 
             Inputs.Add(oneBtn);
             Inputs.Add(twoBtn);
@@ -63,10 +77,22 @@ namespace TestApp.Windows
             Inputs.Add(threeRadioBtnGroupOne);
             Inputs.Add(threeRadioBtnGroupOneLabel);
 
+            Inputs.Add(displaySettingBtn);
+            Inputs.Add(displaySaveBtn);
+            Inputs.Add(displayLoadBtn);
+
             Inputs.Add(groupTwoLabel);
             Inputs.Add(oneRadioBtnGroupTwo);
             Inputs.Add(twoRadioBtnGroupTwo);
             Inputs.Add(threeRadioBtnGroupTwo);
+
+            Inputs.Add(textAreaLabel);
+            Inputs.Add(textArea);
+
+            Inputs.Add(txtBoxLabel);
+            Inputs.Add(txtBox);
+
+            Inputs.Add(fileSelect);
 
             CurrentlySelected = oneBtn;
 

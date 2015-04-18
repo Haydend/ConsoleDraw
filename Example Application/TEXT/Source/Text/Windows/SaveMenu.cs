@@ -23,18 +23,18 @@ namespace Text
         public String PathToFile;
 
         public SaveMenu(String data, Window parentWindow)
-            : base("Save Menu", 10, 45, 60, 20, parentWindow)
+            : base("Save Menu", 6, (Console.WindowWidth / 2) - 30, 60, 20, parentWindow)
         {
             Text = data;
-            
-            fileSelect = new FileSelect(12, 47, FileInfo.Path, "fileSelect", this);
 
-            var openLabel = new Label("Name", 26, 47, "openLabel", this);
-            openTxtBox = new TextBox(26, 53, FileInfo.Filename, "openTxtBox", this) { Selectable = true };
+            fileSelect = new FileSelect(PostionX + 2, PostionY + 2, FileInfo.Path, "fileSelect", this);
 
-            saveBtn = new Button(28, 48, "Save", "loadBtn", this);
+            var openLabel = new Label("Name", PostionX + 16, PostionY + 2, "openLabel", this);
+            openTxtBox = new TextBox(PostionX + 16, PostionY + 7, FileInfo.Filename, "openTxtBox", this) { Selectable = true };
+
+            saveBtn = new Button(PostionX + 18, PostionY + 2, "Save", "loadBtn", this);
             saveBtn.Action = delegate() { SaveFile(); };
-            cancelBtn = new Button(28, 56, "Cancel", "cancelBtn", this);
+            cancelBtn = new Button(PostionX + 18, PostionY + 9, "Cancel", "cancelBtn", this);
             cancelBtn.Action = delegate() { ExitWindow(); };
 
             Inputs.Add(fileSelect);

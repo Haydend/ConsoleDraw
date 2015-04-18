@@ -24,7 +24,7 @@ namespace ConsoleDraw.Inputs
         public Button(int x, int y, String text, String iD, Window parentWindow) : base(x, y, 1, text.Count() + 2, parentWindow, iD)
         {
             Text = text;
-
+            BackgroundColour = parentWindow.BackgroundColour;
             Selectable = true;
         }
 

@@ -18,7 +18,7 @@ namespace ConsoleDraw.Inputs
         private int Offset = 0;
         private String Text = "";
 
-        private ConsoleColor TextColour = ConsoleColor.Black;
+        private ConsoleColor TextColour = ConsoleColor.White;
         private ConsoleColor BackgroundColour = ConsoleColor.DarkGray;
 
         private Cursor cursor = new Cursor();
@@ -137,9 +137,9 @@ namespace ConsoleDraw.Inputs
             var clippedPath = "";
 
             if(Selected)
-                clippedPath = Text.PadRight(Width + Offset, ' ').Substring(Offset, Width);
+                clippedPath = ' ' + Text.PadRight(Width + Offset, ' ').Substring(Offset, Width - 2);
             else
-                clippedPath = Text.PadRight(Width, ' ').Substring(0, Width);
+                clippedPath = ' ' + Text.PadRight(Width, ' ').Substring(0, Width - 2);
 
             WindowManager.WirteText(clippedPath + " ", Xpostion, Ypostion, TextColour, BackgroundColour);
             if (Selected)
@@ -149,7 +149,7 @@ namespace ConsoleDraw.Inputs
         private void ShowCursor()
         {
             var paddedText = Text + " ";
-            cursor.PlaceCursor(Xpostion, Ypostion + CursorPostion - Offset, paddedText[CursorPostion], BackgroundColour);
+            cursor.PlaceCursor(Xpostion, Ypostion + CursorPostion - Offset + 1, paddedText[CursorPostion], BackgroundColour);
         }
 
         private void RemoveCursor()
@@ -159,7 +159,7 @@ namespace ConsoleDraw.Inputs
 
         private void SetOffset()
         {
-            while (CursorPostion - Offset > Width)
+            while (CursorPostion - Offset > Width - 2 )
                 Offset++;
 
             while (CursorPostion - Offset < 0)

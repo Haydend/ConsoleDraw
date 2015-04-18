@@ -64,6 +64,8 @@
     <Compile Include="Windows\Base\PopupWindow.cs" />
     <Compile Include="Windows\Base\Window.cs" />
     <Compile Include="Windows\Confirm.cs" />
+    <Compile Include="Windows\LoadMenu.cs" />
+    <Compile Include="Windows\SaveMenu.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -35,7 +35,7 @@ namespace ConsoleDraw.Inputs
         private String TextWithoutNewLine { get { return RemoveNewLine(Text); } }
 
         private ConsoleColor TextColour = ConsoleColor.White;
-        private ConsoleColor BackgroundColour = ConsoleColor.Blue;
+        public ConsoleColor BackgroundColour = ConsoleColor.Blue;
 
         private Cursor cursor = new Cursor();
 
@@ -96,8 +96,11 @@ namespace ConsoleDraw.Inputs
         {
             var splitText = SplitText();
 
-            if (splitText.Count == CursorDisplayX + 1)
+            if (splitText.Count == CursorDisplayX + 1) //Cursor at end of text in text area
+            {
+                ParentWindow.MovetoNextItemDown(Xpostion, Ypostion, Width);
                 return;
+            }
 
             var nextLine = splitText[CursorDisplayX + 1];
 
@@ -122,8 +125,11 @@ namespace ConsoleDraw.Inputs
         {
             var splitText = SplitText();
 
-            if (0 == CursorDisplayX)
+            if (0 == CursorDisplayX) //Cursor at top of text area
+            {
+                ParentWindow.MovetoNextItemUp(Xpostion, Ypostion, Width);
                 return;
+            }
 
             var nextLine = splitText[CursorDisplayX - 1];
 

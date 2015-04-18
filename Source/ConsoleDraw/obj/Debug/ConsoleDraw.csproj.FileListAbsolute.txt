@@ -8,3 +8,8 @@ C:\Users\Hayden\Dropbox\Personal\Projects\ConsoleDraw\ConsoleDraw\bin\Debug\Cons
 C:\Users\Hayden\Dropbox\Personal\Projects\ConsoleDraw\ConsoleDraw\obj\Debug\ConsoleDraw.csprojResolveAssemblyReference.cache
 C:\Users\Hayden\Dropbox\Personal\Projects\ConsoleDraw\ConsoleDraw\obj\Debug\ConsoleDraw.dll
 C:\Users\Hayden\Dropbox\Personal\Projects\ConsoleDraw\ConsoleDraw\obj\Debug\ConsoleDraw.pdb
+C:\Source\ConsoleDraw\Source\ConsoleDraw\bin\Debug\ConsoleDraw.dll
+C:\Source\ConsoleDraw\Source\ConsoleDraw\bin\Debug\ConsoleDraw.pdb
+C:\Source\ConsoleDraw\Source\ConsoleDraw\obj\Debug\ConsoleDraw.dll
+C:\Source\ConsoleDraw\Source\ConsoleDraw\obj\Debug\ConsoleDraw.pdb
+C:\Source\ConsoleDraw\Source\ConsoleDraw\obj\Debug\ConsoleDraw.csprojResolveAssemblyReference.cache
