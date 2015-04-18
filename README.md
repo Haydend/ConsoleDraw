@@ -4,7 +4,7 @@ C# Console GUI Graphics Library. <br/>
 Free for personal use. <br/>
 For commercial licenses, please contact me at haydendunnicliffe@gmail.com. <br/>
 <br/>
-This library allows graphical GUI Windows and Inputs to be used with the console. <br/>
+This library allows graphical GUI Windows and Inputs to be drawn in a console window<br/>
 <br/>
 The example applications show what is possible and how to use the library <br/>
 <ul>
