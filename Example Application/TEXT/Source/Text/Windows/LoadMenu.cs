@@ -29,7 +29,7 @@ namespace Text
         {
             FileTypes = fileTypes;
 
-            fileSelect = new FileSelect(PostionX + 2, PostionY + 2, FileInfo.Path, "fileSelect", this, true, "txt");
+            fileSelect = new FileSelect(PostionX + 2, PostionY + 2, Width - 4, 13, FileInfo.Path, "fileSelect", this, true, "txt");
             fileSelect.ChangeItem = delegate() { UpdateCurrentlySelectedFileName(); };
             fileSelect.SelectFile = delegate() { LoadFile(); };
 

@@ -20,12 +20,12 @@ namespace Text
         public Resolution(Window parentWindow)
             : base("Change Resolution", 6, (Console.WindowWidth / 2) - 15, 30, 8, parentWindow)
         {
-            var widthLabel = new Label("Width", PostionX + 2, PostionY + 2, "widthLabel", parentWindow);
+            var widthLabel = new Label("Width", PostionX + 2, PostionY + 2, "widthLabel", parentWindow) { BackgroundColour = ConsoleColor.Gray };
             widthTxtBox = new TextBox(PostionX + 2, PostionY + 10, Console.WindowWidth.ToString(), "widthTxtBox", this, 5);
             var widthMaxBtn = new Button(PostionX + 2, PostionY + 17, "Max", "widthMaxBtn", this);
             widthMaxBtn.Action = delegate() { widthTxtBox.SetText(Console.LargestWindowWidth.ToString()); };
 
-            var heightLabel = new Label("Height", PostionX + 4, PostionY + 2, "widthLabel", parentWindow);
+            var heightLabel = new Label("Height", PostionX + 4, PostionY + 2, "widthLabel", parentWindow) { BackgroundColour = ConsoleColor.Gray };
             heightTxtBox = new TextBox(PostionX + 4, PostionY + 10, Console.WindowHeight.ToString(), "heightTxtBox", this, 5);
             var heightMaxBtn = new Button(PostionX + 4, PostionY + 17, "Max", "heighthMaxBtn", this);
             heightMaxBtn.Action = delegate() { heightTxtBox.SetText(Console.LargestWindowHeight.ToString()); };
