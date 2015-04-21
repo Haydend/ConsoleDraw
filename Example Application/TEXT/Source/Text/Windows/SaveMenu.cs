@@ -15,7 +15,7 @@ namespace Text
         private Button saveBtn;
         private Button cancelBtn;
         private TextBox openTxtBox;
-        private FileSelect fileSelect;
+        private FileBrowser fileSelect;
         private String Text;
 
         public Boolean FileWasSaved;
@@ -27,7 +27,7 @@ namespace Text
         {
             Text = data;
 
-            fileSelect = new FileSelect(PostionX + 2, PostionY + 2, Width - 4, 13, FileInfo.Path, "fileSelect", this);
+            fileSelect = new FileBrowser(PostionX + 2, PostionY + 2, Width - 4, 13, FileInfo.Path, "fileSelect", this);
 
             var openLabel = new Label("Name", PostionX + 16, PostionY + 2, "openLabel", this);
             openTxtBox = new TextBox(PostionX + 16, PostionY + 7, FileInfo.Filename, "openTxtBox", this) { Selectable = true };

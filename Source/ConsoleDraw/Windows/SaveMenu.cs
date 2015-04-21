@@ -15,7 +15,7 @@ namespace ConsoleDraw.Windows
         private Button saveBtn;
         private Button cancelBtn;
         private TextBox openTxtBox;
-        private FileSelect fileSelect;
+        private FileBrowser fileSelect;
         private String Text;
 
         public Boolean FileWasSaved;
@@ -28,10 +28,10 @@ namespace ConsoleDraw.Windows
             BackgroundColour = ConsoleColor.White;
             Text = data;
 
-            fileSelect = new FileSelect(PostionX + 2, PostionY + 2, 56, 12, path, "fileSelect", this);
+            fileSelect = new FileBrowser(PostionX + 2, PostionY + 2, 56, 12, path, "fileSelect", this);
 
             var openLabel = new Label("Name", PostionX + 16, PostionY + 2, "openLabel", this);
-            openTxtBox = new TextBox(PostionX + 16, PostionY + 7, fileName, "openTxtBox", this) { Selectable = true };
+            openTxtBox = new TextBox(PostionX + 16, PostionY + 7, fileName, "openTxtBox", this, Width - 13) { Selectable = true };
 
             saveBtn = new Button(PostionX + 18, PostionY + 2, "Save", "loadBtn", this);
             saveBtn.Action = delegate() { SaveFile(); };

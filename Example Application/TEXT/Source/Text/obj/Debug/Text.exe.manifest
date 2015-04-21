@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ConsoleDraw.dll" size="39424">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ConsoleDraw.dll" size="40960">
       <assemblyIdentity name="ConsoleDraw" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>e1fHpllsDK2WXXMEN6YuVVgE0ONqDC+/kyWhwTYCsy8=</dsig:DigestValue>
+        <dsig:DigestValue>RFVEjy0HpIFLf8ZvTVg1ze1ItXr4dIOIiOjNoT1Kryg=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -61,7 +61,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>ShBSaCfTlqBI8KQDFaY0Vm74OsQ72Ex/ls0pEL13wGs=</dsig:DigestValue>
+        <dsig:DigestValue>i+ehBiWFQWmwTreNqyg7jH8bDLZJWYicsMHIKedAQOc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

@@ -20,6 +20,7 @@ namespace ConsoleDraw.Inputs
         private int CursorDisplayY;
 
         private int Offset = 0;
+        private List<String> SplitText = new List<String>();
         private String text = "";
         private String Text {
             get{
@@ -29,7 +30,9 @@ namespace ConsoleDraw.Inputs
                 if (OnChange != null && text != value)
                     OnChange(); 
                 
-                text = value; 
+                text = value;
+
+                SplitText = CreateSplitText();
             }
         }
         private String TextWithoutNewLine { get { return RemoveNewLine(Text); } }
@@ -94,7 +97,7 @@ namespace ConsoleDraw.Inputs
 
         public override void CursorMoveDown()
         {
-            var splitText = SplitText();
+            var splitText = SplitText;
 
             if (splitText.Count == CursorDisplayX + 1) //Cursor at end of text in text area
             {
@@ -123,7 +126,7 @@ namespace ConsoleDraw.Inputs
 
         public override void CursorMoveUp()
         {
-            var splitText = SplitText();
+            var splitText = SplitText;
 
             if (0 == CursorDisplayX) //Cursor at top of text area
             {
@@ -150,7 +153,7 @@ namespace ConsoleDraw.Inputs
 
         public override void CursorToStart()
         {
-            var splitText = SplitText();
+            var splitText = SplitText;
 
             var newCursor = 0;
             for (var i = 0; i < cursorDisplayX; i++)
@@ -164,7 +167,7 @@ namespace ConsoleDraw.Inputs
 
         public override void CursorToEnd()
         {
-            var splitText = SplitText();
+            var splitText = SplitText;
             var currentLine = splitText[cursorDisplayX];
 
             var newCursor = 0;
@@ -215,8 +218,9 @@ namespace ConsoleDraw.Inputs
 
             UpdateCursorDisplayPostion();
 
-            var lines = SplitText();
+            var lines = SplitText;
 
+            //Draw test area
             for (var i = Offset; i < Height + Offset; i++)
             {
                 var line = ' ' +  "".PadRight(Width - 1, ' ');
@@ -227,10 +231,20 @@ namespace ConsoleDraw.Inputs
             }
                
             if (Selected)
-                ShowCursor();        
+                ShowCursor();
+        
+            //Draw Scroll Bar
+            WindowManager.DrawColourBlock(ConsoleColor.White, Xpostion, Ypostion + Width, Xpostion + Height, Ypostion + Width + 1);
+            
+            double linesPerPixel = (double)lines.Count() / (Height);
+            var postion = 0;
+            if(linesPerPixel > 0)
+              postion = (int)Math.Floor(cursorDisplayX / linesPerPixel);
+
+            WindowManager.WirteText("■", Xpostion + postion, Ypostion + Width, ConsoleColor.DarkGray, ConsoleColor.White);
         }
 
-        private List<String> SplitText()
+        private List<String> CreateSplitText()
         {
             List<String> splitText = new List<String>();
             
@@ -252,7 +266,7 @@ namespace ConsoleDraw.Inputs
                     splitText.Add(Text.Substring(lastSplit, Text.Count() - lastSplit));
             }
 
-                return splitText.Select(x => x.Replace('\r', ' ')).ToList();
+            return splitText.Select(x => x.Replace('\r', ' ')).ToList();
         }
 
         private void ShowCursor()
@@ -262,7 +276,7 @@ namespace ConsoleDraw.Inputs
 
         private void UpdateCursorDisplayPostion()
         {
-            var lines = SplitText();
+            var lines = SplitText;
             var displayX = 0;
             var displayY = 0;
 

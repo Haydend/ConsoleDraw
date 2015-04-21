@@ -15,7 +15,7 @@ namespace Text
         private Button loadBtn;
         private Button cancelBtn;
         private TextBox openTxtBox;
-        private FileSelect fileSelect;
+        private FileBrowser fileSelect;
         private Dropdown fileTypeDropdown;
 
         public Boolean DataLoaded;
@@ -29,7 +29,7 @@ namespace Text
         {
             FileTypes = fileTypes;
 
-            fileSelect = new FileSelect(PostionX + 2, PostionY + 2, Width - 4, 13, FileInfo.Path, "fileSelect", this, true, "txt");
+            fileSelect = new FileBrowser(PostionX + 2, PostionY + 2, Width - 4, 13, FileInfo.Path, "fileSelect", this, true, "txt");
             fileSelect.ChangeItem = delegate() { UpdateCurrentlySelectedFileName(); };
             fileSelect.SelectFile = delegate() { LoadFile(); };
 

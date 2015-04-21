@@ -15,7 +15,7 @@ namespace ConsoleDraw.Windows
         private Button loadBtn;
         private Button cancelBtn;
         private TextBox openTxtBox;
-        private FileSelect fileSelect;
+        private FileBrowser fileSelect;
         private Dropdown fileTypeDropdown;
 
         public Boolean DataLoaded;
@@ -30,12 +30,12 @@ namespace ConsoleDraw.Windows
             BackgroundColour = ConsoleColor.White;
             FileTypes = fileTypes;
 
-            fileSelect = new FileSelect(PostionX + 2, PostionY + 2, 56, 13, path, "fileSelect", this, true, "txt");
+            fileSelect = new FileBrowser(PostionX + 2, PostionY + 2, 56, 13, path, "fileSelect", this, true, "txt");
             fileSelect.ChangeItem = delegate() { UpdateCurrentlySelectedFileName(); };
             fileSelect.SelectFile = delegate() { LoadFile(); };
 
             var openLabel = new Label("Open", PostionX + 16, PostionY + 2, "openLabel", this);
-            openTxtBox = new TextBox(PostionX + 16, PostionY + 7, "openTxtBox", this, 31) { Selectable = false };
+            openTxtBox = new TextBox(PostionX + 16, PostionY + 7, "openTxtBox", this, Width - 13) { Selectable = false };
 
             fileTypeDropdown = new Dropdown(PostionX + 18, PostionY + 40, FileTypes.Select(x => x.Value).ToList(), "fileTypeDropdown", this, 17);
             fileTypeDropdown.OnUnselect = delegate() { UpdateFileTypeFilter(); };

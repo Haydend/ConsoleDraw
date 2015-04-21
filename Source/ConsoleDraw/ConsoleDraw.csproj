@@ -48,7 +48,7 @@
     <Compile Include="Inputs\Dropdown\Dropdown.cs" />
     <Compile Include="Inputs\Dropdown\DropdownItem.cs" />
     <Compile Include="Inputs\Dropdown\DropdownSpread.cs" />
-    <Compile Include="Inputs\FileSelect.cs" />
+    <Compile Include="Inputs\FileBrowser.cs" />
     <Compile Include="Inputs\Label.cs" />
     <Compile Include="Inputs\Menu\Menu.cs" />
     <Compile Include="Inputs\Menu\MenuDropdown.cs" />

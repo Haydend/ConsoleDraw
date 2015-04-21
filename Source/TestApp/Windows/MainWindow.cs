@@ -16,7 +16,7 @@ namespace TestApp.Windows
         {
             var oneBtn = new Button(2, 2, "Button One", "oneBtn", this) { Action = delegate() { new Alert("You Clicked Button One", this, ConsoleColor.White); } };
             var twoBtn = new Button(4, 2, "Button Two", "twoBtn", this) { Action = delegate() { new Alert("You Clicked Button Two", this, ConsoleColor.White); } };
-            var threeBtn = new Button(6, 2, "Button Three", "threeoBtn", this) { Action = delegate() { new Alert("You Clicked Button Three", this, ConsoleColor.White); } };
+            var threeBtn = new Button(6, 2, "Long Alert", "threeoBtn", this) { Action = delegate() { new Alert("A web browser (commonly referred to as a browser) is a software application for retrieving, presenting and traversing information resources on the World Wide", this, ConsoleColor.White); } };
 
             var displayAlertBtn = new Button(2, 20, "Display Alert", "displayAlertBtn", this) { Action = delegate() { new Alert("This is an Alert!", this, ConsoleColor.White); } };
             var displayConfirmBtn = new Button(4, 20, "Display Confirm", "displayConfirmBtn", this) { Action = delegate() { new Confirm("This is a Confirm!", this, ConsoleColor.White); } };
@@ -53,7 +53,7 @@ namespace TestApp.Windows
             var txtBoxLabel = new Label("Text Box", 24, 2, "txtBoxLabel", this);
             var txtBox = new TextBox(24, 11, "txtBox", this);
 
-            var fileSelect = new FileSelect(26, 2, 40, 10, Directory.GetCurrentDirectory(), "fileSelect", this, true);
+            var fileSelect = new FileBrowser(26, 2, 40, 10, Directory.GetCurrentDirectory(), "fileSelect", this, true);
 
             Inputs.Add(oneBtn);
             Inputs.Add(twoBtn);

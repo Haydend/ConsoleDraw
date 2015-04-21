@@ -29,7 +29,7 @@ namespace ConsoleDraw.Inputs
 
             Inputs.AddRange(DropdownItems);
 
-            CurrentlySelected = DropdownItems.FirstOrDefault();
+            CurrentlySelected = DropdownItems.FirstOrDefault(x => x.Text == root.Text);
 
             BackgroundColour = ConsoleColor.DarkGray;
             Draw();

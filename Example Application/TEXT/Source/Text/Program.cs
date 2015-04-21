@@ -13,6 +13,7 @@ namespace Text
         {
             //Setup
             WindowManager.UpdateWindow(100, 40);
+            WindowManager.UpdateWindow(100, 40);
             
             WindowManager.SetWindowTitle("TEXT");
 

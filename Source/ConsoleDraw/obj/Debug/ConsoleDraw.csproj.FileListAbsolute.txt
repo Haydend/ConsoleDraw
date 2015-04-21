@@ -12,4 +12,3 @@ C:\Source\ConsoleDraw\Source\ConsoleDraw\bin\Debug\ConsoleDraw.dll
 C:\Source\ConsoleDraw\Source\ConsoleDraw\bin\Debug\ConsoleDraw.pdb
 C:\Source\ConsoleDraw\Source\ConsoleDraw\obj\Debug\ConsoleDraw.dll
 C:\Source\ConsoleDraw\Source\ConsoleDraw\obj\Debug\ConsoleDraw.pdb
-C:\Source\ConsoleDraw\Source\ConsoleDraw\obj\Debug\ConsoleDraw.csprojResolveAssemblyReference.cache
