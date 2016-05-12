@@ -14,8 +14,9 @@ namespace ConsoleDraw.Windows
         
         private Button okBtn;
         private Button cancelBtn;
+        private DialogResult dr;
 
-        public bool Result { get; private set; }
+        public DialogResult Result { get; set; }
 
         public Confirm(Window parentWindow, String Message, String Title = "Confirm")
             : base(Title, 6, (Console.WindowWidth / 2) - 25, 50, 5 + (int)Math.Ceiling(((Double)Message.Count() / textLength)), parentWindow)
@@ -44,20 +45,24 @@ namespace ConsoleDraw.Windows
             }
 
             okBtn = new Button(PostionX + Height - 2, PostionY + 2, "OK", "OkBtn", this);
-            okBtn.Action = delegate() { Result = true; ExitWindow(); };
+            okBtn.Action = delegate() { ExitWindow(); dr = DialogResult.OK; };
 
             cancelBtn = new Button(PostionX + Height - 2, PostionY + 8, "Cancel", "cancelBtn", this);
-            cancelBtn.Action = delegate() { ExitWindow(); };
+            cancelBtn.Action = delegate() { ExitWindow(); dr = DialogResult.Cancel; };
 
             Inputs.Add(okBtn);
             Inputs.Add(cancelBtn);
 
             CurrentlySelected = okBtn;
-
-            Draw();
-            MainLoop();
         }
 
-        
+        public DialogResult ShowDialog()
+        {
+            Draw();
+            MainLoop();
+
+            return dr;
+        }
+
     }
 }

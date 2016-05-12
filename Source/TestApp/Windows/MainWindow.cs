@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using ConsoleDraw.Windows.Base;
 using ConsoleDraw.Inputs;
 using ConsoleDraw.Windows;
@@ -19,7 +17,14 @@ namespace TestApp.Windows
             var threeBtn = new Button(6, 2, "Long Alert", "threeoBtn", this) { Action = delegate() { new Alert("A web browser (commonly referred to as a browser) is a software application for retrieving, presenting and traversing information resources on the World Wide", this, ConsoleColor.White); } };
 
             var displayAlertBtn = new Button(2, 20, "Display Alert", "displayAlertBtn", this) { Action = delegate() { new Alert("This is an Alert!", this, ConsoleColor.White); } };
-            var displayConfirmBtn = new Button(4, 20, "Display Confirm", "displayConfirmBtn", this) { Action = delegate() { new Confirm("This is a Confirm!", this, ConsoleColor.White); } };
+            var displayConfirmBtn = new Button(4, 20, "Display Confirm", "displayConfirmBtn", this) { Action = delegate() {
+                var cf = new Confirm("This is a Confirm!", this, ConsoleColor.White);
+                
+                if(cf.ShowDialog() == ConsoleDraw.DialogResult.OK)
+                {
+
+                }
+            } };
             var exitBtn = new Button(6, 20, "Exit", "exitBtn", this) { Action = delegate() { ExitWindow(); } };
 
             var displaySettingBtn = new Button(2, 40, "Display Settings", "displaySettingsBtn", this) { Action = delegate() { new SettingsWindow(this); } };
@@ -93,6 +98,12 @@ namespace TestApp.Windows
             Inputs.Add(txtBox);
 
             Inputs.Add(fileSelect);
+
+            List<string> opts = new List<string>() { "hello", "world"};
+            var cb = new Dropdown(0, 0, opts, "cb", this);
+            cb.DropdownItems = new List<DropdownItem>(opts.Select(_=>new DropdownItem(_,10,"2", this)).ToArray());
+
+            Inputs.Add(cb);
 
             CurrentlySelected = oneBtn;
 
