@@ -60,6 +60,8 @@ namespace TestApp.Windows
 
             var fileSelect = new FileBrowser(26, 2, 40, 10, Directory.GetCurrentDirectory(), "fileSelect", this, true);
 
+            var progressBar = new ProgressBar(37, 2, 3, 70, "progressBar", this);
+
             Inputs.Add(oneBtn);
             Inputs.Add(twoBtn);
             Inputs.Add(threeBtn);
@@ -98,6 +100,8 @@ namespace TestApp.Windows
             Inputs.Add(txtBox);
 
             Inputs.Add(fileSelect);
+
+            Inputs.Add(progressBar);
 
             List<string> opts = new List<string>() { "hello", "world"};
             var cb = new Dropdown(0, 0, opts, "cb", this);

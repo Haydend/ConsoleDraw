@@ -40,8 +40,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cursor.cs" />
+    <Compile Include="DialogResult.cs" />
     <Compile Include="Inputs\Base\IInput.cs" />
     <Compile Include="Inputs\Base\Input.cs" />
+    <Compile Include="Inputs\ProgressBar.cs" />
     <Compile Include="Inputs\RadioButton.cs" />
     <Compile Include="Inputs\CheckBox.cs" />
     <Compile Include="Inputs\Button.cs" />

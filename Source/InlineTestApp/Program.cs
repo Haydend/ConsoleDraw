@@ -35,7 +35,7 @@ namespace InlineTestApp
             var confirm = new Confirm(null, "Are you wish to run this program?");
             WindowManager.EndWindow();
 
-            if (confirm.Result)
+            if (confirm.Result == DialogResult.OK)
                 Console.WriteLine("You pressed OK");
             else
                 Console.WriteLine("You pressed Cancel");
