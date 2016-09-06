@@ -1,8 +1,0 @@
-c:\users\hayden\documents\visual studio 2013\Projects\FC\FC\bin\Debug\FC.exe.config
-C:\Source\ConsoleDraw\Example Application\FC (File Change)\FC\bin\Debug\FC.exe.config
-C:\Source\ConsoleDraw\Example Application\FC (File Change)\FC\bin\Debug\FC.exe
-C:\Source\ConsoleDraw\Example Application\FC (File Change)\FC\bin\Debug\FC.pdb
-C:\Source\ConsoleDraw\Example Application\FC (File Change)\FC\bin\Debug\ConsoleDraw.dll
-C:\Source\ConsoleDraw\Example Application\FC (File Change)\FC\obj\Debug\FC.csprojResolveAssemblyReference.cache
-C:\Source\ConsoleDraw\Example Application\FC (File Change)\FC\obj\Debug\FC.exe
-C:\Source\ConsoleDraw\Example Application\FC (File Change)\FC\obj\Debug\FC.pdb
