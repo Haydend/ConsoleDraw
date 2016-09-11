@@ -99,7 +99,7 @@ namespace ConsoleDraw.Inputs
         {
             var splitText = SplitText;
 
-            if (splitText.Count == CursorDisplayX + 1) //Cursor at end of text in text area
+            if (splitText.Count == CursorDisplayX + 1 || splitText.Count == 0) //Cursor at end of text in text area
             {
                 ParentWindow.MovetoNextItemDown(Xpostion, Ypostion, Width);
                 return;
