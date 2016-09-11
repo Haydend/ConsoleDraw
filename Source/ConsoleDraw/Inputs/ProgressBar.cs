@@ -13,12 +13,23 @@ namespace ConsoleDraw.Inputs
         public ConsoleColor BackgroundColour = ConsoleColor.Gray;
         public ConsoleColor BarColour = ConsoleColor.Black;
 
-        public int PercentageComplete = 50; 
+        private int percentageComplete;
+        public int PercentageComplete {
+            get { return this.percentageComplete; }
+            set {
+                if (value < 0 || value > 100) {
+                    throw new ArgumentOutOfRangeException(String.Format("Percentage must be between 0 & 100, actual:{0}", value));     
+                }
+                this.percentageComplete = value;
+                Draw();
+            }
+        }
 
-        public ProgressBar(int x, int y, int height, int width, String iD, Window parentWindow) : base(x, y, height, width, parentWindow, iD)
+        public ProgressBar(int percentageComplete, int x, int y, int height, int width, String iD, Window parentWindow) : base(x, y, height, width, parentWindow, iD)
         {
             Selectable = false;
-        }
+            PercentageComplete = percentageComplete;
+    }
 
         public override void Draw()
         {
@@ -26,6 +37,8 @@ namespace ConsoleDraw.Inputs
             int widthUncompleted = Width - widthCompleted;
 
             //WindowManager.DrawColourBlock(BackgroundColour, Xpostion, Ypostion, Xpostion + Height, Ypostion + Width);
+
+
             WindowManager.WirteText("".PadRight(widthCompleted, '█'), Xpostion, Ypostion, BarColour, BackgroundColour);
             WindowManager.WirteText("".PadRight(widthUncompleted, '▒'), Xpostion, Ypostion + widthCompleted, BarColour, BackgroundColour);
         }

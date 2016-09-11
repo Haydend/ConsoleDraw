@@ -60,7 +60,13 @@ namespace TestApp.Windows
 
             var fileSelect = new FileBrowser(26, 2, 40, 10, Directory.GetCurrentDirectory(), "fileSelect", this, true);
 
-            var progressBar = new ProgressBar(37, 2, 3, 70, "progressBar", this);
+            var progressBar = new ProgressBar(10, 39, 2, 3, 70, "progressBar", this);
+            var progressBarLabel = new Label("10%", 39, 73, "oneCheckBoxLabel", this);
+
+            var progressBarDownBtn = new Button(37, 2, "Progress Down", "displaySettingsBtn", this) { Action = delegate () { progressBar.PercentageComplete--; progressBarLabel.SetText(String.Format("{0}%", progressBar.PercentageComplete).PadRight(4)); } };
+            var progressBarUpBtn = new Button(37, 18, "Progress Up", "displaySettingsBtn", this) { Action = delegate () { progressBar.PercentageComplete++; progressBarLabel.SetText(String.Format("{0}%", progressBar.PercentageComplete).PadRight(4)); } };
+
+           
 
             Inputs.Add(oneBtn);
             Inputs.Add(twoBtn);
@@ -101,7 +107,11 @@ namespace TestApp.Windows
 
             Inputs.Add(fileSelect);
 
+            Inputs.Add(progressBarDownBtn);
+            Inputs.Add(progressBarUpBtn);
+
             Inputs.Add(progressBar);
+            Inputs.Add(progressBarLabel);
 
             List<string> opts = new List<string>() { "hello", "world"};
             var cb = new Dropdown(0, 0, opts, "cb", this);
