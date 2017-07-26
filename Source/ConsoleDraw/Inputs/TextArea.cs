@@ -37,7 +37,7 @@ namespace ConsoleDraw.Inputs
         }
         private String TextWithoutNewLine { get { return RemoveNewLine(Text); } }
 
-        private ConsoleColor TextColour = ConsoleColor.White;
+        public ConsoleColor TextColour = ConsoleColor.White;
         public ConsoleColor BackgroundColour = ConsoleColor.Blue;
 
         private Cursor cursor = new Cursor();
