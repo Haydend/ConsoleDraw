@@ -54,6 +54,7 @@ namespace ConsoleDraw.Windows
             
             CurrentlySelected = fileSelect;
 
+            UpdateFileTypeFilter();
             Draw();
             MainLoop();
         }
@@ -86,8 +87,8 @@ namespace ConsoleDraw.Windows
             }
 
             var file = Path.Combine(fileSelect.CurrentPath, fileSelect.CurrentlySelectedFile);
-            String text = System.IO.File.ReadAllText(file);
-
+            //String text = System.IO.File.ReadAllText(file);
+            String text = "";
             /*var mainWindow = (MainWindow)ParentWindow;
             mainWindow.textArea.SetText(text);
             mainWindow.fileLabel.SetText(fileSelect.CurrentlySelectedFile);*/
