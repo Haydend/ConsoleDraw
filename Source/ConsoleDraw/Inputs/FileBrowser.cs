@@ -43,7 +43,7 @@ namespace ConsoleDraw.Inputs
             CurrentlySelectedFile = "";
             IncludeFiles = includeFiles;
             FilterByExtension = filterByExtension;
-            Drives = Directory.GetLogicalDrives().ToList();
+            Drives = DriveInfo.GetDrives().Select(d => d.Name).ToList();
 
             GetFileNames();
             Selectable = true;

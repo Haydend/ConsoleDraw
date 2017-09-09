@@ -49,7 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ConsoleDraw\ConsoleDraw.csproj">
-      <Project>{5978de85-3fb9-4bab-965f-95e4398309a2}</Project>
+      <Project>{6bda9a64-00c4-49da-a92a-bddb7cf081aa}</Project>
       <Name>ConsoleDraw</Name>
     </ProjectReference>
   </ItemGroup>
