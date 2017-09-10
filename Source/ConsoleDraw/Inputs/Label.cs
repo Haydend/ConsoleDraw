@@ -11,7 +11,7 @@ namespace ConsoleDraw.Inputs
     public class Label : Input
     {
         private String Text = "";
-        private ConsoleColor TextColour = ConsoleColor.Black;
+        public ConsoleColor TextColour = ConsoleColor.Black;
         public ConsoleColor BackgroundColour = ConsoleColor.Gray;
 
         public Label(String text, int x, int y, String iD, Window parentWindow) : base(x, y, 1, text.Count(), parentWindow, iD)

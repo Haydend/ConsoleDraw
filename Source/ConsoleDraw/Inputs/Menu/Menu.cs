@@ -10,11 +10,11 @@ namespace ConsoleDraw.Inputs
 {
     public class Menu : Input
     {
-        private String Text = "";
-        private ConsoleColor TextColour = ConsoleColor.Black;
-        private ConsoleColor BackgroudColour = ConsoleColor.Gray;
-        private ConsoleColor SelectedTextColour = ConsoleColor.White;
-        private ConsoleColor SelectedBackgroundColour = ConsoleColor.DarkGray;
+        public String Text = "";
+        public ConsoleColor TextColour = ConsoleColor.Black;
+        public ConsoleColor BackgroudColour = ConsoleColor.Gray;
+        public ConsoleColor SelectedTextColour = ConsoleColor.White;
+        public ConsoleColor SelectedBackgroundColour = ConsoleColor.DarkGray;
 
         private bool Selected = false;
         public List<MenuItem> MenuItems = new List<MenuItem>();

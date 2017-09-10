@@ -16,7 +16,7 @@ namespace TestAppCore.Windows
             BackgroundColour = ConsoleColor.White;
 
             var appTitleLabel = new Label("App Title", 8, 12, "appTitleLabel", this);
-            var appTitleTxtBox = new TextBox(8, 25, Console.Title, "appTitleTxtBox", this, 10);
+            var appTitleTxtBox = new TextBox(8, 25, "Test Application", "appTitleTxtBox", this, 10);
 
             var saveOnExitLabel = new Label("Save On Exit", 10, 12, "saveOnExitLabel", this);
             var saveOneExitChkBox = new CheckBox(10, 25, "saveOnExitCheckBox", this);

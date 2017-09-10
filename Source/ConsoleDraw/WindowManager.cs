@@ -44,6 +44,10 @@ namespace ConsoleDraw
 
         public static void SetupWindow()
         {
+#if NETSTANDARD2_0
+            if(System.Runtime.InteropServices.RuntimeInformation.IsOSPlatform(System.Runtime.InteropServices.OSPlatform.Windows))
+            {
+#endif
             startingBufferHeight = Console.BufferHeight;
 
             var whereToMove = Console.CursorTop + 1; //Move one line below visible
@@ -54,7 +58,9 @@ namespace ConsoleDraw
                 Console.BufferHeight = whereToMove + Console.WindowHeight;
 
             Console.MoveBufferArea(0, 0, Console.WindowWidth, Console.WindowHeight, 0, whereToMove);
-
+#if NETSTANDARD2_0
+            }
+#endif
             Console.CursorVisible = false;
             startingX = Console.CursorTop;
             startingY = Console.CursorLeft;
@@ -70,6 +76,11 @@ namespace ConsoleDraw
             Console.ForegroundColor = startingForegroundColour;
             Console.BackgroundColor = startingBackgroundColour;
 
+#if NETSTANDARD2_0
+            if(System.Runtime.InteropServices.RuntimeInformation.IsOSPlatform(System.Runtime.InteropServices.OSPlatform.Windows))
+            {
+#endif
+
             var whereToGet = startingX + 1; //Move one line below visible
             if (whereToGet < Console.WindowHeight) //If cursor is not on bottom line of visible
                 whereToGet = Console.WindowHeight + 1;
@@ -80,16 +91,23 @@ namespace ConsoleDraw
 
             Console.CursorVisible = true;
             Console.BufferHeight = startingBufferHeight;
-            //Console.WriteLine();
+
+#if NETSTANDARD2_0
+            }
+#endif
 
         }
 
         public static void UpdateWindow(int width, int height)
         {
             Console.CursorVisible = false;
-
+#if NETSTANDARD2_0
+            if(System.Runtime.InteropServices.RuntimeInformation.IsOSPlatform(System.Runtime.InteropServices.OSPlatform.Windows))
+            { 
+#endif
             if (width > Console.BufferWidth) //new Width is bigger then buffer
             {
+
                 Console.BufferWidth = width;
                 Console.WindowWidth = width;
             }
@@ -109,7 +127,9 @@ namespace ConsoleDraw
                 Console.WindowHeight = height;
                 Console.BufferHeight = height;
             }
-
+#if NETSTANDARD2_0
+            }
+#endif
             Console.BackgroundColor = ConsoleColor.Gray;
             WindowManager.DrawColourBlock(Console.BackgroundColor, 0, 0, Console.WindowHeight, Console.WindowWidth); //Flush Buffer
         }

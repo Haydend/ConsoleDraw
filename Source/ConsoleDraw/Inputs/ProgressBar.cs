@@ -40,6 +40,7 @@ namespace ConsoleDraw.Inputs
 
 
             WindowManager.WirteText("".PadRight(widthCompleted, '█'), Xpostion, Ypostion, BarColour, BackgroundColour);
+
             WindowManager.WirteText("".PadRight(widthUncompleted, '▒'), Xpostion, Ypostion + widthCompleted, BarColour, BackgroundColour);
         }
 

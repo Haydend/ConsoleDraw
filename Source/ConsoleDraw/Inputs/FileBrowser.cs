@@ -21,10 +21,10 @@ namespace ConsoleDraw.Inputs
         public bool IncludeFiles;
         public String FilterByExtension = "*";
 
-        private ConsoleColor BackgroundColour = ConsoleColor.DarkGray;
-        private ConsoleColor TextColour = ConsoleColor.Black;
-        private ConsoleColor SelectedTextColour = ConsoleColor.White;
-        private ConsoleColor SelectedBackgroundColour = ConsoleColor.Gray;
+        public ConsoleColor BackgroundColour = ConsoleColor.DarkGray;
+        public ConsoleColor TextColour = ConsoleColor.Black;
+        public ConsoleColor SelectedTextColour = ConsoleColor.White;
+        public ConsoleColor SelectedBackgroundColour = ConsoleColor.Gray;
 
         private int cursorX;
         private int CursorX { get { return cursorX; } set { cursorX = value; GetCurrentlySelectedFileName(); SetOffset(); } }
