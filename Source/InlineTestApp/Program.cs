@@ -17,6 +17,9 @@ namespace InlineTestApp
             Console.WriteLine();
             Console.WriteLine();
 
+            WindowManager.DrawColourBlock(ConsoleColor.Red, 15, 20, 20, 25);
+
+
             for (var i = 0; i < 2; i++ )
                 Console.WriteLine(i.ToString());
 
