@@ -1,9 +1,6 @@
 # ConsoleDraw
 C# Console GUI Graphics Library. <br/>
 <br/>
-Free for personal use. <br/>
-For commercial licenses, please contact me at haydendunnicliffe@gmail.com. <br/>
-<br/>
 This library allows graphical GUI Windows and Inputs to be drawn in a console window<br/>
 <br/>
 The example applications show what is possible and how to use the library <br/>
@@ -43,10 +40,9 @@ Load <br/>
 
 # Help & Support
 <br/>
-For questions and support email haydendunnicliffe@gmail.com. <br/>
+For questions or support email haydendunnicliffe@gmail.com. <br/>
 <br/>
-<br/>
-I available for hire, to develop any graphical console based application, If you have a project please email me at haydendunnicliffe@gmail.com 
+
 
 
 
