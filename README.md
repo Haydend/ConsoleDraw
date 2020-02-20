@@ -38,11 +38,6 @@ Load <br/>
 <img src="https://raw.githubusercontent.com/Haydend/ConsoleDraw/master/ScreenShots/TEXT%203.png"> <br/>
 <br/>
 
-# Help & Support
-<br/>
-For questions or support email haydendunnicliffe@gmail.com. <br/>
-<br/>
-
 
 
 
