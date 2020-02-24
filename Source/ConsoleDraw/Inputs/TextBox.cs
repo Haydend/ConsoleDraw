@@ -18,8 +18,8 @@ namespace ConsoleDraw.Inputs
         private int Offset = 0;
         private String Text = "";
 
-        private ConsoleColor TextColour = ConsoleColor.White;
-        private ConsoleColor BackgroundColour = ConsoleColor.DarkGray;
+        public ConsoleColor TextColour = ConsoleColor.White;
+        public ConsoleColor BackgroundColour = ConsoleColor.DarkGray;
 
         private Cursor cursor = new Cursor();
 

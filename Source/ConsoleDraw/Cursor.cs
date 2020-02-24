@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
-using System.Timers;
 
 namespace ConsoleDraw
 {
@@ -26,9 +26,7 @@ namespace ConsoleDraw
             _background = background;
             WindowManager.WirteText("_", x, y, ConsoleColor.White, background);
 
-            blink = new Timer(500); 
-            blink.Elapsed += new ElapsedEventHandler(BlinkCursor);
-            blink.Enabled = true;
+            blink = new Timer(BlinkCursor, null, 500, 500); 
         }
 
         public void RemoveCursor()
@@ -43,7 +41,7 @@ namespace ConsoleDraw
             
         }
 
-        void BlinkCursor(object sender, ElapsedEventArgs e)
+        void BlinkCursor(object state)
         {
             if (_cursorShow)
             {
