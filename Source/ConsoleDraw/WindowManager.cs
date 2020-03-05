@@ -9,16 +9,28 @@ namespace ConsoleDraw
 {
     public static class WindowManager
     {
-        public static void DrawColourBlock(ConsoleColor colour, int startX, int startY, int endX, int endY)
-        {
-            Console.BackgroundColor = colour;
 
+        public static void DrawColourBlock(ConsoleColor colour, int startX, int startY, int endX, int endY,bool restoreSetting = true)
+        {
+            ConsoleColor oldcolor = Console.BackgroundColor;
+            int oldX = Console.CursorLeft;
+            int oldy = Console.CursorTop;
+
+            Console.BackgroundColor = colour;
+            
             for (var i = startX; i < endX; i++)
             {
                 Console.CursorLeft = startY;
                 Console.CursorTop = i;
 
                 Console.WriteLine("".PadLeft(endY - startY));
+            }
+
+            if(restoreSetting)
+            {
+                Console.BackgroundColor = oldcolor;
+                Console.CursorLeft = oldX;
+                Console.CursorTop = oldy;
             }
         }
 
