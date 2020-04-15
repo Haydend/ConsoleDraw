@@ -11,10 +11,10 @@ namespace ConsoleDraw.Inputs
     public class RadioButton : Input
     {
         public ConsoleColor BackgroundColour = ConsoleColor.Gray;
-        private ConsoleColor TextColour = ConsoleColor.Black;
+        public ConsoleColor TextColour = ConsoleColor.Black;
 
-        private ConsoleColor SelectedBackgroundColour = ConsoleColor.DarkGray;
-        private ConsoleColor SelectedTextColour = ConsoleColor.White;
+        public ConsoleColor SelectedBackgroundColour = ConsoleColor.DarkGray;
+        public ConsoleColor SelectedTextColour = ConsoleColor.White;
 
         private bool Selected = false;
         public bool Checked = false;
