@@ -32,9 +32,9 @@ namespace ConsoleDraw.Inputs
         public override void Draw()
         {
             if (Selected)
-                WindowManager.WirteText('['+Text+']', Xpostion, Ypostion, SelectedTextColour, SelectedBackgroundColour);
+                WindowManager.WriteText('['+Text+']', Xpostion, Ypostion, SelectedTextColour, SelectedBackgroundColour);
             else
-                WindowManager.WirteText('[' + Text + ']', Xpostion, Ypostion, TextColour, BackgroudColour);
+                WindowManager.WriteText('[' + Text + ']', Xpostion, Ypostion, TextColour, BackgroudColour);
         }
 
         public override void Select()

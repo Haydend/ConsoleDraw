@@ -141,7 +141,7 @@ namespace ConsoleDraw.Inputs
             else
                 clippedPath = ' ' + Text.PadRight(Width, ' ').Substring(0, Width - 2);
 
-            WindowManager.WirteText(clippedPath + " ", Xpostion, Ypostion, TextColour, BackgroundColour);
+            WindowManager.WriteText(clippedPath + " ", Xpostion, Ypostion, TextColour, BackgroundColour);
             if (Selected)
                 ShowCursor();          
         }

@@ -55,9 +55,9 @@ namespace ConsoleDraw.Inputs
         public override void Draw()
         {
             if(Selected)
-                WindowManager.WirteText('['+Text+']', Xpostion, Ypostion, SelectedTextColour, SelectedBackgroundColour);
+                WindowManager.WriteText('['+Text+']', Xpostion, Ypostion, SelectedTextColour, SelectedBackgroundColour);
             else
-                WindowManager.WirteText('[' + Text + ']', Xpostion, Ypostion, TextColour, BackgroundColour);  
+                WindowManager.WriteText('[' + Text + ']', Xpostion, Ypostion, TextColour, BackgroundColour);  
         }
         
         public override void CursorMoveDown()

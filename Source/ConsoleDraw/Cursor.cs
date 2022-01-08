@@ -24,7 +24,7 @@ namespace ConsoleDraw
             _y = y;
             blinkLetter = letter == '\r' || letter == '\n' ? ' ' : letter;
             _background = background;
-            WindowManager.WirteText("_", x, y, ConsoleColor.White, background);
+            WindowManager.WriteText("_", x, y, ConsoleColor.White, background);
 
             blink = new Timer(500); 
             blink.Elapsed += new ElapsedEventHandler(BlinkCursor);
@@ -35,7 +35,7 @@ namespace ConsoleDraw
         {
             if (visible)
             {
-                WindowManager.WirteText(" ", _x, _y, ConsoleColor.White, _background);
+                WindowManager.WriteText(" ", _x, _y, ConsoleColor.White, _background);
                 if (blink != null)
                     blink.Dispose();
                 visible = false;
@@ -47,12 +47,12 @@ namespace ConsoleDraw
         {
             if (_cursorShow)
             {
-                WindowManager.WirteText(blinkLetter.ToString(), _x, _y, ConsoleColor.White, _background);
+                WindowManager.WriteText(blinkLetter.ToString(), _x, _y, ConsoleColor.White, _background);
                 _cursorShow = false;
             }
             else
             {
-                WindowManager.WirteText("_", _x, _y, ConsoleColor.White, _background);
+                WindowManager.WriteText("_", _x, _y, ConsoleColor.White, _background);
                 _cursorShow = true;
             }
         }

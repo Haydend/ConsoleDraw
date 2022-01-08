@@ -22,7 +22,7 @@ namespace ConsoleDraw
             }
         }
 
-        public static void WirteText(String text, int startX, int startY, ConsoleColor textColour, ConsoleColor backgroundColour)
+        public static void WriteText(String text, int startX, int startY, ConsoleColor textColour, ConsoleColor backgroundColour)
         {
             Console.CursorLeft = startY;
             Console.CursorTop = startX;

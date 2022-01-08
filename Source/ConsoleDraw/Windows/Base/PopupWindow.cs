@@ -22,7 +22,7 @@ namespace ConsoleDraw.Windows.Base
         public override void ReDraw()
         {
             WindowManager.DrawColourBlock(TitleBarColour, PostionX, PostionY, PostionX + 1, PostionY + Width); //Title Bar
-            WindowManager.WirteText(' ' + Title + ' ', PostionX, PostionY + 2, TitleColour, BackgroundColour);
+            WindowManager.WriteText(' ' + Title + ' ', PostionX, PostionY + 2, TitleColour, BackgroundColour);
 
             WindowManager.DrawColourBlock(BackgroundColour, PostionX + 1, PostionY, PostionX + Height, PostionY + Width); //Main Box
         }

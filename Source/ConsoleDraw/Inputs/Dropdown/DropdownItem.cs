@@ -31,9 +31,9 @@ namespace ConsoleDraw.Inputs
             var paddedText = (Text).PadRight(Width, ' ');
 
             if (Selected)
-                WindowManager.WirteText(paddedText, Xpostion, Ypostion, SelectedTextColour, SelectedBackgroundColour);
+                WindowManager.WriteText(paddedText, Xpostion, Ypostion, SelectedTextColour, SelectedBackgroundColour);
             else
-                WindowManager.WirteText(paddedText, Xpostion, Ypostion, TextColour, BackgroudColour);
+                WindowManager.WriteText(paddedText, Xpostion, Ypostion, TextColour, BackgroudColour);
         }
 
         public override void Select()

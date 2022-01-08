@@ -23,7 +23,7 @@ namespace ConsoleDraw.Inputs
 
         public override void Draw()
         {
-            WindowManager.WirteText(Text, Xpostion, Ypostion, TextColour, BackgroundColour);
+            WindowManager.WriteText(Text, Xpostion, Ypostion, TextColour, BackgroundColour);
         }
 
         public void SetText(String text)

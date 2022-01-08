@@ -58,10 +58,10 @@ namespace ConsoleDraw.Inputs
             {
                 var trimedPath = CurrentPath.PadRight(Width - 2, ' ');
                 trimedPath = trimedPath.Substring(trimedPath.Count() - Width + 2, Width - 2);
-                WindowManager.WirteText(trimedPath, Xpostion, Ypostion + 1, ConsoleColor.Gray, BackgroundColour);
+                WindowManager.WriteText(trimedPath, Xpostion, Ypostion + 1, ConsoleColor.Gray, BackgroundColour);
             }
             else
-                WindowManager.WirteText("Drives", Xpostion, Ypostion + 1, ConsoleColor.Gray, BackgroundColour);
+                WindowManager.WriteText("Drives", Xpostion, Ypostion + 1, ConsoleColor.Gray, BackgroundColour);
 
             if (!ShowingDrive)
             {
@@ -72,11 +72,11 @@ namespace ConsoleDraw.Inputs
 
                     if (i == CursorX)
                         if (Selected)
-                            WindowManager.WirteText(folderName, Xpostion + i - Offset + 1, Ypostion + 1, SelectedTextColour, SelectedBackgroundColour);
+                            WindowManager.WriteText(folderName, Xpostion + i - Offset + 1, Ypostion + 1, SelectedTextColour, SelectedBackgroundColour);
                         else
-                            WindowManager.WirteText(folderName, Xpostion + i - Offset + 1, Ypostion + 1, SelectedTextColour, BackgroundColour);
+                            WindowManager.WriteText(folderName, Xpostion + i - Offset + 1, Ypostion + 1, SelectedTextColour, BackgroundColour);
                     else
-                        WindowManager.WirteText(folderName, Xpostion + i - Offset + 1, Ypostion + 1, TextColour, BackgroundColour);
+                        WindowManager.WriteText(folderName, Xpostion + i - Offset + 1, Ypostion + 1, TextColour, BackgroundColour);
 
                     i++;
                 }
@@ -87,11 +87,11 @@ namespace ConsoleDraw.Inputs
 
                     if (i == CursorX)
                         if (Selected)
-                            WindowManager.WirteText(fileName, Xpostion + i - Offset + 1, Ypostion + 1, SelectedTextColour, SelectedBackgroundColour);
+                            WindowManager.WriteText(fileName, Xpostion + i - Offset + 1, Ypostion + 1, SelectedTextColour, SelectedBackgroundColour);
                         else
-                            WindowManager.WirteText(fileName, Xpostion + i - Offset + 1, Ypostion + 1, SelectedTextColour, BackgroundColour);
+                            WindowManager.WriteText(fileName, Xpostion + i - Offset + 1, Ypostion + 1, SelectedTextColour, BackgroundColour);
                     else
-                        WindowManager.WirteText(fileName, Xpostion + i - Offset + 1, Ypostion + 1, TextColour, BackgroundColour);
+                        WindowManager.WriteText(fileName, Xpostion + i - Offset + 1, Ypostion + 1, TextColour, BackgroundColour);
                     i++;
                 }
             }
@@ -101,11 +101,11 @@ namespace ConsoleDraw.Inputs
                 {
                     if (i == CursorX)
                         if (Selected)
-                            WindowManager.WirteText(Drives[i], Xpostion + i - Offset + 1, Ypostion + 1, SelectedTextColour, SelectedBackgroundColour);
+                            WindowManager.WriteText(Drives[i], Xpostion + i - Offset + 1, Ypostion + 1, SelectedTextColour, SelectedBackgroundColour);
                         else
-                            WindowManager.WirteText(Drives[i], Xpostion + i - Offset + 1, Ypostion + 1, SelectedTextColour, BackgroundColour);
+                            WindowManager.WriteText(Drives[i], Xpostion + i - Offset + 1, Ypostion + 1, SelectedTextColour, BackgroundColour);
                     else
-                        WindowManager.WirteText(Drives[i], Xpostion + i - Offset + 1, Ypostion + 1, TextColour, BackgroundColour);
+                        WindowManager.WriteText(Drives[i], Xpostion + i - Offset + 1, Ypostion + 1, TextColour, BackgroundColour);
                     
                 }
 
