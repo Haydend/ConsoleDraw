@@ -54,7 +54,7 @@ namespace ConsoleDraw.Inputs
 
             if (!ShowingDrive)
             {
-                var trimedPath = CurrentPath.PadRight(Width - 2, ' ');
+                string trimedPath = CurrentPath.PadRight(Width - 2, ' ');
                 trimedPath = trimedPath.Substring(trimedPath.Count() - Width + 2, Width - 2);
                 WindowManager.WriteText(trimedPath, Xpostion, Ypostion + 1, ConsoleColor.Gray, BackgroundColour);
             }
@@ -63,10 +63,10 @@ namespace ConsoleDraw.Inputs
 
             if (!ShowingDrive)
             {
-                var i = Offset;
+                int i = Offset;
                 while (i < Math.Min(Folders.Count, Height + Offset - 1))
                 {
-                    var folderName = Folders[i].PadRight(Width - 2, ' ')[..(Width - 2)];
+                    string folderName = Folders[i].PadRight(Width - 2, ' ')[..(Width - 2)];
 
                     if (i == CursorX)
                         if (Selected)
@@ -81,7 +81,7 @@ namespace ConsoleDraw.Inputs
 
                 while (i < Math.Min(Folders.Count + FileNames.Count, Height + Offset - 1))
                 {
-                    var fileName = FileNames[i - Folders.Count].PadRight(Width - 2, ' ')[..(Width - 2)];
+                    string fileName = FileNames[i - Folders.Count].PadRight(Width - 2, ' ')[..(Width - 2)];
 
                     if (i == CursorX)
                         if (Selected)
@@ -95,7 +95,7 @@ namespace ConsoleDraw.Inputs
             }
             else
             {
-                for (var i = 0; i < Drives.Count(); i++)
+                for (int i = 0; i < Drives.Count(); i++)
                 {
                     if (i == CursorX)
                         if (Selected)

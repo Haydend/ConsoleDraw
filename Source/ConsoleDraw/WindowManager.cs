@@ -8,7 +8,7 @@ namespace ConsoleDraw
         {
             Console.BackgroundColor = colour;
 
-            for (var i = startX; i < endX; i++)
+            for (int i = startX; i < endX; i++)
             {
                 Console.CursorLeft = startY;
                 Console.CursorTop = i;
@@ -41,7 +41,7 @@ namespace ConsoleDraw
         {
             startingBufferHeight = Console.BufferHeight;
 
-            var whereToMove = Console.CursorTop + 1; //Move one line below visible
+            int whereToMove = Console.CursorTop + 1; //Move one line below visible
             if (whereToMove < Console.WindowHeight) //If cursor is not on bottom line of visible
                 whereToMove = Console.WindowHeight + 1;
 
@@ -65,7 +65,7 @@ namespace ConsoleDraw
             Console.ForegroundColor = startingForegroundColour;
             Console.BackgroundColor = startingBackgroundColour;
 
-            var whereToGet = startingX + 1; //Move one line below visible
+            int whereToGet = startingX + 1; //Move one line below visible
             if (whereToGet < Console.WindowHeight) //If cursor is not on bottom line of visible
                 whereToGet = Console.WindowHeight + 1;
             Console.MoveBufferArea(0, whereToGet, Console.WindowWidth, Console.WindowHeight, 0, 0);

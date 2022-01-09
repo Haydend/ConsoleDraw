@@ -25,7 +25,7 @@ namespace ConsoleDraw.Windows
 
             fileSelect = new FileBrowser(PostionX + 2, PostionY + 2, 56, 12, path, "fileSelect", this);
 
-            var openLabel = new Label("Name", PostionX + 16, PostionY + 2, "openLabel", this);
+            Label openLabel = new Label("Name", PostionX + 16, PostionY + 2, "openLabel", this);
             openTxtBox = new TextBox(PostionX + 16, PostionY + 7, fileName, "openTxtBox", this, Width - 13) { Selectable = true };
 
             saveBtn = new Button(PostionX + 18, PostionY + 2, "Save", "loadBtn", this)
@@ -52,10 +52,10 @@ namespace ConsoleDraw.Windows
 
         private void SaveFile()
         {
-            var path = fileSelect.CurrentPath;
-            var filename = openTxtBox.GetText();
+            string path = fileSelect.CurrentPath;
+            string filename = openTxtBox.GetText();
 
-            var fullFile = Path.Combine(path, filename);
+            string fullFile = Path.Combine(path, filename);
 
             try
             {

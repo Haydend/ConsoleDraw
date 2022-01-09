@@ -13,9 +13,9 @@ namespace ConsoleDraw.Inputs
         public DropdownSpread(int Xpostion, int Ypostion, List<String> options, Window parentWindow, Dropdown root)
             : base(Xpostion, Ypostion, 20, options.Count(), parentWindow)
         {
-            for (var i = 0; i < options.Count(); i++)
+            for (int i = 0; i < options.Count(); i++)
             {
-                var item = new DropdownItem(options[i], Xpostion + i, "option" + i, this)
+                DropdownItem item = new DropdownItem(options[i], Xpostion + i, "option" + i, this)
                 {
                     Action = delegate ()
                     {

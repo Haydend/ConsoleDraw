@@ -13,7 +13,7 @@ namespace ConsoleDraw.Inputs
             : base(Xpostion, Ypostion, 20, menuItems.Count() + 2, parentWindow)
         {
 
-            for (var i = 0; i < menuItems.Count(); i++)
+            for (int i = 0; i < menuItems.Count(); i++)
             {
                 menuItems[i].ParentWindow = this;
                 menuItems[i].Width = this.Width - 2;

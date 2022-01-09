@@ -1,14 +1,15 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup>
-    <ProjectGuid>{5978DE85-3FB9-4BAB-965F-95E4398309A2}</ProjectGuid>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <TargetFramework>netstandard2.1</TargetFramework>
-    <Copyright>Copyright ©  2015</Copyright>
-  </PropertyGroup>
-  <ItemGroup>
-    <Folder Include="Properties\" />
-  </ItemGroup>
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+	<PropertyGroup>
+		<ProjectGuid>{5978DE85-3FB9-4BAB-965F-95E4398309A2}</ProjectGuid>
+		<AppDesignerFolder>Properties</AppDesignerFolder>
+		<TargetFramework>netstandard2.1</TargetFramework>
+		<LangVersion>latest</LangVersion>
+		<Copyright>Copyright ©  2015</Copyright>
+	</PropertyGroup>
+	<ItemGroup>
+		<Folder Include="Properties\" />
+	</ItemGroup>
+	<!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
   </Target>

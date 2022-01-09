@@ -1,18 +1,18 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup>
-    <ProjectGuid>{09CC30E4-7830-4CF4-A15E-0DB02BB84F17}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <TargetFramework>net6.0</TargetFramework>
-    <Copyright>Copyright ©  2015</Copyright>
-  </PropertyGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ConsoleDraw\ConsoleDraw.csproj" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Properties\" />
-  </ItemGroup>
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+	<PropertyGroup>
+		<ProjectGuid>{09CC30E4-7830-4CF4-A15E-0DB02BB84F17}</ProjectGuid>
+		<OutputType>Exe</OutputType>
+		<AppDesignerFolder>Properties</AppDesignerFolder>
+		<TargetFramework>net6.0</TargetFramework>
+		<Copyright>Copyright ©  2015</Copyright>
+	</PropertyGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\ConsoleDraw\ConsoleDraw.csproj" />
+	</ItemGroup>
+	<ItemGroup>
+		<Folder Include="Properties\" />
+	</ItemGroup>
+	<!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
   </Target>

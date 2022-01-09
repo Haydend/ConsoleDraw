@@ -130,7 +130,7 @@ namespace ConsoleDraw.Inputs
         {
             RemoveCursor();
 
-            var clippedPath = "";
+            string clippedPath = "";
 
             if (Selected)
                 clippedPath = ' ' + Text.PadRight(Width + Offset, ' ').Substring(Offset, Width - 2);
@@ -144,7 +144,7 @@ namespace ConsoleDraw.Inputs
 
         private void ShowCursor()
         {
-            var paddedText = Text + " ";
+            string paddedText = Text + " ";
             cursor.PlaceCursor(Xpostion, Ypostion + CursorPostion - Offset + 1, paddedText[CursorPostion], BackgroundColour);
         }
 

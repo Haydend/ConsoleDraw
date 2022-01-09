@@ -33,7 +33,7 @@ namespace ConsoleDraw.Windows
                 SelectFile = delegate () { LoadFile(); }
             };
 
-            var openLabel = new Label("Open", PostionX + 16, PostionY + 2, "openLabel", this);
+            Label openLabel = new Label("Open", PostionX + 16, PostionY + 2, "openLabel", this);
             openTxtBox = new TextBox(PostionX + 16, PostionY + 7, "openTxtBox", this, Width - 13) { Selectable = false };
 
             fileTypeDropdown = new Dropdown(PostionX + 18, PostionY + 40, FileTypes.Select(x => x.Value).ToList(), "fileTypeDropdown", this, 17)
@@ -65,14 +65,14 @@ namespace ConsoleDraw.Windows
 
         private void UpdateCurrentlySelectedFileName()
         {
-            var CurrentlySelectedFile = fileSelect.CurrentlySelectedFile;
+            string CurrentlySelectedFile = fileSelect.CurrentlySelectedFile;
             openTxtBox.SetText(CurrentlySelectedFile);
         }
 
         private void UpdateFileTypeFilter()
         {
-            var filter = FileTypes.FirstOrDefault(x => x.Value == fileTypeDropdown.Text);
-            var currentFilter = FileTypes.FirstOrDefault(x => x.Key == fileSelect.FilterByExtension);
+            KeyValuePair<string, string> filter = FileTypes.FirstOrDefault(x => x.Value == fileTypeDropdown.Text);
+            KeyValuePair<string, string> currentFilter = FileTypes.FirstOrDefault(x => x.Key == fileSelect.FilterByExtension);
 
             if (currentFilter.Key != filter.Key)
             {
@@ -90,10 +90,10 @@ namespace ConsoleDraw.Windows
                 return;
             }
 
-            var file = Path.Combine(fileSelect.CurrentPath, fileSelect.CurrentlySelectedFile);
+            string file = Path.Combine(fileSelect.CurrentPath, fileSelect.CurrentlySelectedFile);
             String text = System.IO.File.ReadAllText(file);
 
-            /*var mainWindow = (MainWindow)ParentWindow;
+            /*MainWindow mainWindow = (MainWindow)ParentWindow;
             mainWindow.textArea.SetText(text);
             mainWindow.fileLabel.SetText(fileSelect.CurrentlySelectedFile);*/
 

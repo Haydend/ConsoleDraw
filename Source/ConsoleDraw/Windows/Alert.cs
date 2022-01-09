@@ -41,18 +41,18 @@ namespace ConsoleDraw.Windows
 
         private void Create(String Message, Window parentWindow)
         {
-            var count = 0;
+            int count = 0;
             while ((count * 45) < Message.Count())
             {
-                var splitMessage = Message.PadRight(textLength * (count + 1), ' ').Substring((count * textLength), textLength);
-                var messageLabel = new Label(splitMessage, PostionX + 2 + count, PostionY + 2, "messageLabel", this);
+                string splitMessage = Message.PadRight(textLength * (count + 1), ' ').Substring((count * textLength), textLength);
+                Label messageLabel = new Label(splitMessage, PostionX + 2 + count, PostionY + 2, "messageLabel", this);
                 Inputs.Add(messageLabel);
 
                 count++;
             }
 
             /*
-            var messageLabel = new Label(Message, PostionX + 2, PostionY + 2, "messageLabel", this);
+            Label messageLabel = new Label(Message, PostionX + 2, PostionY + 2, "messageLabel", this);
             messageLabel.BackgroundColour = BackgroundColour;*/
 
             okBtn = new Button(PostionX + Height - 2, PostionY + 2, "OK", "OkBtn", this)

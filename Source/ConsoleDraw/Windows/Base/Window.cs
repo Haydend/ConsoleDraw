@@ -36,7 +36,7 @@ namespace ConsoleDraw.Windows.Base
 
             ReDraw();
 
-            foreach (var input in Inputs)
+            foreach (IInput input in Inputs)
                 input.Draw();
 
             if (CurrentlySelected != null)
@@ -54,28 +54,41 @@ namespace ConsoleDraw.Windows.Base
         {
             while (!Exit && !ProgramInfo.ExitProgram)
             {
-                var input = ReadKey();
+                ConsoleKeyInfo input = ReadKey();
 
-                if (input.Key == ConsoleKey.Tab)
-                    CurrentlySelected.Tab();
-                else if (input.Key == ConsoleKey.Enter)
-                    CurrentlySelected.Enter();
-                else if (input.Key == ConsoleKey.LeftArrow)
-                    CurrentlySelected.CursorMoveLeft();
-                else if (input.Key == ConsoleKey.RightArrow)
-                    CurrentlySelected.CursorMoveRight();
-                else if (input.Key == ConsoleKey.UpArrow)
-                    CurrentlySelected.CursorMoveUp();
-                else if (input.Key == ConsoleKey.DownArrow)
-                    CurrentlySelected.CursorMoveDown();
-                else if (input.Key == ConsoleKey.Backspace)
-                    CurrentlySelected.BackSpace();
-                else if (input.Key == ConsoleKey.Home)
-                    CurrentlySelected.CursorToStart();
-                else if (input.Key == ConsoleKey.End)
-                    CurrentlySelected.CursorToEnd();
-                else
-                    CurrentlySelected.AddLetter((Char)input.KeyChar); // Letter(input.KeyChar);
+                switch (input.Key)
+                {
+                    case ConsoleKey.Tab:
+                        CurrentlySelected.Tab();
+                        break;
+                    case ConsoleKey.Enter:
+                        CurrentlySelected.Enter();
+                        break;
+                    case ConsoleKey.LeftArrow:
+                        CurrentlySelected.CursorMoveLeft();
+                        break;
+                    case ConsoleKey.RightArrow:
+                        CurrentlySelected.CursorMoveRight();
+                        break;
+                    case ConsoleKey.UpArrow:
+                        CurrentlySelected.CursorMoveUp();
+                        break;
+                    case ConsoleKey.DownArrow:
+                        CurrentlySelected.CursorMoveDown();
+                        break;
+                    case ConsoleKey.Backspace:
+                        CurrentlySelected.BackSpace();
+                        break;
+                    case ConsoleKey.Home:
+                        CurrentlySelected.CursorToStart();
+                        break;
+                    case ConsoleKey.End:
+                        CurrentlySelected.CursorToEnd();
+                        break;
+                    default:
+                        CurrentlySelected.AddLetter((Char)input.KeyChar); // Letter(input.KeyChar);
+                        break;
+                } // Letter(input.KeyChar);
             }
         }
 
@@ -94,7 +107,7 @@ namespace ConsoleDraw.Windows.Base
             if (Inputs.All(x => !x.Selectable)) //No Selectable inputs on page
                 return;
 
-            var newSelectedInput = Inputs.FirstOrDefault(x => x.ID == Id);
+            IInput newSelectedInput = Inputs.FirstOrDefault(x => x.ID == Id);
             if (newSelectedInput == null) //No Input with this ID
                 return;
 
@@ -111,7 +124,7 @@ namespace ConsoleDraw.Windows.Base
             if (Inputs.Count(x => x.Selectable) == 1) //Only one selectable input on page, thus no point chnaging it
                 return;
 
-            var IndexOfCurrent = Inputs.IndexOf(CurrentlySelected);
+            int IndexOfCurrent = Inputs.IndexOf(CurrentlySelected);
 
             while (true)
             {
@@ -133,7 +146,7 @@ namespace ConsoleDraw.Windows.Base
             if (Inputs.Count(x => x.Selectable) == 1) //Only one selectable input on page, thus no point chnaging it
                 return;
 
-            var IndexOfCurrent = Inputs.IndexOf(CurrentlySelected);
+            int IndexOfCurrent = Inputs.IndexOf(CurrentlySelected);
 
             while (true)
             {
@@ -158,9 +171,9 @@ namespace ConsoleDraw.Windows.Base
             IInput nextItem = null;
             while (nextItem == null && startY <= PostionY + Width)
             {
-                foreach (var input in Inputs.Where(x => x.Selectable && x != CurrentlySelected))
+                foreach (IInput input in Inputs.Where(x => x.Selectable && x != CurrentlySelected))
                 {
-                    var overlap = DoAreasOverlap(startX, startY, searchHeight, 1, input.Xpostion, input.Ypostion, input.Height, input.Width);
+                    bool overlap = DoAreasOverlap(startX, startY, searchHeight, 1, input.Xpostion, input.Ypostion, input.Height, input.Width);
                     if (overlap)
                     {
                         nextItem = input;
@@ -191,9 +204,9 @@ namespace ConsoleDraw.Windows.Base
             IInput nextItem = null;
             while (nextItem == null && startY > PostionY)
             {
-                foreach (var input in Inputs.Where(x => x.Selectable && x != CurrentlySelected))
+                foreach (IInput input in Inputs.Where(x => x.Selectable && x != CurrentlySelected))
                 {
-                    var overlap = DoAreasOverlap(startX, startY - 1, searchHeight, 1, input.Xpostion, input.Ypostion, input.Height, input.Width);
+                    bool overlap = DoAreasOverlap(startX, startY - 1, searchHeight, 1, input.Xpostion, input.Ypostion, input.Height, input.Width);
                     if (overlap)
                     {
                         nextItem = input;
@@ -224,9 +237,9 @@ namespace ConsoleDraw.Windows.Base
             IInput nextItem = null;
             while (nextItem == null && startX <= PostionX + Height)
             {
-                foreach (var input in Inputs.Where(x => x.Selectable && x != CurrentlySelected))
+                foreach (IInput input in Inputs.Where(x => x.Selectable && x != CurrentlySelected))
                 {
-                    var overlap = DoAreasOverlap(startX, startY, 1, searchWidth, input.Xpostion, input.Ypostion, input.Height, input.Width);
+                    bool overlap = DoAreasOverlap(startX, startY, 1, searchWidth, input.Xpostion, input.Ypostion, input.Height, input.Width);
                     if (overlap)
                     {
                         nextItem = input;
@@ -257,9 +270,9 @@ namespace ConsoleDraw.Windows.Base
             IInput nextItem = null;
             while (nextItem == null && startX > PostionX)
             {
-                foreach (var input in Inputs.Where(x => x.Selectable && x != CurrentlySelected))
+                foreach (IInput input in Inputs.Where(x => x.Selectable && x != CurrentlySelected))
                 {
-                    var overlap = DoAreasOverlap(startX - 1, startY, 1, searchWidth, input.Xpostion, input.Ypostion, input.Height, input.Width);
+                    bool overlap = DoAreasOverlap(startX - 1, startY, 1, searchWidth, input.Xpostion, input.Ypostion, input.Height, input.Width);
                     if (overlap)
                     {
                         nextItem = input;
@@ -282,12 +295,12 @@ namespace ConsoleDraw.Windows.Base
 
         private bool DoAreasOverlap(int areaOneX, int areaOneY, int areaOneHeight, int areaOneWidth, int areaTwoX, int areaTwoY, int areaTwoHeight, int areaTwoWidth)
         {
-            var areaOneEndX = areaOneX + areaOneHeight - 1;
-            var areaOneEndY = areaOneY + areaOneWidth - 1;
-            var areaTwoEndX = areaTwoX + areaTwoHeight - 1;
-            var areaTwoEndY = areaTwoY + areaTwoWidth - 1;
+            int areaOneEndX = areaOneX + areaOneHeight - 1;
+            int areaOneEndY = areaOneY + areaOneWidth - 1;
+            int areaTwoEndX = areaTwoX + areaTwoHeight - 1;
+            int areaTwoEndY = areaTwoY + areaTwoWidth - 1;
 
-            var overlapsVertically = false;
+            bool overlapsVertically = false;
             //Check if overlap vertically
             if (areaOneX >= areaTwoX && areaOneX < areaTwoEndX) //areaOne starts in areaTwo
                 overlapsVertically = true;
@@ -300,7 +313,7 @@ namespace ConsoleDraw.Windows.Base
             if (!overlapsVertically) //If it does not overlap vertically, then it does not overlap.
                 return false;
 
-            var overlapsHorizontally = false;
+            bool overlapsHorizontally = false;
             //Check if overlap Horizontally
             if (areaOneY >= areaTwoY && areaOneY < areaTwoEndY) //areaOne starts in areaTwo
                 overlapsHorizontally = true;

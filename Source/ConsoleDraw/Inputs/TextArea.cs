@@ -98,7 +98,7 @@ namespace ConsoleDraw.Inputs
 
         public override void CursorMoveDown()
         {
-            var splitText = SplitText;
+            List<string> splitText = SplitText;
 
             if (splitText.Count == CursorDisplayX + 1 || splitText.Count == 0) //Cursor at end of text in text area
             {
@@ -106,10 +106,10 @@ namespace ConsoleDraw.Inputs
                 return;
             }
 
-            var nextLine = splitText[CursorDisplayX + 1];
+            string nextLine = splitText[CursorDisplayX + 1];
 
-            var newCursor = 0;
-            for (var i = 0; i < cursorDisplayX + 1; i++)
+            int newCursor = 0;
+            for (int i = 0; i < cursorDisplayX + 1; i++)
             {
                 newCursor += splitText[i].Count();
             }
@@ -127,7 +127,7 @@ namespace ConsoleDraw.Inputs
 
         public override void CursorMoveUp()
         {
-            var splitText = SplitText;
+            List<string> splitText = SplitText;
 
             if (0 == CursorDisplayX) //Cursor at top of text area
             {
@@ -135,10 +135,10 @@ namespace ConsoleDraw.Inputs
                 return;
             }
 
-            var nextLine = splitText[CursorDisplayX - 1];
+            string nextLine = splitText[CursorDisplayX - 1];
 
-            var newCursor = 0;
-            for (var i = 0; i < cursorDisplayX - 1; i++)
+            int newCursor = 0;
+            for (int i = 0; i < cursorDisplayX - 1; i++)
             {
                 newCursor += splitText[i].Count();
             }
@@ -154,10 +154,10 @@ namespace ConsoleDraw.Inputs
 
         public override void CursorToStart()
         {
-            var splitText = SplitText;
+            List<string> splitText = SplitText;
 
-            var newCursor = 0;
-            for (var i = 0; i < cursorDisplayX; i++)
+            int newCursor = 0;
+            for (int i = 0; i < cursorDisplayX; i++)
             {
                 newCursor += splitText[i].Count();
             }
@@ -168,11 +168,11 @@ namespace ConsoleDraw.Inputs
 
         public override void CursorToEnd()
         {
-            var splitText = SplitText;
-            var currentLine = splitText[cursorDisplayX];
+            List<string> splitText = SplitText;
+            string currentLine = splitText[cursorDisplayX];
 
-            var newCursor = 0;
-            for (var i = 0; i < cursorDisplayX + 1; i++)
+            int newCursor = 0;
+            for (int i = 0; i < cursorDisplayX + 1; i++)
             {
                 newCursor += splitText[i].Count();
             }
@@ -219,12 +219,12 @@ namespace ConsoleDraw.Inputs
 
             UpdateCursorDisplayPostion();
 
-            var lines = SplitText;
+            List<string> lines = SplitText;
 
             //Draw test area
-            for (var i = Offset; i < Height + Offset; i++)
+            for (int i = Offset; i < Height + Offset; i++)
             {
-                var line = ' ' + "".PadRight(Width - 1, ' ');
+                string line = ' ' + "".PadRight(Width - 1, ' ');
                 if (lines.Count > i)
                     line = ' ' + RemoveNewLine(lines[i]).PadRight(Width - 1, ' ');
 
@@ -238,7 +238,7 @@ namespace ConsoleDraw.Inputs
             WindowManager.DrawColourBlock(ConsoleColor.White, Xpostion, Ypostion + Width, Xpostion + Height, Ypostion + Width + 1);
 
             double linesPerPixel = (double)lines.Count() / (Height);
-            var postion = 0;
+            int postion = 0;
             if (linesPerPixel > 0)
                 postion = (int)Math.Floor(cursorDisplayX / linesPerPixel);
 
@@ -249,8 +249,8 @@ namespace ConsoleDraw.Inputs
         {
             List<String> splitText = new List<String>();
 
-            var lastSplit = 0;
-            for (var i = 0; i < Text.Count() + 1; i++)
+            int lastSplit = 0;
+            for (int i = 0; i < Text.Count() + 1; i++)
             {
                 if (Text.Count() > i && Text[i] == '\n')
                 {
@@ -277,11 +277,11 @@ namespace ConsoleDraw.Inputs
 
         private void UpdateCursorDisplayPostion()
         {
-            var lines = SplitText;
-            var displayX = 0;
-            var displayY = 0;
+            List<string> lines = SplitText;
+            int displayX = 0;
+            int displayY = 0;
 
-            for (var i = 0; i < CursorPostion; i++)
+            for (int i = 0; i < CursorPostion; i++)
             {
                 if (lines[displayX].Count() > displayY && lines[displayX][displayY] == '\n') //Skip NewLine characters
                 {
@@ -331,9 +331,9 @@ namespace ConsoleDraw.Inputs
 
         private String RemoveNewLine(String text)
         {
-            var toReturn = "";
+            string toReturn = "";
 
-            foreach (var letter in text)
+            foreach (char letter in text)
             {
                 if (letter != '\n')
                     toReturn += letter;

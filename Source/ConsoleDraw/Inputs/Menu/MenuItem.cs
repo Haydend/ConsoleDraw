@@ -25,7 +25,7 @@ namespace ConsoleDraw.Inputs
 
         public override void Draw()
         {
-            var paddedText = ('[' + Text + ']').PadRight(Width, ' ');
+            string paddedText = ('[' + Text + ']').PadRight(Width, ' ');
 
             if (Selected)
                 WindowManager.WriteText(paddedText, Xpostion, Ypostion, SelectedTextColour, SelectedBackgroundColour);
