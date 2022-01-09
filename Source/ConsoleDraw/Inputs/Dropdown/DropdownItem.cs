@@ -6,7 +6,7 @@ namespace ConsoleDraw.Inputs
 {
     public class DropdownItem : Input
     {
-        public String Text = "";
+        public string Text = "";
         private ConsoleColor TextColour = ConsoleColor.White;
         private ConsoleColor BackgroudColour = ConsoleColor.DarkGray;
         private ConsoleColor SelectedTextColour = ConsoleColor.Black;
@@ -15,7 +15,7 @@ namespace ConsoleDraw.Inputs
         private bool Selected = false;
         public Action Action;
 
-        public DropdownItem(String text, int x, String iD, Window parentWindow) : base(x, parentWindow.PostionY + 1, 1, parentWindow.Width - 2, parentWindow, iD)
+        public DropdownItem(string text, int x, string iD, Window parentWindow) : base(x, parentWindow.PostionY + 1, 1, parentWindow.Width - 2, parentWindow, iD)
         {
             Text = text;
 

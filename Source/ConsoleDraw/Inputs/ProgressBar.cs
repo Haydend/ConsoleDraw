@@ -12,19 +12,19 @@ namespace ConsoleDraw.Inputs
         private int percentageComplete;
         public int PercentageComplete
         {
-            get { return this.percentageComplete; }
+            get => this.percentageComplete;
             set
             {
                 if (value < 0 || value > 100)
                 {
-                    throw new ArgumentOutOfRangeException(String.Format("Percentage must be between 0 & 100, actual:{0}", value));
+                    throw new ArgumentOutOfRangeException(string.Format("Percentage must be between 0 & 100, actual:{0}", value));
                 }
                 this.percentageComplete = value;
                 Draw();
             }
         }
 
-        public ProgressBar(int percentageComplete, int x, int y, int height, int width, String iD, Window parentWindow) : base(x, y, height, width, parentWindow, iD)
+        public ProgressBar(int percentageComplete, int x, int y, int height, int width, string iD, Window parentWindow) : base(x, y, height, width, parentWindow, iD)
         {
             Selectable = false;
             PercentageComplete = percentageComplete;

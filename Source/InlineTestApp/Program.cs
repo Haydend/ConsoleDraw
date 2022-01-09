@@ -13,7 +13,7 @@ namespace InlineTestApp
             Console.WriteLine();
             Console.WriteLine();
 
-            for (var i = 0; i < 2; i++)
+            for (int i = 0; i < 2; i++)
                 Console.WriteLine(i.ToString());
 
             Console.WriteLine("Loading Alert Message");
@@ -28,7 +28,7 @@ namespace InlineTestApp
             Console.ReadLine();
 
             WindowManager.SetupWindow();
-            var confirm = new Confirm(null, "Are you wish to run this program?");
+            Confirm confirm = new(null, "Are you wish to run this program?");
             WindowManager.EndWindow();
 
             if (confirm.Result == DialogResult.OK)

@@ -15,38 +15,38 @@ namespace ConsoleDraw.Windows
 
         public DialogResult Result { get; set; }
 
-        public Confirm(Window parentWindow, String Message, String Title = "Confirm")
-            : base(Title, 6, (Console.WindowWidth / 2) - 25, 50, 5 + (int)Math.Ceiling(((Double)Message.Count() / textLength)), parentWindow)
+        public Confirm(Window parentWindow, string Message, string Title = "Confirm")
+            : base(Title, 6, (Console.WindowWidth / 2) - 25, 50, 5 + (int)Math.Ceiling(((double)Message.Count() / textLength)), parentWindow)
         {
             Create(Message, parentWindow);
         }
 
-        public Confirm(String Message, Window parentWindow, ConsoleColor backgroundColour, String Title = "Message")
-            : base(Title, 6, (Console.WindowWidth / 2) - 25, 50, 5 + (int)Math.Ceiling(((Double)Message.Count() / textLength)), parentWindow)
+        public Confirm(string Message, Window parentWindow, ConsoleColor backgroundColour, string Title = "Message")
+            : base(Title, 6, (Console.WindowWidth / 2) - 25, 50, 5 + (int)Math.Ceiling(((double)Message.Count() / textLength)), parentWindow)
         {
             BackgroundColour = backgroundColour;
 
             Create(Message, parentWindow);
         }
 
-        private void Create(String Message, Window parentWindow)
+        private void Create(string Message, Window parentWindow)
         {
             int count = 0;
             while ((count * 45) < Message.Count())
             {
                 string splitMessage = Message.PadRight(textLength * (count + 1), ' ').Substring((count * textLength), textLength);
-                Label messageLabel = new Label(splitMessage, PostionX + 2 + count, PostionY + 2, "messageLabel", this);
+                Label messageLabel = new(splitMessage, PostionX + 2 + count, PostionY + 2, "messageLabel", this);
                 Inputs.Add(messageLabel);
 
                 count++;
             }
 
-            okBtn = new Button(PostionX + Height - 2, PostionY + 2, "OK", "OkBtn", this)
+            okBtn = new(PostionX + Height - 2, PostionY + 2, "OK", "OkBtn", this)
             {
                 Action = delegate () { ExitWindow(); dr = DialogResult.OK; }
             };
 
-            cancelBtn = new Button(PostionX + Height - 2, PostionY + 8, "Cancel", "cancelBtn", this)
+            cancelBtn = new(PostionX + Height - 2, PostionY + 8, "Cancel", "cancelBtn", this)
             {
                 Action = delegate () { ExitWindow(); dr = DialogResult.Cancel; }
             };

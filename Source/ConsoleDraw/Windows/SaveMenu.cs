@@ -11,13 +11,13 @@ namespace ConsoleDraw.Windows
         private Button cancelBtn;
         private TextBox openTxtBox;
         private FileBrowser fileSelect;
-        private String Text;
+        private string Text;
 
-        public Boolean FileWasSaved;
-        public String FileSavedAs;
-        public String PathToFile;
+        public bool FileWasSaved;
+        public string FileSavedAs;
+        public string PathToFile;
 
-        public SaveMenu(String fileName, String path, String data, Window parentWindow)
+        public SaveMenu(string fileName, string path, string data, Window parentWindow)
             : base("Save Menu", 6, (Console.WindowWidth / 2) - 30, 60, 20, parentWindow)
         {
             BackgroundColour = ConsoleColor.White;
@@ -25,14 +25,14 @@ namespace ConsoleDraw.Windows
 
             fileSelect = new FileBrowser(PostionX + 2, PostionY + 2, 56, 12, path, "fileSelect", this);
 
-            Label openLabel = new Label("Name", PostionX + 16, PostionY + 2, "openLabel", this);
+            Label openLabel = new("Name", PostionX + 16, PostionY + 2, "openLabel", this);
             openTxtBox = new TextBox(PostionX + 16, PostionY + 7, fileName, "openTxtBox", this, Width - 13) { Selectable = true };
 
-            saveBtn = new Button(PostionX + 18, PostionY + 2, "Save", "loadBtn", this)
+            saveBtn = new(PostionX + 18, PostionY + 2, "Save", "loadBtn", this)
             {
                 Action = delegate () { SaveFile(); }
             };
-            cancelBtn = new Button(PostionX + 18, PostionY + 9, "Cancel", "cancelBtn", this)
+            cancelBtn = new(PostionX + 18, PostionY + 9, "Cancel", "cancelBtn", this)
             {
                 Action = delegate () { ExitWindow(); }
             };
@@ -59,7 +59,7 @@ namespace ConsoleDraw.Windows
 
             try
             {
-                StreamWriter file = new StreamWriter(fullFile);
+                StreamWriter file = new(fullFile);
 
                 file.Write(Text);
 

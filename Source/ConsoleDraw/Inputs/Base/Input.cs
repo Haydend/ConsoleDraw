@@ -1,11 +1,10 @@
 ﻿using ConsoleDraw.Windows.Base;
-using System;
 
 namespace ConsoleDraw.Inputs.Base
 {
     public class Input : IInput
     {
-        public Input(int xPostion, int yPostion, int height, int width, Window parentWindow, String iD)
+        public Input(int xPostion, int yPostion, int height, int width, Window parentWindow, string iD)
         {
             ParentWindow = parentWindow;
             ID = iD;
@@ -17,7 +16,7 @@ namespace ConsoleDraw.Inputs.Base
             Width = width;
         }
 
-        public override void AddLetter(Char letter) { }
+        public override void AddLetter(char letter) { }
         public override void BackSpace() { }
         public override void CursorMoveLeft() { }
         public override void CursorMoveRight() { }

@@ -14,16 +14,16 @@ namespace ConsoleDraw.Inputs
         private ConsoleColor SelectedBackgroundColour = ConsoleColor.DarkGray;
 
         private bool Selected = false;
-        public List<DropdownItem> DropdownItems = new List<DropdownItem>();
+        public List<DropdownItem> DropdownItems = new();
         public DropdownSpread DropdownSpread;
 
-        private List<String> Options;
-        public String Text;
+        private List<string> Options;
+        public string Text;
         public int Length;
 
         public Action OnUnselect;
 
-        public Dropdown(int x, int y, List<String> options, String iD, Window parentWindow, int length = 20) : base(x, y, 1, length - 2 + 3, parentWindow, iD)
+        public Dropdown(int x, int y, List<string> options, string iD, Window parentWindow, int length = 20) : base(x, y, 1, length - 2 + 3, parentWindow, iD)
         {
             Xpostion = x;
             Ypostion = y;

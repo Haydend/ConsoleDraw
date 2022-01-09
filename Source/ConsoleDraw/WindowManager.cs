@@ -17,7 +17,7 @@ namespace ConsoleDraw
             }
         }
 
-        public static void WriteText(String text, int startX, int startY, ConsoleColor textColour, ConsoleColor backgroundColour)
+        public static void WriteText(string text, int startX, int startY, ConsoleColor textColour, ConsoleColor backgroundColour)
         {
             Console.CursorLeft = startY;
             Console.CursorTop = startX;
@@ -40,6 +40,7 @@ namespace ConsoleDraw
         public static void SetupWindow()
         {
             startingBufferHeight = Console.BufferHeight;
+            startingBufferWidth = Console.BufferWidth;
 
             int whereToMove = Console.CursorTop + 1; //Move one line below visible
             if (whereToMove < Console.WindowHeight) //If cursor is not on bottom line of visible
@@ -75,6 +76,7 @@ namespace ConsoleDraw
 
             Console.CursorVisible = true;
             Console.BufferHeight = startingBufferHeight;
+            Console.BufferWidth = startingBufferWidth;
             //Console.WriteLine();
 
         }
@@ -109,7 +111,7 @@ namespace ConsoleDraw
             WindowManager.DrawColourBlock(Console.BackgroundColor, 0, 0, Console.WindowHeight, Console.WindowWidth); //Flush Buffer
         }
 
-        public static void SetWindowTitle(String title)
+        public static void SetWindowTitle(string title)
         {
             Console.Title = title;
         }

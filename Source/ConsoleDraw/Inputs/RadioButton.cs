@@ -15,11 +15,11 @@ namespace ConsoleDraw.Inputs
 
         private bool Selected = false;
         public bool Checked = false;
-        public String RadioGroup;
+        public string RadioGroup;
 
         public Action Action;
 
-        public RadioButton(int x, int y, String iD, String radioGroup, Window parentWindow) : base(x, y, 1, 3, parentWindow, iD)
+        public RadioButton(int x, int y, string iD, string radioGroup, Window parentWindow) : base(x, y, 1, 3, parentWindow, iD)
         {
             RadioGroup = radioGroup;
             BackgroundColour = parentWindow.BackgroundColour;
@@ -70,7 +70,7 @@ namespace ConsoleDraw.Inputs
 
         public override void Draw()
         {
-            String Char = Checked ? "■" : " ";
+            string Char = Checked ? "■" : " ";
 
             if (Selected)
                 WindowManager.WriteText('[' + Char + ']', Xpostion, Ypostion, SelectedTextColour, SelectedBackgroundColour);

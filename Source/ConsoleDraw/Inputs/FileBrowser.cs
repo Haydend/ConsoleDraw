@@ -10,14 +10,14 @@ namespace ConsoleDraw.Inputs
 {
     public class FileBrowser : Input
     {
-        public String CurrentPath { get; private set; }
-        public String CurrentlySelectedFile { get; private set; }
-        private List<String> FileNames = new List<String>();
-        private List<String> Folders;
-        private List<String> Drives;
+        public string CurrentPath { get; private set; }
+        public string CurrentlySelectedFile { get; private set; }
+        private List<string> FileNames = new();
+        private List<string> Folders;
+        private List<string> Drives;
 
         public bool IncludeFiles;
-        public String FilterByExtension = "*";
+        public string FilterByExtension = "*";
 
         private ConsoleColor BackgroundColour = ConsoleColor.DarkGray;
         private ConsoleColor TextColour = ConsoleColor.Black;
@@ -25,7 +25,7 @@ namespace ConsoleDraw.Inputs
         private ConsoleColor SelectedBackgroundColour = ConsoleColor.Gray;
 
         private int cursorX;
-        private int CursorX { get { return cursorX; } set { cursorX = value; GetCurrentlySelectedFileName(); SetOffset(); } }
+        private int CursorX { get => cursorX; set { cursorX = value; GetCurrentlySelectedFileName(); SetOffset(); } }
 
         private int Offset = 0;
         private bool Selected = false;
@@ -35,7 +35,7 @@ namespace ConsoleDraw.Inputs
         public Action ChangeItem;
         public Action SelectFile;
 
-        public FileBrowser(int x, int y, int width, int height, String path, String iD, Window parentWindow, bool includeFiles = false, string filterByExtension = "*") : base(x, y, height, width, parentWindow, iD)
+        public FileBrowser(int x, int y, int width, int height, string path, string iD, Window parentWindow, bool includeFiles = false, string filterByExtension = "*") : base(x, y, height, width, parentWindow, iD)
         {
             CurrentPath = path;
             CurrentlySelectedFile = "";

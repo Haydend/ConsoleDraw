@@ -12,16 +12,16 @@ namespace TestApp.Windows
     {
         public MainWindow() : base(0, 0, Console.WindowWidth, Console.WindowHeight, null)
         {
-            var oneBtn = new Button(2, 2, "Button One", "oneBtn", this) { Action = delegate () { _ = new Alert("You Clicked Button One", this, ConsoleColor.White); } };
-            var twoBtn = new Button(4, 2, "Button Two", "twoBtn", this) { Action = delegate () { _ = new Alert("You Clicked Button Two", this, ConsoleColor.White); } };
-            var threeBtn = new Button(6, 2, "Long Alert", "threeoBtn", this) { Action = delegate () { _ = new Alert("A web browser (commonly referred to as a browser) is a software application for retrieving, presenting and traversing information resources on the World Wide", this, ConsoleColor.White); } };
+            Button oneBtn = new(2, 2, "Button One", "oneBtn", this) { Action = delegate () { _ = new Alert("You Clicked Button One", this, ConsoleColor.White); } };
+            Button twoBtn = new(4, 2, "Button Two", "twoBtn", this) { Action = delegate () { _ = new Alert("You Clicked Button Two", this, ConsoleColor.White); } };
+            Button threeBtn = new(6, 2, "Long Alert", "threeoBtn", this) { Action = delegate () { _ = new Alert("A web browser (commonly referred to as a browser) is a software application for retrieving, presenting and traversing information resources on the World Wide", this, ConsoleColor.White); } };
 
-            var displayAlertBtn = new Button(2, 20, "Display Alert", "displayAlertBtn", this) { Action = delegate () { _ = new Alert("This is an Alert!", this, ConsoleColor.White); } };
-            var displayConfirmBtn = new Button(4, 20, "Display Confirm", "displayConfirmBtn", this)
+            Button displayAlertBtn = new(2, 20, "Display Alert", "displayAlertBtn", this) { Action = delegate () { _ = new Alert("This is an Alert!", this, ConsoleColor.White); } };
+            Button displayConfirmBtn = new(4, 20, "Display Confirm", "displayConfirmBtn", this)
             {
                 Action = delegate ()
                 {
-                    var cf = new Confirm("This is a Confirm!", this, ConsoleColor.White);
+                    Confirm cf = new("This is a Confirm!", this, ConsoleColor.White);
 
                     if (cf.ShowDialog() == ConsoleDraw.DialogResult.OK)
                     {
@@ -29,48 +29,48 @@ namespace TestApp.Windows
                     }
                 }
             };
-            var exitBtn = new Button(6, 20, "Exit", "exitBtn", this) { Action = delegate () { ExitWindow(); } };
+            Button exitBtn = new(6, 20, "Exit", "exitBtn", this) { Action = delegate () { ExitWindow(); } };
 
-            var displaySettingBtn = new Button(2, 40, "Display Settings", "displaySettingsBtn", this) { Action = delegate () { _ = new SettingsWindow(this); } };
-            var displaySaveBtn = new Button(4, 40, "Display Save Menu", "displaySaveMenuBtn", this) { Action = delegate () { _ = new SaveMenu("Untitled.txt", Directory.GetCurrentDirectory(), "Test Data", this); } };
-            var displayLoadBtn = new Button(6, 40, "Display Load Menu", "displayLoadMenuBtn", this) { Action = delegate () { _ = new LoadMenu(Directory.GetCurrentDirectory(), new Dictionary<string, string>() { { "txt", "Text Document" }, { "*", "All Files" } }, this); } };
+            Button displaySettingBtn = new(2, 40, "Display Settings", "displaySettingsBtn", this) { Action = delegate () { _ = new SettingsWindow(this); } };
+            Button displaySaveBtn = new(4, 40, "Display Save Menu", "displaySaveMenuBtn", this) { Action = delegate () { _ = new SaveMenu("Untitled.txt", Directory.GetCurrentDirectory(), "Test Data", this); } };
+            Button displayLoadBtn = new(6, 40, "Display Load Menu", "displayLoadMenuBtn", this) { Action = delegate () { _ = new LoadMenu(Directory.GetCurrentDirectory(), new Dictionary<string, string>() { { "txt", "Text Document" }, { "*", "All Files" } }, this); } };
 
-            var oneCheckBox = new CheckBox(10, 2, "oneCheckBox", this);
-            var oneCheckBoxLabel = new Label("Check Box One", 10, 6, "oneCheckBoxLabel", this);
-            var twoCheckBox = new CheckBox(12, 2, "twoCheckBox", this) { Checked = true };
-            var twoCheckBoxLabel = new Label("Check Box Two", 12, 6, "twoCheckBoxLabel", this);
-            var threeCheckBox = new CheckBox(14, 2, "threeCheckBox", this);
-            var threeCheckBoxLabel = new Label("Check Box Three", 14, 6, "threeCheckBoxLabel", this);
+            CheckBox oneCheckBox = new(10, 2, "oneCheckBox", this);
+            Label oneCheckBoxLabel = new("Check Box One", 10, 6, "oneCheckBoxLabel", this);
+            CheckBox twoCheckBox = new(12, 2, "twoCheckBox", this) { Checked = true };
+            Label twoCheckBoxLabel = new("Check Box Two", 12, 6, "twoCheckBoxLabel", this);
+            CheckBox threeCheckBox = new(14, 2, "threeCheckBox", this);
+            Label threeCheckBoxLabel = new("Check Box Three", 14, 6, "threeCheckBoxLabel", this);
 
-            var groupOneLabel = new Label("Radio Button Group One", 9, 25, "oneCheckBoxLabel", this);
-            var oneRadioBtnGroupOne = new RadioButton(10, 25, "oneRadioBtnGroupOne", "groupOne", this) { Checked = true };
-            var oneRadioBtnGroupOneLabel = new Label("Radio Button One", 10, 29, "oneCheckBoxLabel", this);
-            var twoRadioBtnGroupOne = new RadioButton(12, 25, "twoRadioBtnGroupOne", "groupOne", this);
-            var twoRadioBtnGroupOneLabel = new Label("Radio Button Two", 12, 29, "oneCheckBoxLabel", this);
-            var threeRadioBtnGroupOne = new RadioButton(14, 25, "threeRadioBtnGroupOne", "groupOne", this);
-            var threeRadioBtnGroupOneLabel = new Label("Radio Button Three", 14, 29, "oneCheckBoxLabel", this);
+            Label groupOneLabel = new("Radio Button Group One", 9, 25, "oneCheckBoxLabel", this);
+            RadioButton oneRadioBtnGroupOne = new(10, 25, "oneRadioBtnGroupOne", "groupOne", this) { Checked = true };
+            Label oneRadioBtnGroupOneLabel = new("Radio Button One", 10, 29, "oneCheckBoxLabel", this);
+            RadioButton twoRadioBtnGroupOne = new(12, 25, "twoRadioBtnGroupOne", "groupOne", this);
+            Label twoRadioBtnGroupOneLabel = new("Radio Button Two", 12, 29, "oneCheckBoxLabel", this);
+            RadioButton threeRadioBtnGroupOne = new(14, 25, "threeRadioBtnGroupOne", "groupOne", this);
+            Label threeRadioBtnGroupOneLabel = new("Radio Button Three", 14, 29, "oneCheckBoxLabel", this);
 
-            var groupTwoLabel = new Label("Radio Button Group Two", 9, 50, "oneCheckBoxLabel", this);
-            var oneRadioBtnGroupTwo = new RadioButton(10, 50, "oneRadioBtnGroupTwo", "groupTwo", this) { Checked = true };
-            var twoRadioBtnGroupTwo = new RadioButton(12, 50, "twoRadioBtnGroupTwo", "groupTwo", this);
-            var threeRadioBtnGroupTwo = new RadioButton(14, 50, "threeRadioBtnGroupTwo", "groupTwo", this);
+            Label groupTwoLabel = new("Radio Button Group Two", 9, 50, "oneCheckBoxLabel", this);
+            RadioButton oneRadioBtnGroupTwo = new(10, 50, "oneRadioBtnGroupTwo", "groupTwo", this) { Checked = true };
+            RadioButton twoRadioBtnGroupTwo = new(12, 50, "twoRadioBtnGroupTwo", "groupTwo", this);
+            RadioButton threeRadioBtnGroupTwo = new(14, 50, "threeRadioBtnGroupTwo", "groupTwo", this);
 
-            var textAreaLabel = new Label("Text Area", 16, 2, "textAreaLabel", this);
-            var textArea = new TextArea(17, 2, 60, 6, "txtArea", this)
+            Label textAreaLabel = new("Text Area", 16, 2, "textAreaLabel", this);
+            TextArea textArea = new(17, 2, 60, 6, "txtArea", this)
             {
                 BackgroundColour = ConsoleColor.DarkGray
             };
 
-            var txtBoxLabel = new Label("Text Box", 24, 2, "txtBoxLabel", this);
-            var txtBox = new TextBox(24, 11, "txtBox", this);
+            Label txtBoxLabel = new("Text Box", 24, 2, "txtBoxLabel", this);
+            TextBox txtBox = new(24, 11, "txtBox", this);
 
-            var fileSelect = new FileBrowser(26, 2, 40, 10, Directory.GetCurrentDirectory(), "fileSelect", this, true);
+            FileBrowser fileSelect = new(26, 2, 40, 10, Directory.GetCurrentDirectory(), "fileSelect", this, true);
 
-            var progressBar = new ProgressBar(10, 39, 2, 3, 70, "progressBar", this);
-            var progressBarLabel = new Label("10%", 39, 73, "oneCheckBoxLabel", this);
+            ProgressBar progressBar = new(10, 39, 2, 3, 70, "progressBar", this);
+            Label progressBarLabel = new("10%", 39, 73, "oneCheckBoxLabel", this);
 
-            var progressBarDownBtn = new Button(37, 2, "Progress Down", "displaySettingsBtn", this) { Action = delegate () { progressBar.PercentageComplete--; progressBarLabel.SetText(String.Format("{0}%", progressBar.PercentageComplete).PadRight(4)); } };
-            var progressBarUpBtn = new Button(37, 18, "Progress Up", "displaySettingsBtn", this) { Action = delegate () { progressBar.PercentageComplete++; progressBarLabel.SetText(String.Format("{0}%", progressBar.PercentageComplete).PadRight(4)); } };
+            Button progressBarDownBtn = new(37, 2, "Progress Down", "displaySettingsBtn", this) { Action = delegate () { progressBar.PercentageComplete--; progressBarLabel.SetText(string.Format("{0}%", progressBar.PercentageComplete).PadRight(4)); } };
+            Button progressBarUpBtn = new(37, 18, "Progress Up", "displaySettingsBtn", this) { Action = delegate () { progressBar.PercentageComplete++; progressBarLabel.SetText(string.Format("{0}%", progressBar.PercentageComplete).PadRight(4)); } };
 
 
 

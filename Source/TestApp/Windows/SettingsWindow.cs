@@ -11,19 +11,19 @@ namespace TestApp.Windows
         {
             BackgroundColour = ConsoleColor.White;
 
-            var appTitleLabel = new Label("App Title", 8, 12, "appTitleLabel", this);
-            var appTitleTxtBox = new TextBox(8, 25, Console.Title, "appTitleTxtBox", this, 10);
+            Label appTitleLabel = new("App Title", 8, 12, "appTitleLabel", this);
+            TextBox appTitleTxtBox = new(8, 25, Console.Title, "appTitleTxtBox", this, 10);
 
-            var saveOnExitLabel = new Label("Save On Exit", 10, 12, "saveOnExitLabel", this);
-            var saveOneExitChkBox = new CheckBox(10, 25, "saveOnExitCheckBox", this);
+            Label saveOnExitLabel = new("Save On Exit", 10, 12, "saveOnExitLabel", this);
+            CheckBox saveOneExitChkBox = new(10, 25, "saveOnExitCheckBox", this);
 
-            var byAllLabel = new Label("For All", 12, 12, "forAll", this);
-            var byAllRadioBtn = new RadioButton(12, 25, "byAllRadioBtn", "Users", this) { Checked = true };
-            var justYouLabel = new Label("Just You", 14, 12, "justYou", this);
-            var justYouRadioBtn = new RadioButton(14, 25, "justYouRadioBtn", "Users", this);
+            Label byAllLabel = new("For All", 12, 12, "forAll", this);
+            RadioButton byAllRadioBtn = new(12, 25, "byAllRadioBtn", "Users", this) { Checked = true };
+            Label justYouLabel = new("Just You", 14, 12, "justYou", this);
+            RadioButton justYouRadioBtn = new(14, 25, "justYouRadioBtn", "Users", this);
 
-            var applyBtn = new Button(24, 12, "Apply", "exitBtn", this) { Action = delegate () { ExitWindow(); } };
-            var exitBtn = new Button(24, 20, "Exit", "exitBtn", this) { Action = delegate () { ExitWindow(); } };
+            Button applyBtn = new(24, 12, "Apply", "exitBtn", this) { Action = delegate () { ExitWindow(); } };
+            Button exitBtn = new(24, 20, "Exit", "exitBtn", this) { Action = delegate () { ExitWindow(); } };
 
             Inputs.Add(appTitleLabel);
             Inputs.Add(appTitleTxtBox);

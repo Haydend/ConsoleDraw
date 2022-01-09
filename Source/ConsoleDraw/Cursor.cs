@@ -9,7 +9,7 @@ namespace ConsoleDraw
         public int _x;
         public int _y;
         public Timer blink;
-        public Char blinkLetter;
+        public char blinkLetter;
         public ConsoleColor _background;
         private bool visible;
 
@@ -22,8 +22,8 @@ namespace ConsoleDraw
             _background = background;
             WindowManager.WriteText("_", x, y, ConsoleColor.White, background);
 
-            blink = new Timer(500);
-            blink.Elapsed += new ElapsedEventHandler(BlinkCursor);
+            blink = new(500);
+            blink.Elapsed += new(BlinkCursor);
             blink.Enabled = true;
         }
 

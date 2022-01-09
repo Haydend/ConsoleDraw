@@ -7,7 +7,7 @@ namespace ConsoleDraw.Windows.Base
 {
     public class Window : IWindow
     {
-        public Boolean Exit;
+        public bool Exit;
         protected IInput CurrentlySelected;
 
         public int PostionX { get; private set; }
@@ -17,7 +17,7 @@ namespace ConsoleDraw.Windows.Base
 
         public ConsoleColor BackgroundColour = ConsoleColor.Gray;
 
-        public List<IInput> Inputs = new List<IInput>();
+        public List<IInput> Inputs = new();
 
         public Window(int postionX, int postionY, int width, int height, Window parentWindow)
         {
@@ -86,7 +86,7 @@ namespace ConsoleDraw.Windows.Base
                         CurrentlySelected.CursorToEnd();
                         break;
                     default:
-                        CurrentlySelected.AddLetter((Char)input.KeyChar); // Letter(input.KeyChar);
+                        CurrentlySelected.AddLetter(input.KeyChar); // Letter(input.KeyChar);
                         break;
                 } // Letter(input.KeyChar);
             }
@@ -102,7 +102,7 @@ namespace ConsoleDraw.Windows.Base
             SetSelected();
         }
 
-        public void SelectItemByID(String Id)
+        public void SelectItemByID(string Id)
         {
             if (Inputs.All(x => !x.Selectable)) //No Selectable inputs on page
                 return;
@@ -360,7 +360,7 @@ namespace ConsoleDraw.Windows.Base
             return input;
         }
 
-        public IInput GetInputById(String Id)
+        public IInput GetInputById(string Id)
         {
             return Inputs.FirstOrDefault(x => x.ID == Id);
         }

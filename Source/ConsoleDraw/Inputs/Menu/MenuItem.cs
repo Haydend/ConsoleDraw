@@ -6,7 +6,7 @@ namespace ConsoleDraw.Inputs
 {
     public class MenuItem : Input
     {
-        private String Text = "";
+        private string Text = "";
         private ConsoleColor TextColour = ConsoleColor.White;
         private ConsoleColor BackgroudColour = ConsoleColor.DarkGray;
         private ConsoleColor SelectedTextColour = ConsoleColor.Black;
@@ -15,7 +15,7 @@ namespace ConsoleDraw.Inputs
         private bool Selected = false;
         public Action Action;
 
-        public MenuItem(String text, String iD, Window parentWindow)
+        public MenuItem(string text, string iD, Window parentWindow)
             : base(0, 0, 1, 0, parentWindow, iD)
         {
             Text = text;

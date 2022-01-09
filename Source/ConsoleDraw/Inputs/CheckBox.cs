@@ -17,7 +17,7 @@ namespace ConsoleDraw.Inputs
 
         public Action Action;
 
-        public CheckBox(int x, int y, String iD, Window parentWindow) : base(x, y, 1, 3, parentWindow, iD)
+        public CheckBox(int x, int y, string iD, Window parentWindow) : base(x, y, 1, 3, parentWindow, iD)
         {
             BackgroundColour = parentWindow.BackgroundColour;
             Selectable = true;
@@ -52,7 +52,7 @@ namespace ConsoleDraw.Inputs
 
         public override void Draw()
         {
-            String Char = Checked ? "X" : " ";
+            string Char = Checked ? "X" : " ";
 
             if (Selected)
                 WindowManager.WriteText('[' + Char + ']', Xpostion, Ypostion, SelectedTextColour, SelectedBackgroundColour);

@@ -13,19 +13,16 @@ namespace ConsoleDraw.Inputs
         private int CursorPostion;
 
         private int cursorDisplayX;
-        private int CursorDisplayX { get { return cursorDisplayX; } set { cursorDisplayX = value; SetOffset(); } }
+        private int CursorDisplayX { get => cursorDisplayX; set { cursorDisplayX = value; SetOffset(); } }
 
         private int CursorDisplayY;
 
         private int Offset = 0;
-        private List<String> SplitText = new List<String>();
-        private String text = "";
-        private String Text
+        private List<string> SplitText = new();
+        private string text = "";
+        private string Text
         {
-            get
-            {
-                return text;
-            }
+            get => text;
             set
             {
                 if (OnChange != null && text != value)
@@ -36,16 +33,16 @@ namespace ConsoleDraw.Inputs
                 SplitText = CreateSplitText();
             }
         }
-        private String TextWithoutNewLine { get { return RemoveNewLine(Text); } }
+        private string TextWithoutNewLine => RemoveNewLine(Text);
 
         private ConsoleColor TextColour = ConsoleColor.White;
         public ConsoleColor BackgroundColour = ConsoleColor.Blue;
 
-        private Cursor cursor = new Cursor();
+        private Cursor cursor = new();
 
         public Action OnChange;
 
-        public TextArea(int x, int y, int width, int height, String iD, Window parentWindow) : base(x, y, height, width, parentWindow, iD)
+        public TextArea(int x, int y, int width, int height, string iD, Window parentWindow) : base(x, y, height, width, parentWindow, iD)
         {
             Selectable = true;
         }
@@ -70,8 +67,8 @@ namespace ConsoleDraw.Inputs
 
         public override void AddLetter(char letter)
         {
-            String textBefore = Text[..CursorPostion];
-            String textAfter = Text[CursorPostion..];
+            string textBefore = Text[..CursorPostion];
+            string textAfter = Text[CursorPostion..];
 
             Text = textBefore + letter + textAfter;
 
@@ -185,8 +182,8 @@ namespace ConsoleDraw.Inputs
         {
             if (CursorPostion != 0)
             {
-                String textBefore = Text[..CursorPostion];
-                String textAfter = Text[CursorPostion..];
+                string textBefore = Text[..CursorPostion];
+                string textAfter = Text[CursorPostion..];
 
                 textBefore = textBefore[0..^1];
 
@@ -201,14 +198,14 @@ namespace ConsoleDraw.Inputs
             AddLetter('\n');
         }
 
-        public void SetText(String text)
+        public void SetText(string text)
         {
             Text = text;
             CursorPostion = 0;
             Draw();
         }
 
-        public String GetText()
+        public string GetText()
         {
             return Text;
         }
@@ -245,9 +242,9 @@ namespace ConsoleDraw.Inputs
             WindowManager.WriteText("■", Xpostion + postion, Ypostion + Width, ConsoleColor.DarkGray, ConsoleColor.White);
         }
 
-        private List<String> CreateSplitText()
+        private List<string> CreateSplitText()
         {
-            List<String> splitText = new List<String>();
+            List<string> splitText = new();
 
             int lastSplit = 0;
             for (int i = 0; i < Text.Count() + 1; i++)
@@ -329,7 +326,7 @@ namespace ConsoleDraw.Inputs
                 Offset--;
         }
 
-        private String RemoveNewLine(String text)
+        private string RemoveNewLine(string text)
         {
             string toReturn = "";
 

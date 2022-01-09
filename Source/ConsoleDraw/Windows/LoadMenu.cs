@@ -15,13 +15,13 @@ namespace ConsoleDraw.Windows
         private FileBrowser fileSelect;
         private Dropdown fileTypeDropdown;
 
-        public Boolean DataLoaded;
-        public String Data;
-        public String FileNameLoaded;
-        public String PathOfLoaded;
-        public Dictionary<String, String> FileTypes;
+        public bool DataLoaded;
+        public string Data;
+        public string FileNameLoaded;
+        public string PathOfLoaded;
+        public Dictionary<string, string> FileTypes;
 
-        public LoadMenu(String path, Dictionary<String, String> fileTypes, Window parentWindow)
+        public LoadMenu(string path, Dictionary<string, string> fileTypes, Window parentWindow)
             : base("Load Menu", Math.Min(6, Console.WindowHeight - 22), (Console.WindowWidth / 2) - 30, 60, 20, parentWindow)
         {
             BackgroundColour = ConsoleColor.White;
@@ -33,7 +33,7 @@ namespace ConsoleDraw.Windows
                 SelectFile = delegate () { LoadFile(); }
             };
 
-            Label openLabel = new Label("Open", PostionX + 16, PostionY + 2, "openLabel", this);
+            Label openLabel = new("Open", PostionX + 16, PostionY + 2, "openLabel", this);
             openTxtBox = new TextBox(PostionX + 16, PostionY + 7, "openTxtBox", this, Width - 13) { Selectable = false };
 
             fileTypeDropdown = new Dropdown(PostionX + 18, PostionY + 40, FileTypes.Select(x => x.Value).ToList(), "fileTypeDropdown", this, 17)
@@ -41,11 +41,11 @@ namespace ConsoleDraw.Windows
                 OnUnselect = delegate () { UpdateFileTypeFilter(); }
             };
 
-            loadBtn = new Button(PostionX + 18, PostionY + 2, "Load", "loadBtn", this)
+            loadBtn = new(PostionX + 18, PostionY + 2, "Load", "loadBtn", this)
             {
                 Action = delegate () { LoadFile(); }
             };
-            cancelBtn = new Button(PostionX + 18, PostionY + 9, "Cancel", "cancelBtn", this)
+            cancelBtn = new(PostionX + 18, PostionY + 9, "Cancel", "cancelBtn", this)
             {
                 Action = delegate () { ExitWindow(); }
             };
@@ -91,7 +91,7 @@ namespace ConsoleDraw.Windows
             }
 
             string file = Path.Combine(fileSelect.CurrentPath, fileSelect.CurrentlySelectedFile);
-            String text = System.IO.File.ReadAllText(file);
+            string text = System.IO.File.ReadAllText(file);
 
             /*MainWindow mainWindow = (MainWindow)ParentWindow;
             mainWindow.textArea.SetText(text);

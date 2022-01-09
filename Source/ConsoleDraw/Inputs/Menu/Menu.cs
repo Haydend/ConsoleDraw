@@ -8,17 +8,17 @@ namespace ConsoleDraw.Inputs
 {
     public class Menu : Input
     {
-        private String Text = "";
+        private string Text = "";
         private ConsoleColor TextColour = ConsoleColor.Black;
         private ConsoleColor BackgroudColour = ConsoleColor.Gray;
         private ConsoleColor SelectedTextColour = ConsoleColor.White;
         private ConsoleColor SelectedBackgroundColour = ConsoleColor.DarkGray;
 
         private bool Selected = false;
-        public List<MenuItem> MenuItems = new List<MenuItem>();
+        public List<MenuItem> MenuItems = new();
         public MenuDropdown MenuDropdown;
 
-        public Menu(String text, int x, int y, String iD, Window parentWindow) : base(x, y, 1, text.Count() + 2, parentWindow, iD)
+        public Menu(string text, int x, int y, string iD, Window parentWindow) : base(x, y, 1, text.Count() + 2, parentWindow, iD)
         {
             Text = text;
             Xpostion = x;
