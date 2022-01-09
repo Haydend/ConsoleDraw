@@ -15,7 +15,7 @@ namespace ConsoleDraw.Inputs
         {
             for (int i = 0; i < options.Count(); i++)
             {
-                DropdownItem item = new(options[i], Xpostion + i, "option" + i, this)
+                DropdownItem item = new(this, options[i], Xpostion + i, "option" + i)
                 {
                     Action = delegate ()
                     {

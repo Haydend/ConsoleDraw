@@ -24,7 +24,7 @@ namespace ConsoleDraw.Inputs
             }
         }
 
-        public ProgressBar(int percentageComplete, int x, int y, int height, int width, string iD, Window parentWindow) : base(x, y, height, width, parentWindow, iD)
+        public ProgressBar(Window parentWindow, int percentageComplete, int x, int y, int height, int width, string iD) : base(parentWindow, x, y, height, width, iD)
         {
             Selectable = false;
             PercentageComplete = percentageComplete;

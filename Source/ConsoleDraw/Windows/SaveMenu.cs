@@ -23,16 +23,16 @@ namespace ConsoleDraw.Windows
             BackgroundColour = ConsoleColor.White;
             Text = data;
 
-            fileSelect = new FileBrowser(PostionX + 2, PostionY + 2, 56, 12, path, "fileSelect", this);
+            fileSelect = new FileBrowser(this, PostionX + 2, PostionY + 2, 56, 12, path, "fileSelect");
 
-            Label openLabel = new("Name", PostionX + 16, PostionY + 2, "openLabel", this);
-            openTxtBox = new TextBox(PostionX + 16, PostionY + 7, fileName, "openTxtBox", this, Width - 13) { Selectable = true };
+            Label openLabel = new(this, "Name", PostionX + 16, PostionY + 2, "openLabel");
+            openTxtBox = new TextBox(this, PostionX + 16, PostionY + 7, fileName, "openTxtBox", Width - 13) { Selectable = true };
 
-            saveBtn = new(PostionX + 18, PostionY + 2, "Save", "loadBtn", this)
+            saveBtn = new(this, PostionX + 18, PostionY + 2, "Save", "loadBtn")
             {
                 Action = delegate () { SaveFile(); }
             };
-            cancelBtn = new(PostionX + 18, PostionY + 9, "Cancel", "cancelBtn", this)
+            cancelBtn = new(this, PostionX + 18, PostionY + 9, "Cancel", "cancelBtn")
             {
                 Action = delegate () { ExitWindow(); }
             };

@@ -15,8 +15,8 @@ namespace ConsoleDraw.Inputs
         private bool Selected = false;
         public Action Action;
 
-        public MenuItem(string text, string iD, Window parentWindow)
-            : base(0, 0, 1, 0, parentWindow, iD)
+        public MenuItem(Window parentWindow, string text, string iD)
+            : base(parentWindow, 0, 0, 1, 0, iD)
         {
             Text = text;
 

@@ -4,7 +4,7 @@ namespace ConsoleDraw.Inputs.Base
 {
     public class Input : IInput
     {
-        public Input(int xPostion, int yPostion, int height, int width, Window parentWindow, string iD)
+        public Input(Window parentWindow, int xPostion, int yPostion, int height, int width, string iD)
         {
             ParentWindow = parentWindow;
             ID = iD;

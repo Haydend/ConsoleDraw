@@ -10,7 +10,6 @@ namespace TestApp
             //Setup
             WindowManager.UpdateWindow(100, 48);
             WindowManager.SetWindowTitle("Test App");
-
             _ = new MainWindow();
         }
     }

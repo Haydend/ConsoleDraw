@@ -17,7 +17,7 @@ namespace ConsoleDraw.Inputs
 
         public Action Action;
 
-        public CheckBox(int x, int y, string iD, Window parentWindow) : base(x, y, 1, 3, parentWindow, iD)
+        public CheckBox(Window parentWindow, int x, int y, string iD) : base(parentWindow, x, y, 1, 3, iD)
         {
             BackgroundColour = parentWindow.BackgroundColour;
             Selectable = true;

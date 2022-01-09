@@ -35,7 +35,7 @@ namespace ConsoleDraw.Inputs
         public Action ChangeItem;
         public Action SelectFile;
 
-        public FileBrowser(int x, int y, int width, int height, string path, string iD, Window parentWindow, bool includeFiles = false, string filterByExtension = "*") : base(x, y, height, width, parentWindow, iD)
+        public FileBrowser(Window parentWindow, int x, int y, int width, int height, string path, string iD, bool includeFiles = false, string filterByExtension = "*") : base(parentWindow, x, y, height, width, iD)
         {
             CurrentPath = path;
             CurrentlySelectedFile = "";

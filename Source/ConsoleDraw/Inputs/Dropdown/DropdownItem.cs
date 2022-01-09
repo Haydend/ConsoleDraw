@@ -15,7 +15,7 @@ namespace ConsoleDraw.Inputs
         private bool Selected = false;
         public Action Action;
 
-        public DropdownItem(string text, int x, string iD, Window parentWindow) : base(x, parentWindow.PostionY + 1, 1, parentWindow.Width - 2, parentWindow, iD)
+        public DropdownItem(Window parentWindow, string text, int x, string iD) : base(parentWindow, x, parentWindow.PostionY + 1, 1, parentWindow.Width - 2, iD)
         {
             Text = text;
 

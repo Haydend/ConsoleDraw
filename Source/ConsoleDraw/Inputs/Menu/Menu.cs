@@ -18,7 +18,7 @@ namespace ConsoleDraw.Inputs
         public List<MenuItem> MenuItems = new();
         public MenuDropdown MenuDropdown;
 
-        public Menu(string text, int x, int y, string iD, Window parentWindow) : base(x, y, 1, text.Count() + 2, parentWindow, iD)
+        public Menu(Window parentWindow, string text, int x, int y, string iD) : base(parentWindow, x, y, 1, text.Count() + 2, iD)
         {
             Text = text;
             Xpostion = x;

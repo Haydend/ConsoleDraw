@@ -18,7 +18,7 @@ namespace ConsoleDraw.Inputs
 
         public Action Action;
 
-        public Button(int x, int y, string text, string iD, Window parentWindow) : base(x, y, 1, text.Count() + 2, parentWindow, iD)
+        public Button(Window parentWindow, int x, int y, string text, string iD) : base(parentWindow, x, y, 1, text.Count() + 2, iD)
         {
             Text = text;
             BackgroundColour = parentWindow.BackgroundColour;

@@ -108,7 +108,7 @@ namespace ConsoleDraw
             }
 
             Console.BackgroundColor = ConsoleColor.Gray;
-            WindowManager.DrawColourBlock(Console.BackgroundColor, 0, 0, Console.WindowHeight, Console.WindowWidth); //Flush Buffer
+            WindowManager.DrawColourBlock(Console.BackgroundColor, 0, 0, Console.BufferHeight, Console.BufferWidth); //Flush Buffer
         }
 
         public static void SetWindowTitle(string title)

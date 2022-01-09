@@ -35,18 +35,18 @@ namespace ConsoleDraw.Windows
             while ((count * 45) < Message.Count())
             {
                 string splitMessage = Message.PadRight(textLength * (count + 1), ' ').Substring((count * textLength), textLength);
-                Label messageLabel = new(splitMessage, PostionX + 2 + count, PostionY + 2, "messageLabel", this);
+                Label messageLabel = new(this, splitMessage, PostionX + 2 + count, PostionY + 2, "messageLabel");
                 Inputs.Add(messageLabel);
 
                 count++;
             }
 
-            okBtn = new(PostionX + Height - 2, PostionY + 2, "OK", "OkBtn", this)
+            okBtn = new(this, PostionX + Height - 2, PostionY + 2, "OK", "OkBtn")
             {
                 Action = delegate () { ExitWindow(); dr = DialogResult.OK; }
             };
 
-            cancelBtn = new(PostionX + Height - 2, PostionY + 8, "Cancel", "cancelBtn", this)
+            cancelBtn = new(this, PostionX + Height - 2, PostionY + 8, "Cancel", "cancelBtn")
             {
                 Action = delegate () { ExitWindow(); dr = DialogResult.Cancel; }
             };

@@ -19,7 +19,7 @@ namespace ConsoleDraw.Inputs
 
         public Action Action;
 
-        public RadioButton(int x, int y, string iD, string radioGroup, Window parentWindow) : base(x, y, 1, 3, parentWindow, iD)
+        public RadioButton(Window parentWindow, int x, int y, string iD, string radioGroup) : base(parentWindow, x, y, 1, 3, iD)
         {
             RadioGroup = radioGroup;
             BackgroundColour = parentWindow.BackgroundColour;

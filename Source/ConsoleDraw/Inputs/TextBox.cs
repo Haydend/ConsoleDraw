@@ -19,12 +19,12 @@ namespace ConsoleDraw.Inputs
 
         private Cursor cursor = new();
 
-        public TextBox(int x, int y, string iD, Window parentWindow, int length = 38) : base(x, y, 1, length, parentWindow, iD)
+        public TextBox(Window parentWindow, int x, int y, string iD, int length = 38) : base(parentWindow, x, y, 1, length, iD)
         {
             Selectable = true;
         }
 
-        public TextBox(int x, int y, string text, string iD, Window parentWindow, int length = 38) : base(x, y, 1, length, parentWindow, iD)
+        public TextBox(Window parentWindow, int x, int y, string text, string iD, int length = 38) : base(parentWindow, x, y, 1, length, iD)
         {
             Text = text;
 

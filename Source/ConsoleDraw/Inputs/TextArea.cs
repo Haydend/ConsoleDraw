@@ -42,7 +42,7 @@ namespace ConsoleDraw.Inputs
 
         public Action OnChange;
 
-        public TextArea(int x, int y, int width, int height, string iD, Window parentWindow) : base(x, y, height, width, parentWindow, iD)
+        public TextArea(Window parentWindow, int x, int y, int width, int height, string iD) : base(parentWindow, x, y, height, width, iD)
         {
             Selectable = true;
         }

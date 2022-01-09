@@ -23,7 +23,7 @@ namespace ConsoleDraw.Inputs
 
         public Action OnUnselect;
 
-        public Dropdown(int x, int y, List<string> options, string iD, Window parentWindow, int length = 20) : base(x, y, 1, length - 2 + 3, parentWindow, iD)
+        public Dropdown(Window parentWindow, int x, int y, List<string> options, string iD, int length = 20) : base(parentWindow, x, y, 1, length - 2 + 3, iD)
         {
             Xpostion = x;
             Ypostion = y;

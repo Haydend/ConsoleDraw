@@ -11,19 +11,19 @@ namespace TestApp.Windows
         {
             BackgroundColour = ConsoleColor.White;
 
-            Label appTitleLabel = new("App Title", 8, 12, "appTitleLabel", this);
-            TextBox appTitleTxtBox = new(8, 25, Console.Title, "appTitleTxtBox", this, 10);
+            Label appTitleLabel = new(this, "App Title", 8, 12, "appTitleLabel");
+            TextBox appTitleTxtBox = new(this, 8, 25, Console.Title, "appTitleTxtBox", 10);
 
-            Label saveOnExitLabel = new("Save On Exit", 10, 12, "saveOnExitLabel", this);
-            CheckBox saveOneExitChkBox = new(10, 25, "saveOnExitCheckBox", this);
+            Label saveOnExitLabel = new(this, "Save On Exit", 10, 12, "saveOnExitLabel");
+            CheckBox saveOneExitChkBox = new(this, 10, 25, "saveOnExitCheckBox");
 
-            Label byAllLabel = new("For All", 12, 12, "forAll", this);
-            RadioButton byAllRadioBtn = new(12, 25, "byAllRadioBtn", "Users", this) { Checked = true };
-            Label justYouLabel = new("Just You", 14, 12, "justYou", this);
-            RadioButton justYouRadioBtn = new(14, 25, "justYouRadioBtn", "Users", this);
+            Label byAllLabel = new(this, "For All", 12, 12, "forAll");
+            RadioButton byAllRadioBtn = new(this, 12, 25, "byAllRadioBtn", "Users") { Checked = true };
+            Label justYouLabel = new(this, "Just You", 14, 12, "justYou");
+            RadioButton justYouRadioBtn = new(this, 14, 25, "justYouRadioBtn", "Users");
 
-            Button applyBtn = new(24, 12, "Apply", "exitBtn", this) { Action = delegate () { ExitWindow(); } };
-            Button exitBtn = new(24, 20, "Exit", "exitBtn", this) { Action = delegate () { ExitWindow(); } };
+            Button applyBtn = new(this, 24, 12, "Apply", "exitBtn") { Action = delegate () { ExitWindow(); } };
+            Button exitBtn = new(this, 24, 20, "Exit", "exitBtn") { Action = delegate () { ExitWindow(); } };
 
             Inputs.Add(appTitleLabel);
             Inputs.Add(appTitleTxtBox);
