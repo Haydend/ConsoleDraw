@@ -4,9 +4,9 @@ using System;
 
 namespace InlineTestApp
 {
-    class Program
+    internal class Program
     {
-        static void Main()
+        private static void Main()
         {
             Console.WriteLine("Test App");
 

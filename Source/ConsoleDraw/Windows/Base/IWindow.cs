@@ -2,7 +2,7 @@
 {
     public abstract class IWindow
     {
-        abstract public void ReDraw();
+        public abstract void ReDraw();
 
         public Window ParentWindow;
     }

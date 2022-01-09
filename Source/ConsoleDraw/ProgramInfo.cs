@@ -1,8 +1,8 @@
 ﻿namespace ConsoleDraw
 {
-    static public class ProgramInfo
+    public static class ProgramInfo
     {
-        static public bool ExitProgram = false;
+        public static bool ExitProgram = false;
 
     }
 }

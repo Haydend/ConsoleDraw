@@ -3,9 +3,9 @@ using TestApp.Windows;
 
 namespace TestApp
 {
-    class Program
+    internal class Program
     {
-        static void Main()
+        private static void Main()
         {
             //Setup
             WindowManager.UpdateWindow(100, 48);

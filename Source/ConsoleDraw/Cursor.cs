@@ -39,7 +39,7 @@ namespace ConsoleDraw
 
         }
 
-        void BlinkCursor(object sender, ElapsedEventArgs e)
+        private void BlinkCursor(object sender, ElapsedEventArgs e)
         {
             if (_cursorShow)
             {

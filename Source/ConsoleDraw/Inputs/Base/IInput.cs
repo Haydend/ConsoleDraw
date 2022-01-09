@@ -4,7 +4,7 @@ namespace ConsoleDraw.Inputs.Base
 {
     public abstract class IInput
     {
-        abstract public void Draw();
+        public abstract void Draw();
 
         public abstract void Select();
         public abstract void Unselect();

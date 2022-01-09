@@ -16,9 +16,9 @@ namespace ConsoleDraw.Inputs
             for (int i = 0; i < menuItems.Count(); i++)
             {
                 menuItems[i].ParentWindow = this;
-                menuItems[i].Width = this.Width - 2;
+                menuItems[i].Width = Width - 2;
                 menuItems[i].Xpostion = Xpostion + i + 1;
-                menuItems[i].Ypostion = this.PostionY + 1;
+                menuItems[i].Ypostion = PostionY + 1;
             }
 
             MenuItems = menuItems;

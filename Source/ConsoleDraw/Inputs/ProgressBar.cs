@@ -12,14 +12,14 @@ namespace ConsoleDraw.Inputs
         private int percentageComplete;
         public int PercentageComplete
         {
-            get => this.percentageComplete;
+            get => percentageComplete;
             set
             {
                 if (value < 0 || value > 100)
                 {
                     throw new ArgumentOutOfRangeException(string.Format("Percentage must be between 0 & 100, actual:{0}", value));
                 }
-                this.percentageComplete = value;
+                percentageComplete = value;
                 Draw();
             }
         }
