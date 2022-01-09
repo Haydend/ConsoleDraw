@@ -18,7 +18,7 @@ namespace ConsoleDraw.Windows
         public string PathToFile;
 
         public SaveMenu(Window parentWindow, string fileName, string path, string data)
-            : base("Save Menu", 6, (Console.WindowWidth / 2) - 30, 60, 20, parentWindow)
+            : base(parentWindow, "Save Menu", 6, (Console.WindowWidth / 2) - 30, 60, 20)
         {
             BackgroundColour = ConsoleColor.White;
             Text = data;

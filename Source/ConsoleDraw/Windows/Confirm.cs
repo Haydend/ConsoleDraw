@@ -16,13 +16,13 @@ namespace ConsoleDraw.Windows
         public DialogResult Result = DialogResult.Cancel;
 
         public Confirm(Window parentWindow, string Message, string Title = "Confirm")
-            : base(Title, 6, (Console.WindowWidth / 2) - 25, 50, 5 + (int)Math.Ceiling(((double)Message.Count() / textLength)), parentWindow)
+            : base(parentWindow, Title, 6, (Console.WindowWidth / 2) - 25, 50, 5 + (int)Math.Ceiling(((double)Message.Count() / textLength)))
         {
             Create(Message, parentWindow);
         }
 
         public Confirm(string Message, Window parentWindow, ConsoleColor backgroundColour, string Title = "Message")
-            : base(Title, 6, (Console.WindowWidth / 2) - 25, 50, 5 + (int)Math.Ceiling(((double)Message.Count() / textLength)), parentWindow)
+            : base(parentWindow, Title, 6, (Console.WindowWidth / 2) - 25, 50, 5 + (int)Math.Ceiling(((double)Message.Count() / textLength)))
         {
             BackgroundColour = backgroundColour;
 
