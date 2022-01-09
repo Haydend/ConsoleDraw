@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using ConsoleDraw.Windows.Base;
-using ConsoleDraw.Inputs;
+﻿using ConsoleDraw.Inputs;
 using ConsoleDraw.Windows;
+using ConsoleDraw.Windows.Base;
+using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace TestApp.Windows
 {
@@ -12,24 +12,28 @@ namespace TestApp.Windows
     {
         public MainWindow() : base(0, 0, Console.WindowWidth, Console.WindowHeight, null)
         {
-            var oneBtn = new Button(2, 2, "Button One", "oneBtn", this) { Action = delegate() { new Alert("You Clicked Button One", this, ConsoleColor.White); } };
-            var twoBtn = new Button(4, 2, "Button Two", "twoBtn", this) { Action = delegate() { new Alert("You Clicked Button Two", this, ConsoleColor.White); } };
-            var threeBtn = new Button(6, 2, "Long Alert", "threeoBtn", this) { Action = delegate() { new Alert("A web browser (commonly referred to as a browser) is a software application for retrieving, presenting and traversing information resources on the World Wide", this, ConsoleColor.White); } };
+            var oneBtn = new Button(2, 2, "Button One", "oneBtn", this) { Action = delegate () { new Alert("You Clicked Button One", this, ConsoleColor.White); } };
+            var twoBtn = new Button(4, 2, "Button Two", "twoBtn", this) { Action = delegate () { new Alert("You Clicked Button Two", this, ConsoleColor.White); } };
+            var threeBtn = new Button(6, 2, "Long Alert", "threeoBtn", this) { Action = delegate () { new Alert("A web browser (commonly referred to as a browser) is a software application for retrieving, presenting and traversing information resources on the World Wide", this, ConsoleColor.White); } };
 
-            var displayAlertBtn = new Button(2, 20, "Display Alert", "displayAlertBtn", this) { Action = delegate() { new Alert("This is an Alert!", this, ConsoleColor.White); } };
-            var displayConfirmBtn = new Button(4, 20, "Display Confirm", "displayConfirmBtn", this) { Action = delegate() {
-                var cf = new Confirm("This is a Confirm!", this, ConsoleColor.White);
-                
-                if(cf.ShowDialog() == ConsoleDraw.DialogResult.OK)
+            var displayAlertBtn = new Button(2, 20, "Display Alert", "displayAlertBtn", this) { Action = delegate () { new Alert("This is an Alert!", this, ConsoleColor.White); } };
+            var displayConfirmBtn = new Button(4, 20, "Display Confirm", "displayConfirmBtn", this)
+            {
+                Action = delegate ()
                 {
+                    var cf = new Confirm("This is a Confirm!", this, ConsoleColor.White);
 
+                    if (cf.ShowDialog() == ConsoleDraw.DialogResult.OK)
+                    {
+
+                    }
                 }
-            } };
-            var exitBtn = new Button(6, 20, "Exit", "exitBtn", this) { Action = delegate() { ExitWindow(); } };
+            };
+            var exitBtn = new Button(6, 20, "Exit", "exitBtn", this) { Action = delegate () { ExitWindow(); } };
 
-            var displaySettingBtn = new Button(2, 40, "Display Settings", "displaySettingsBtn", this) { Action = delegate() { new SettingsWindow(this); } };
-            var displaySaveBtn = new Button(4, 40, "Display Save Menu", "displaySaveMenuBtn", this) { Action = delegate() { new SaveMenu("Untitled.txt", Directory.GetCurrentDirectory(), "Test Data", this); } };
-            var displayLoadBtn = new Button(6, 40, "Display Load Menu", "displayLoadMenuBtn", this) { Action = delegate() { new LoadMenu(Directory.GetCurrentDirectory(), new Dictionary<string, string>() {{"txt", "Text Document"}, {"*","All Files"}}, this); } };
+            var displaySettingBtn = new Button(2, 40, "Display Settings", "displaySettingsBtn", this) { Action = delegate () { new SettingsWindow(this); } };
+            var displaySaveBtn = new Button(4, 40, "Display Save Menu", "displaySaveMenuBtn", this) { Action = delegate () { new SaveMenu("Untitled.txt", Directory.GetCurrentDirectory(), "Test Data", this); } };
+            var displayLoadBtn = new Button(6, 40, "Display Load Menu", "displayLoadMenuBtn", this) { Action = delegate () { new LoadMenu(Directory.GetCurrentDirectory(), new Dictionary<string, string>() { { "txt", "Text Document" }, { "*", "All Files" } }, this); } };
 
             var oneCheckBox = new CheckBox(10, 2, "oneCheckBox", this);
             var oneCheckBoxLabel = new Label("Check Box One", 10, 6, "oneCheckBoxLabel", this);
@@ -66,7 +70,7 @@ namespace TestApp.Windows
             var progressBarDownBtn = new Button(37, 2, "Progress Down", "displaySettingsBtn", this) { Action = delegate () { progressBar.PercentageComplete--; progressBarLabel.SetText(String.Format("{0}%", progressBar.PercentageComplete).PadRight(4)); } };
             var progressBarUpBtn = new Button(37, 18, "Progress Up", "displaySettingsBtn", this) { Action = delegate () { progressBar.PercentageComplete++; progressBarLabel.SetText(String.Format("{0}%", progressBar.PercentageComplete).PadRight(4)); } };
 
-           
+
 
             Inputs.Add(oneBtn);
             Inputs.Add(twoBtn);
@@ -113,9 +117,9 @@ namespace TestApp.Windows
             Inputs.Add(progressBar);
             Inputs.Add(progressBarLabel);
 
-            List<string> opts = new List<string>() { "hello", "world"};
+            List<string> opts = new List<string>() { "hello", "world" };
             var cb = new Dropdown(0, 0, opts, "cb", this);
-            cb.DropdownItems = new List<DropdownItem>(opts.Select(_=>new DropdownItem(_,10,"2", this)).ToArray());
+            cb.DropdownItems = new List<DropdownItem>(opts.Select(_ => new DropdownItem(_, 10, "2", this)).ToArray());
 
             Inputs.Add(cb);
 

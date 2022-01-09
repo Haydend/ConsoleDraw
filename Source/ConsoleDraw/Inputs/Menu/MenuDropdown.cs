@@ -2,15 +2,13 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ConsoleDraw.Inputs
 {
     public class MenuDropdown : FullWindow
     {
         private List<MenuItem> MenuItems;
-        
+
         public MenuDropdown(int Xpostion, int Ypostion, List<MenuItem> menuItems, Window parentWindow)
             : base(Xpostion, Ypostion, 20, menuItems.Count() + 2, parentWindow)
         {
@@ -27,7 +25,7 @@ namespace ConsoleDraw.Inputs
 
 
             Inputs.AddRange(MenuItems);
-            
+
             CurrentlySelected = MenuItems.FirstOrDefault();
 
             BackgroundColour = ConsoleColor.DarkGray;
@@ -35,6 +33,6 @@ namespace ConsoleDraw.Inputs
             MainLoop();
         }
 
-        
+
     }
 }

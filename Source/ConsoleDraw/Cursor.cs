@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Timers;
 
 namespace ConsoleDraw
@@ -26,7 +22,7 @@ namespace ConsoleDraw
             _background = background;
             WindowManager.WriteText("_", x, y, ConsoleColor.White, background);
 
-            blink = new Timer(500); 
+            blink = new Timer(500);
             blink.Elapsed += new ElapsedEventHandler(BlinkCursor);
             blink.Enabled = true;
         }
@@ -40,7 +36,7 @@ namespace ConsoleDraw
                     blink.Dispose();
                 visible = false;
             }
-            
+
         }
 
         void BlinkCursor(object sender, ElapsedEventArgs e)

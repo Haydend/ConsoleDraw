@@ -1,10 +1,6 @@
 ﻿using ConsoleDraw.Inputs.Base;
 using ConsoleDraw.Windows.Base;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ConsoleDraw.Inputs
 {
@@ -31,7 +27,7 @@ namespace ConsoleDraw.Inputs
         public TextBox(int x, int y, String text, String iD, Window parentWindow, int length = 38) : base(x, y, 1, length, parentWindow, iD)
         {
             Text = text;
-            
+
             CursorPostion = text.Length;
 
             Selectable = true;
@@ -136,14 +132,14 @@ namespace ConsoleDraw.Inputs
 
             var clippedPath = "";
 
-            if(Selected)
+            if (Selected)
                 clippedPath = ' ' + Text.PadRight(Width + Offset, ' ').Substring(Offset, Width - 2);
             else
                 clippedPath = ' ' + Text.PadRight(Width, ' ').Substring(0, Width - 2);
 
             WindowManager.WriteText(clippedPath + " ", Xpostion, Ypostion, TextColour, BackgroundColour);
             if (Selected)
-                ShowCursor();          
+                ShowCursor();
         }
 
         private void ShowCursor()
@@ -159,7 +155,7 @@ namespace ConsoleDraw.Inputs
 
         private void SetOffset()
         {
-            while (CursorPostion - Offset > Width - 2 )
+            while (CursorPostion - Offset > Width - 2)
                 Offset++;
 
             while (CursorPostion - Offset < 0)

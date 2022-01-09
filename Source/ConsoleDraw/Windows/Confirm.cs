@@ -1,17 +1,14 @@
 ﻿using ConsoleDraw.Inputs;
 using ConsoleDraw.Windows.Base;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ConsoleDraw.Windows
 {
     public class Confirm : PopupWindow
     {
         private static int textLength = 46;
-        
+
         private Button okBtn;
         private Button cancelBtn;
         private DialogResult dr;
@@ -45,10 +42,10 @@ namespace ConsoleDraw.Windows
             }
 
             okBtn = new Button(PostionX + Height - 2, PostionY + 2, "OK", "OkBtn", this);
-            okBtn.Action = delegate() { ExitWindow(); dr = DialogResult.OK; };
+            okBtn.Action = delegate () { ExitWindow(); dr = DialogResult.OK; };
 
             cancelBtn = new Button(PostionX + Height - 2, PostionY + 8, "Cancel", "cancelBtn", this);
-            cancelBtn.Action = delegate() { ExitWindow(); dr = DialogResult.Cancel; };
+            cancelBtn.Action = delegate () { ExitWindow(); dr = DialogResult.Cancel; };
 
             Inputs.Add(okBtn);
             Inputs.Add(cancelBtn);

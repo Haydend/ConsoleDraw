@@ -3,8 +3,6 @@ using ConsoleDraw.Windows.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ConsoleDraw.Inputs
 {
@@ -22,14 +20,17 @@ namespace ConsoleDraw.Inputs
         private int Offset = 0;
         private List<String> SplitText = new List<String>();
         private String text = "";
-        private String Text {
-            get{
+        private String Text
+        {
+            get
+            {
                 return text;
-            } 
-            set {
+            }
+            set
+            {
                 if (OnChange != null && text != value)
-                    OnChange(); 
-                
+                    OnChange();
+
                 text = value;
 
                 SplitText = CreateSplitText();
@@ -82,7 +83,7 @@ namespace ConsoleDraw.Inputs
         {
             if (CursorPostion != 0)
                 CursorPostion--;
-                       
+
             Draw();
         }
 
@@ -145,7 +146,7 @@ namespace ConsoleDraw.Inputs
             if (nextLine.Count() >= CursorDisplayY)
                 newCursor += CursorDisplayY;
             else
-                newCursor += nextLine.Where(x => x!='\n').Count();
+                newCursor += nextLine.Where(x => x != '\n').Count();
 
             CursorPostion = newCursor;
             Draw();
@@ -223,23 +224,23 @@ namespace ConsoleDraw.Inputs
             //Draw test area
             for (var i = Offset; i < Height + Offset; i++)
             {
-                var line = ' ' +  "".PadRight(Width - 1, ' ');
-                if(lines.Count > i)
+                var line = ' ' + "".PadRight(Width - 1, ' ');
+                if (lines.Count > i)
                     line = ' ' + RemoveNewLine(lines[i]).PadRight(Width - 1, ' ');
 
                 WindowManager.WriteText(line, i + Xpostion - Offset, Ypostion, TextColour, BackgroundColour);
             }
-               
+
             if (Selected)
                 ShowCursor();
-        
+
             //Draw Scroll Bar
             WindowManager.DrawColourBlock(ConsoleColor.White, Xpostion, Ypostion + Width, Xpostion + Height, Ypostion + Width + 1);
-            
+
             double linesPerPixel = (double)lines.Count() / (Height);
             var postion = 0;
-            if(linesPerPixel > 0)
-              postion = (int)Math.Floor(cursorDisplayX / linesPerPixel);
+            if (linesPerPixel > 0)
+                postion = (int)Math.Floor(cursorDisplayX / linesPerPixel);
 
             WindowManager.WriteText("■", Xpostion + postion, Ypostion + Width, ConsoleColor.DarkGray, ConsoleColor.White);
         }
@@ -247,7 +248,7 @@ namespace ConsoleDraw.Inputs
         private List<String> CreateSplitText()
         {
             List<String> splitText = new List<String>();
-            
+
             var lastSplit = 0;
             for (var i = 0; i < Text.Count() + 1; i++)
             {
@@ -261,7 +262,7 @@ namespace ConsoleDraw.Inputs
                     splitText.Add(Text.Substring(lastSplit, i - lastSplit));
                     lastSplit = i;
                 }
-                
+
                 if (i == Text.Count())
                     splitText.Add(Text.Substring(lastSplit, Text.Count() - lastSplit));
             }
@@ -307,7 +308,7 @@ namespace ConsoleDraw.Inputs
                 {
                     displayY--;
                 }
-                
+
             }
 
             CursorDisplayX = displayX;

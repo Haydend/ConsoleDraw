@@ -1,10 +1,7 @@
 ﻿using ConsoleDraw.Inputs.Base;
 using ConsoleDraw.Windows.Base;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ConsoleDraw.Inputs
 {
@@ -32,6 +29,6 @@ namespace ConsoleDraw.Inputs
             Width = text.Count();
             Draw();
         }
-       
+
     }
 }

@@ -1,10 +1,6 @@
 ﻿using ConsoleDraw;
 using ConsoleDraw.Windows;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace InlineTestApp
 {
@@ -17,7 +13,7 @@ namespace InlineTestApp
             Console.WriteLine();
             Console.WriteLine();
 
-            for (var i = 0; i < 2; i++ )
+            for (var i = 0; i < 2; i++)
                 Console.WriteLine(i.ToString());
 
             Console.WriteLine("Loading Alert Message");

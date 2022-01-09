@@ -5,8 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ConsoleDraw.Inputs
 {
@@ -49,9 +47,9 @@ namespace ConsoleDraw.Inputs
             Selectable = true;
         }
 
-        
+
         public override void Draw()
-        { 
+        {
             WindowManager.DrawColourBlock(BackgroundColour, Xpostion, Ypostion, Xpostion + Height, Ypostion + Width);
 
             if (!ShowingDrive)
@@ -106,7 +104,7 @@ namespace ConsoleDraw.Inputs
                             WindowManager.WriteText(Drives[i], Xpostion + i - Offset + 1, Ypostion + 1, SelectedTextColour, BackgroundColour);
                     else
                         WindowManager.WriteText(Drives[i], Xpostion + i - Offset + 1, Ypostion + 1, TextColour, BackgroundColour);
-                    
+
                 }
 
             }
@@ -120,11 +118,11 @@ namespace ConsoleDraw.Inputs
 
             try
             {
-                if(IncludeFiles)
+                if (IncludeFiles)
                     FileNames = Directory.GetFiles(CurrentPath, "*." + FilterByExtension).Select(path => System.IO.Path.GetFileName(path)).ToList();
 
                 Folders = Directory.GetDirectories(CurrentPath).Select(path => System.IO.Path.GetFileName(path)).ToList();
-                
+
                 Folders.Insert(0, "..");
 
                 if (Directory.GetParent(CurrentPath) != null)
@@ -183,7 +181,7 @@ namespace ConsoleDraw.Inputs
                 Draw();
             }
             else
-                ParentWindow.MovetoNextItemDown(Xpostion, Ypostion, Width);    
+                ParentWindow.MovetoNextItemDown(Xpostion, Ypostion, Width);
         }
 
         public override void CursorMoveUp()
@@ -194,7 +192,7 @@ namespace ConsoleDraw.Inputs
                 Draw();
             }
             else
-                ParentWindow.MovetoNextItemUp(Xpostion, Ypostion, Width); 
+                ParentWindow.MovetoNextItemUp(Xpostion, Ypostion, Width);
         }
 
         public override void CursorMoveRight()
@@ -203,7 +201,7 @@ namespace ConsoleDraw.Inputs
                 GoIntoFolder();
             else if (ShowingDrive)
                 GoIntoDrive();
-        } 
+        }
 
         public override void Enter()
         {
@@ -218,7 +216,7 @@ namespace ConsoleDraw.Inputs
             else if (ShowingDrive)
                 GoIntoDrive();
 
-            
+
         }
 
         private void GoIntoDrive()
@@ -238,13 +236,13 @@ namespace ConsoleDraw.Inputs
                 ShowingDrive = true;
                 new Alert(e.Message, ParentWindow, ConsoleColor.White);
             }
-        
+
         }
 
         private void GoIntoFolder()
         {
             CurrentPath = Path.Combine(CurrentPath, Folders[cursorX]);
-            
+
             try
             {
                 GetFileNames();

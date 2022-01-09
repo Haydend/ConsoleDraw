@@ -1,10 +1,6 @@
 ﻿using ConsoleDraw.Inputs;
 using ConsoleDraw.Windows.Base;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TestApp.Windows
 {
@@ -26,8 +22,8 @@ namespace TestApp.Windows
             var justYouLabel = new Label("Just You", 14, 12, "justYou", this);
             var justYouRadioBtn = new RadioButton(14, 25, "justYouRadioBtn", "Users", this);
 
-            var applyBtn = new Button(24, 12, "Apply", "exitBtn", this) { Action = delegate() { ExitWindow(); } };
-            var exitBtn = new Button(24, 20, "Exit", "exitBtn", this) { Action = delegate() { ExitWindow(); } };
+            var applyBtn = new Button(24, 12, "Apply", "exitBtn", this) { Action = delegate () { ExitWindow(); } };
+            var exitBtn = new Button(24, 20, "Exit", "exitBtn", this) { Action = delegate () { ExitWindow(); } };
 
             Inputs.Add(appTitleLabel);
             Inputs.Add(appTitleTxtBox);
@@ -42,8 +38,8 @@ namespace TestApp.Windows
 
             Inputs.Add(applyBtn);
             Inputs.Add(exitBtn);
-            
-            
+
+
             CurrentlySelected = exitBtn;
 
             Draw();

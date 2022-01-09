@@ -1,12 +1,9 @@
-﻿using System;
+﻿using ConsoleDraw.Inputs;
+using ConsoleDraw.Windows.Base;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ConsoleDraw.Windows.Base;
-using ConsoleDraw.Inputs;
-using ConsoleDraw.Windows;
 
 namespace ConsoleDraw.Windows
 {
@@ -31,19 +28,19 @@ namespace ConsoleDraw.Windows
             FileTypes = fileTypes;
 
             fileSelect = new FileBrowser(PostionX + 2, PostionY + 2, 56, 13, path, "fileSelect", this, true, "txt");
-            fileSelect.ChangeItem = delegate() { UpdateCurrentlySelectedFileName(); };
-            fileSelect.SelectFile = delegate() { LoadFile(); };
+            fileSelect.ChangeItem = delegate () { UpdateCurrentlySelectedFileName(); };
+            fileSelect.SelectFile = delegate () { LoadFile(); };
 
             var openLabel = new Label("Open", PostionX + 16, PostionY + 2, "openLabel", this);
             openTxtBox = new TextBox(PostionX + 16, PostionY + 7, "openTxtBox", this, Width - 13) { Selectable = false };
 
             fileTypeDropdown = new Dropdown(PostionX + 18, PostionY + 40, FileTypes.Select(x => x.Value).ToList(), "fileTypeDropdown", this, 17);
-            fileTypeDropdown.OnUnselect = delegate() { UpdateFileTypeFilter(); };
+            fileTypeDropdown.OnUnselect = delegate () { UpdateFileTypeFilter(); };
 
             loadBtn = new Button(PostionX + 18, PostionY + 2, "Load", "loadBtn", this);
-            loadBtn.Action = delegate() { LoadFile(); };
+            loadBtn.Action = delegate () { LoadFile(); };
             cancelBtn = new Button(PostionX + 18, PostionY + 9, "Cancel", "cancelBtn", this);
-            cancelBtn.Action = delegate() { ExitWindow(); };
+            cancelBtn.Action = delegate () { ExitWindow(); };
 
             Inputs.Add(fileSelect);
             Inputs.Add(loadBtn);
@@ -51,7 +48,7 @@ namespace ConsoleDraw.Windows
             Inputs.Add(openLabel);
             Inputs.Add(openTxtBox);
             Inputs.Add(fileTypeDropdown);
-            
+
             CurrentlySelected = fileSelect;
 
             Draw();

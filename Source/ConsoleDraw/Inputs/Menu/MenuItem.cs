@@ -1,10 +1,6 @@
 ﻿using ConsoleDraw.Inputs.Base;
 using ConsoleDraw.Windows.Base;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ConsoleDraw.Inputs
 {
@@ -22,14 +18,14 @@ namespace ConsoleDraw.Inputs
         public MenuItem(String text, String iD, Window parentWindow)
             : base(0, 0, 1, 0, parentWindow, iD)
         {
-            Text = text; 
+            Text = text;
 
             Selectable = true;
         }
 
         public override void Draw()
         {
-            var paddedText = ('[' +Text + ']').PadRight(Width, ' ');
+            var paddedText = ('[' + Text + ']').PadRight(Width, ' ');
 
             if (Selected)
                 WindowManager.WriteText(paddedText, Xpostion, Ypostion, SelectedTextColour, SelectedBackgroundColour);
@@ -44,7 +40,7 @@ namespace ConsoleDraw.Inputs
                 Selected = true;
                 Draw();
 
-               // new MenuDropdown(Xpostion + 1, Ypostion, ParentWindow);
+                // new MenuDropdown(Xpostion + 1, Ypostion, ParentWindow);
             }
         }
 

@@ -3,8 +3,6 @@ using ConsoleDraw.Windows.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ConsoleDraw.Inputs
 {
@@ -32,7 +30,7 @@ namespace ConsoleDraw.Inputs
         public override void Draw()
         {
             if (Selected)
-                WindowManager.WriteText('['+Text+']', Xpostion, Ypostion, SelectedTextColour, SelectedBackgroundColour);
+                WindowManager.WriteText('[' + Text + ']', Xpostion, Ypostion, SelectedTextColour, SelectedBackgroundColour);
             else
                 WindowManager.WriteText('[' + Text + ']', Xpostion, Ypostion, TextColour, BackgroudColour);
         }

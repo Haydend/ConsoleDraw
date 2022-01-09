@@ -3,8 +3,6 @@ using ConsoleDraw.Windows.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ConsoleDraw.Inputs
 {
@@ -64,11 +62,11 @@ namespace ConsoleDraw.Inputs
             {
                 Selected = false;
                 Draw();
-                if(OnUnselect != null)
+                if (OnUnselect != null)
                     OnUnselect();
             }
         }
 
-        
+
     }
 }

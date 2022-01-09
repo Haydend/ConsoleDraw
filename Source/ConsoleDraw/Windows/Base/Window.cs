@@ -2,8 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ConsoleDraw.Windows.Base
 {
@@ -14,11 +12,11 @@ namespace ConsoleDraw.Windows.Base
 
         public int PostionX { get; private set; }
         public int PostionY { get; private set; }
-        public int Width {get; private set;}
+        public int Width { get; private set; }
         public int Height { get; private set; }
 
         public ConsoleColor BackgroundColour = ConsoleColor.Gray;
-        
+
         public List<IInput> Inputs = new List<IInput>();
 
         public Window(int postionX, int postionY, int width, int height, Window parentWindow)
@@ -38,19 +36,19 @@ namespace ConsoleDraw.Windows.Base
 
             ReDraw();
 
-                foreach (var input in Inputs)
-                    input.Draw();
+            foreach (var input in Inputs)
+                input.Draw();
 
-                if (CurrentlySelected != null)
-                    CurrentlySelected.Select();
-               // SetSelected();
+            if (CurrentlySelected != null)
+                CurrentlySelected.Select();
+            // SetSelected();
         }
 
         public override void ReDraw()
         {
-            
+
         }
-        
+
 
         public void MainLoop()
         {
@@ -291,7 +289,7 @@ namespace ConsoleDraw.Windows.Base
 
             var overlapsVertically = false;
             //Check if overlap vertically
-            if (areaOneX >= areaTwoX && areaOneX < areaTwoEndX ) //areaOne starts in areaTwo
+            if (areaOneX >= areaTwoX && areaOneX < areaTwoEndX) //areaOne starts in areaTwo
                 overlapsVertically = true;
             else if (areaOneEndX >= areaTwoX && areaOneEndX <= areaTwoEndX) //areaOne ends in areaTwo
                 overlapsVertically = true;
@@ -338,14 +336,14 @@ namespace ConsoleDraw.Windows.Base
         {
             Inputs.ForEach(x => x.Unselect());
 
-            if(CurrentlySelected != null)
+            if (CurrentlySelected != null)
                 CurrentlySelected.Select();
         }
 
         private static ConsoleKeyInfo ReadKey()
         {
             ConsoleKeyInfo input = Console.ReadKey(true);
-          
+
             return input;
         }
 
@@ -360,7 +358,7 @@ namespace ConsoleDraw.Windows.Base
             if (ParentWindow != null)
                 ParentWindow.Draw();
             //else
-                //System.Environment.Exit(1);
+            //System.Environment.Exit(1);
         }
     }
 }

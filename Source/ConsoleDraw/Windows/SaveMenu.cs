@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ConsoleDraw.Inputs;
 using ConsoleDraw.Windows.Base;
-using ConsoleDraw.Inputs;
-using ConsoleDraw.Windows;
+using System;
+using System.IO;
 
 namespace ConsoleDraw.Windows
 {
@@ -34,9 +29,9 @@ namespace ConsoleDraw.Windows
             openTxtBox = new TextBox(PostionX + 16, PostionY + 7, fileName, "openTxtBox", this, Width - 13) { Selectable = true };
 
             saveBtn = new Button(PostionX + 18, PostionY + 2, "Save", "loadBtn", this);
-            saveBtn.Action = delegate() { SaveFile(); };
+            saveBtn.Action = delegate () { SaveFile(); };
             cancelBtn = new Button(PostionX + 18, PostionY + 9, "Cancel", "cancelBtn", this);
-            cancelBtn.Action = delegate() { ExitWindow(); };
+            cancelBtn.Action = delegate () { ExitWindow(); };
 
             Inputs.Add(fileSelect);
             Inputs.Add(openLabel);
@@ -50,7 +45,7 @@ namespace ConsoleDraw.Windows
             MainLoop();
         }
 
-        
+
         private void SaveFile()
         {
             var path = fileSelect.CurrentPath;
@@ -73,11 +68,11 @@ namespace ConsoleDraw.Windows
                 ExitWindow();
             }
             catch
-            { 
+            {
                 new Alert("You do not have access", this, "Error");
             }
 
-            
+
         }
     }
 }

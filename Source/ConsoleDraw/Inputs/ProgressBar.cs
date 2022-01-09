@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ConsoleDraw.Inputs.Base;
+﻿using ConsoleDraw.Inputs.Base;
 using ConsoleDraw.Windows.Base;
+using System;
 
 namespace ConsoleDraw.Inputs
 {
@@ -14,11 +10,14 @@ namespace ConsoleDraw.Inputs
         public ConsoleColor BarColour = ConsoleColor.Black;
 
         private int percentageComplete;
-        public int PercentageComplete {
+        public int PercentageComplete
+        {
             get { return this.percentageComplete; }
-            set {
-                if (value < 0 || value > 100) {
-                    throw new ArgumentOutOfRangeException(String.Format("Percentage must be between 0 & 100, actual:{0}", value));     
+            set
+            {
+                if (value < 0 || value > 100)
+                {
+                    throw new ArgumentOutOfRangeException(String.Format("Percentage must be between 0 & 100, actual:{0}", value));
                 }
                 this.percentageComplete = value;
                 Draw();
@@ -29,7 +28,7 @@ namespace ConsoleDraw.Inputs
         {
             Selectable = false;
             PercentageComplete = percentageComplete;
-    }
+        }
 
         public override void Draw()
         {

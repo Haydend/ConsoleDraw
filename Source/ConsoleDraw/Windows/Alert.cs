@@ -1,10 +1,7 @@
 ﻿using ConsoleDraw.Inputs;
 using ConsoleDraw.Windows.Base;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ConsoleDraw.Windows
 {
@@ -45,7 +42,7 @@ namespace ConsoleDraw.Windows
         private void Create(String Message, Window parentWindow)
         {
             var count = 0;
-            while ((count*45) < Message.Count())
+            while ((count * 45) < Message.Count())
             {
                 var splitMessage = Message.PadRight(textLength * (count + 1), ' ').Substring((count * textLength), textLength);
                 var messageLabel = new Label(splitMessage, PostionX + 2 + count, PostionY + 2, "messageLabel", this);
@@ -59,7 +56,7 @@ namespace ConsoleDraw.Windows
             messageLabel.BackgroundColour = BackgroundColour;*/
 
             okBtn = new Button(PostionX + Height - 2, PostionY + 2, "OK", "OkBtn", this);
-            okBtn.Action = delegate() { ExitWindow(); };
+            okBtn.Action = delegate () { ExitWindow(); };
 
             Inputs.Add(okBtn);
 

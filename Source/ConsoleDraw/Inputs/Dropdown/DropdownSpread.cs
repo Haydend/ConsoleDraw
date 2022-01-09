@@ -2,8 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ConsoleDraw.Inputs
 {
@@ -19,7 +17,8 @@ namespace ConsoleDraw.Inputs
             {
                 var item = new DropdownItem(options[i], Xpostion + i, "option" + i, this);
 
-                item.Action = delegate() {
+                item.Action = delegate ()
+                {
                     root.Text = ((DropdownItem)CurrentlySelected).Text;
                     root.Draw();
                 };

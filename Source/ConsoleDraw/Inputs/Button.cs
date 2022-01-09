@@ -1,10 +1,7 @@
 ﻿using ConsoleDraw.Inputs.Base;
 using ConsoleDraw.Windows.Base;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ConsoleDraw.Inputs
 {
@@ -54,15 +51,15 @@ namespace ConsoleDraw.Inputs
 
         public override void Draw()
         {
-            if(Selected)
-                WindowManager.WriteText('['+Text+']', Xpostion, Ypostion, SelectedTextColour, SelectedBackgroundColour);
+            if (Selected)
+                WindowManager.WriteText('[' + Text + ']', Xpostion, Ypostion, SelectedTextColour, SelectedBackgroundColour);
             else
-                WindowManager.WriteText('[' + Text + ']', Xpostion, Ypostion, TextColour, BackgroundColour);  
+                WindowManager.WriteText('[' + Text + ']', Xpostion, Ypostion, TextColour, BackgroundColour);
         }
-        
+
         public override void CursorMoveDown()
         {
-            ParentWindow.MovetoNextItemDown(Xpostion, Ypostion , Width);
+            ParentWindow.MovetoNextItemDown(Xpostion, Ypostion, Width);
         }
 
         public override void CursorMoveRight()

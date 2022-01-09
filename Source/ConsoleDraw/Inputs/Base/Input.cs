@@ -1,9 +1,5 @@
 ﻿using ConsoleDraw.Windows.Base;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ConsoleDraw.Inputs.Base
 {
@@ -30,10 +26,11 @@ namespace ConsoleDraw.Inputs.Base
         public override void CursorToStart() { }
         public override void CursorToEnd() { }
         public override void Enter() { }
-        public override void Tab() {
+        public override void Tab()
+        {
             ParentWindow.MoveToNextItem();
         }
-        
+
         public override void Unselect() { }
         public override void Select() { }
         public override void Draw() { }
