@@ -11,7 +11,7 @@ namespace ConsoleDraw.Inputs
         public Dropdown root;
 
         public DropdownSpread(int Xpostion, int Ypostion, List<string> options, Window parentWindow, Dropdown root)
-            : base(Xpostion, Ypostion, 20, options.Count(), parentWindow)
+            : base(parentWindow, Xpostion, Ypostion, 20, options.Count())
         {
             for (int i = 0; i < options.Count(); i++)
             {

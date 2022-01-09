@@ -10,7 +10,7 @@ namespace ConsoleDraw.Inputs
         private List<MenuItem> MenuItems;
 
         public MenuDropdown(int Xpostion, int Ypostion, List<MenuItem> menuItems, Window parentWindow)
-            : base(Xpostion, Ypostion, 20, menuItems.Count() + 2, parentWindow)
+            : base(parentWindow, Xpostion, Ypostion, 20, menuItems.Count() + 2)
         {
 
             for (int i = 0; i < menuItems.Count(); i++)

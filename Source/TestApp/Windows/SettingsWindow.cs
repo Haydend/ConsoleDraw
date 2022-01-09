@@ -7,7 +7,7 @@ namespace TestApp.Windows
     public class SettingsWindow : PopupWindow
     {
         public SettingsWindow(Window parentWindow)
-            : base("Settings", 6, 10, 80, 20, parentWindow)
+            : base(parentWindow, "Settings", 6, 10, 80, 20)
         {
             BackgroundColour = ConsoleColor.White;
 

@@ -10,7 +10,7 @@ namespace TestApp.Windows
 {
     public class MainWindow : FullWindow
     {
-        public MainWindow() : base(0, 0, Console.WindowWidth, Console.WindowHeight, null)
+        public MainWindow() : base(null, 0, 0, Console.WindowWidth, Console.WindowHeight)
         {
             Button oneBtn = new(2, 2, "Button One", "oneBtn", this) { Action = delegate () { _ = new Alert("You Clicked Button One", this, ConsoleColor.White); } };
             Button twoBtn = new(4, 2, "Button Two", "twoBtn", this) { Action = delegate () { _ = new Alert("You Clicked Button Two", this, ConsoleColor.White); } };
@@ -32,8 +32,8 @@ namespace TestApp.Windows
             Button exitBtn = new(6, 20, "Exit", "exitBtn", this) { Action = delegate () { ExitWindow(); } };
 
             Button displaySettingBtn = new(2, 40, "Display Settings", "displaySettingsBtn", this) { Action = delegate () { _ = new SettingsWindow(this); } };
-            Button displaySaveBtn = new(4, 40, "Display Save Menu", "displaySaveMenuBtn", this) { Action = delegate () { _ = new SaveMenu("Untitled.txt", Directory.GetCurrentDirectory(), "Test Data", this); } };
-            Button displayLoadBtn = new(6, 40, "Display Load Menu", "displayLoadMenuBtn", this) { Action = delegate () { _ = new LoadMenu(Directory.GetCurrentDirectory(), new Dictionary<string, string>() { { "txt", "Text Document" }, { "*", "All Files" } }, this); } };
+            Button displaySaveBtn = new(4, 40, "Display Save Menu", "displaySaveMenuBtn", this) { Action = delegate () { _ = new SaveMenu(this, "Untitled.txt", Directory.GetCurrentDirectory(), "Test Data"); } };
+            Button displayLoadBtn = new(6, 40, "Display Load Menu", "displayLoadMenuBtn", this) { Action = delegate () { _ = new LoadMenu(this, Directory.GetCurrentDirectory(), new Dictionary<string, string>() { { "txt", "Text Document" }, { "*", "All Files" } }); } };
 
             CheckBox oneCheckBox = new(10, 2, "oneCheckBox", this);
             Label oneCheckBoxLabel = new("Check Box One", 10, 6, "oneCheckBoxLabel", this);
