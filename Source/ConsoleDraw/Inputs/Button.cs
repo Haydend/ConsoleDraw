@@ -45,8 +45,7 @@ namespace ConsoleDraw.Inputs
 
         public override void Enter()
         {
-            if (Action != null) //If an action has been set
-                Action();
+            Action?.Invoke();
         }
 
         public override void Draw()

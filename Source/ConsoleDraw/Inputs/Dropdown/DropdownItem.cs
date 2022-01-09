@@ -39,8 +39,7 @@ namespace ConsoleDraw.Inputs
                 Selected = true;
                 Draw();
 
-                if (Action != null)
-                    Action();
+                Action?.Invoke();
             }
         }
 

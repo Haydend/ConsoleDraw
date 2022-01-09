@@ -37,7 +37,7 @@ namespace ConsoleDraw.Inputs
 
         public override void Draw()
         {
-            var paddedText = Text.PadRight(Length - 2, ' ').Substring(0, Length - 2);
+            var paddedText = Text.PadRight(Length - 2, ' ')[..(Length - 2)];
 
             if (Selected)
                 WindowManager.WriteText('[' + paddedText + '▼' + ']', Xpostion, Ypostion, SelectedTextColour, SelectedBackgroundColour);
@@ -62,8 +62,7 @@ namespace ConsoleDraw.Inputs
             {
                 Selected = false;
                 Draw();
-                if (OnUnselect != null)
-                    OnUnselect();
+                OnUnselect?.Invoke();
             }
         }
 

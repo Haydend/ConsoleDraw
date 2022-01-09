@@ -55,8 +55,10 @@ namespace ConsoleDraw.Windows
             var messageLabel = new Label(Message, PostionX + 2, PostionY + 2, "messageLabel", this);
             messageLabel.BackgroundColour = BackgroundColour;*/
 
-            okBtn = new Button(PostionX + Height - 2, PostionY + 2, "OK", "OkBtn", this);
-            okBtn.Action = delegate () { ExitWindow(); };
+            okBtn = new Button(PostionX + Height - 2, PostionY + 2, "OK", "OkBtn", this)
+            {
+                Action = delegate () { ExitWindow(); }
+            };
 
             Inputs.Add(okBtn);
 

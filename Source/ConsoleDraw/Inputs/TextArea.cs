@@ -70,8 +70,8 @@ namespace ConsoleDraw.Inputs
 
         public override void AddLetter(char letter)
         {
-            String textBefore = Text.Substring(0, CursorPostion);
-            String textAfter = Text.Substring(CursorPostion, Text.Length - CursorPostion);
+            String textBefore = Text[..CursorPostion];
+            String textAfter = Text[CursorPostion..];
 
             Text = textBefore + letter + textAfter;
 
@@ -185,10 +185,10 @@ namespace ConsoleDraw.Inputs
         {
             if (CursorPostion != 0)
             {
-                String textBefore = Text.Substring(0, CursorPostion);
-                String textAfter = Text.Substring(CursorPostion, Text.Length - CursorPostion);
+                String textBefore = Text[..CursorPostion];
+                String textAfter = Text[CursorPostion..];
 
-                textBefore = textBefore.Substring(0, textBefore.Length - 1);
+                textBefore = textBefore[0..^1];
 
                 Text = textBefore + textAfter;
                 CursorPostion--;
@@ -259,12 +259,12 @@ namespace ConsoleDraw.Inputs
                 }
                 else if (i - lastSplit == Width - 2)
                 {
-                    splitText.Add(Text.Substring(lastSplit, i - lastSplit));
+                    splitText.Add(Text[lastSplit..i]);
                     lastSplit = i;
                 }
 
                 if (i == Text.Count())
-                    splitText.Add(Text.Substring(lastSplit, Text.Count() - lastSplit));
+                    splitText.Add(Text[lastSplit..Text.Count()]);
             }
 
             return splitText.Select(x => x.Replace('\r', ' ')).ToList();

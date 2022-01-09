@@ -5,14 +5,14 @@ namespace TestApp
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             //Setup
             WindowManager.UpdateWindow(100, 48);
             WindowManager.UpdateWindow(100, 48);
             WindowManager.SetWindowTitle("Test App");
 
-            new MainWindow();
+            _ = new MainWindow();
         }
     }
 }

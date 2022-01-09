@@ -12,11 +12,11 @@ namespace TestApp.Windows
     {
         public MainWindow() : base(0, 0, Console.WindowWidth, Console.WindowHeight, null)
         {
-            var oneBtn = new Button(2, 2, "Button One", "oneBtn", this) { Action = delegate () { new Alert("You Clicked Button One", this, ConsoleColor.White); } };
-            var twoBtn = new Button(4, 2, "Button Two", "twoBtn", this) { Action = delegate () { new Alert("You Clicked Button Two", this, ConsoleColor.White); } };
-            var threeBtn = new Button(6, 2, "Long Alert", "threeoBtn", this) { Action = delegate () { new Alert("A web browser (commonly referred to as a browser) is a software application for retrieving, presenting and traversing information resources on the World Wide", this, ConsoleColor.White); } };
+            var oneBtn = new Button(2, 2, "Button One", "oneBtn", this) { Action = delegate () { _ = new Alert("You Clicked Button One", this, ConsoleColor.White); } };
+            var twoBtn = new Button(4, 2, "Button Two", "twoBtn", this) { Action = delegate () { _ = new Alert("You Clicked Button Two", this, ConsoleColor.White); } };
+            var threeBtn = new Button(6, 2, "Long Alert", "threeoBtn", this) { Action = delegate () { _ = new Alert("A web browser (commonly referred to as a browser) is a software application for retrieving, presenting and traversing information resources on the World Wide", this, ConsoleColor.White); } };
 
-            var displayAlertBtn = new Button(2, 20, "Display Alert", "displayAlertBtn", this) { Action = delegate () { new Alert("This is an Alert!", this, ConsoleColor.White); } };
+            var displayAlertBtn = new Button(2, 20, "Display Alert", "displayAlertBtn", this) { Action = delegate () { _ = new Alert("This is an Alert!", this, ConsoleColor.White); } };
             var displayConfirmBtn = new Button(4, 20, "Display Confirm", "displayConfirmBtn", this)
             {
                 Action = delegate ()
@@ -31,9 +31,9 @@ namespace TestApp.Windows
             };
             var exitBtn = new Button(6, 20, "Exit", "exitBtn", this) { Action = delegate () { ExitWindow(); } };
 
-            var displaySettingBtn = new Button(2, 40, "Display Settings", "displaySettingsBtn", this) { Action = delegate () { new SettingsWindow(this); } };
-            var displaySaveBtn = new Button(4, 40, "Display Save Menu", "displaySaveMenuBtn", this) { Action = delegate () { new SaveMenu("Untitled.txt", Directory.GetCurrentDirectory(), "Test Data", this); } };
-            var displayLoadBtn = new Button(6, 40, "Display Load Menu", "displayLoadMenuBtn", this) { Action = delegate () { new LoadMenu(Directory.GetCurrentDirectory(), new Dictionary<string, string>() { { "txt", "Text Document" }, { "*", "All Files" } }, this); } };
+            var displaySettingBtn = new Button(2, 40, "Display Settings", "displaySettingsBtn", this) { Action = delegate () { _ = new SettingsWindow(this); } };
+            var displaySaveBtn = new Button(4, 40, "Display Save Menu", "displaySaveMenuBtn", this) { Action = delegate () { _ = new SaveMenu("Untitled.txt", Directory.GetCurrentDirectory(), "Test Data", this); } };
+            var displayLoadBtn = new Button(6, 40, "Display Load Menu", "displayLoadMenuBtn", this) { Action = delegate () { _ = new LoadMenu(Directory.GetCurrentDirectory(), new Dictionary<string, string>() { { "txt", "Text Document" }, { "*", "All Files" } }, this); } };
 
             var oneCheckBox = new CheckBox(10, 2, "oneCheckBox", this);
             var oneCheckBoxLabel = new Label("Check Box One", 10, 6, "oneCheckBoxLabel", this);
@@ -56,8 +56,10 @@ namespace TestApp.Windows
             var threeRadioBtnGroupTwo = new RadioButton(14, 50, "threeRadioBtnGroupTwo", "groupTwo", this);
 
             var textAreaLabel = new Label("Text Area", 16, 2, "textAreaLabel", this);
-            var textArea = new TextArea(17, 2, 60, 6, "txtArea", this);
-            textArea.BackgroundColour = ConsoleColor.DarkGray;
+            var textArea = new TextArea(17, 2, 60, 6, "txtArea", this)
+            {
+                BackgroundColour = ConsoleColor.DarkGray
+            };
 
             var txtBoxLabel = new Label("Text Box", 24, 2, "txtBoxLabel", this);
             var txtBox = new TextBox(24, 11, "txtBox", this);
@@ -117,9 +119,11 @@ namespace TestApp.Windows
             Inputs.Add(progressBar);
             Inputs.Add(progressBarLabel);
 
-            List<string> opts = new List<string>() { "hello", "world" };
-            var cb = new Dropdown(0, 0, opts, "cb", this);
-            cb.DropdownItems = new List<DropdownItem>(opts.Select(_ => new DropdownItem(_, 10, "2", this)).ToArray());
+            List<string> opts = new() { "hello", "world" };
+            Dropdown cb = new(0, 0, opts, "cb", this)
+            {
+                DropdownItems = new List<DropdownItem>(opts.Select(_ => new DropdownItem(_, 10, "2", this)).ToArray())
+            };
 
             Inputs.Add(cb);
 

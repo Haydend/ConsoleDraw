@@ -41,11 +41,15 @@ namespace ConsoleDraw.Windows
                 count++;
             }
 
-            okBtn = new Button(PostionX + Height - 2, PostionY + 2, "OK", "OkBtn", this);
-            okBtn.Action = delegate () { ExitWindow(); dr = DialogResult.OK; };
+            okBtn = new Button(PostionX + Height - 2, PostionY + 2, "OK", "OkBtn", this)
+            {
+                Action = delegate () { ExitWindow(); dr = DialogResult.OK; }
+            };
 
-            cancelBtn = new Button(PostionX + Height - 2, PostionY + 8, "Cancel", "cancelBtn", this);
-            cancelBtn.Action = delegate () { ExitWindow(); dr = DialogResult.Cancel; };
+            cancelBtn = new Button(PostionX + Height - 2, PostionY + 8, "Cancel", "cancelBtn", this)
+            {
+                Action = delegate () { ExitWindow(); dr = DialogResult.Cancel; }
+            };
 
             Inputs.Add(okBtn);
             Inputs.Add(cancelBtn);

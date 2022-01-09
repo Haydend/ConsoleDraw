@@ -66,7 +66,7 @@ namespace ConsoleDraw.Inputs
                 var i = Offset;
                 while (i < Math.Min(Folders.Count, Height + Offset - 1))
                 {
-                    var folderName = Folders[i].PadRight(Width - 2, ' ').Substring(0, Width - 2);
+                    var folderName = Folders[i].PadRight(Width - 2, ' ')[..(Width - 2)];
 
                     if (i == CursorX)
                         if (Selected)
@@ -81,7 +81,7 @@ namespace ConsoleDraw.Inputs
 
                 while (i < Math.Min(Folders.Count + FileNames.Count, Height + Offset - 1))
                 {
-                    var fileName = FileNames[i - Folders.Count].PadRight(Width - 2, ' ').Substring(0, Width - 2);
+                    var fileName = FileNames[i - Folders.Count].PadRight(Width - 2, ' ')[..(Width - 2)];
 
                     if (i == CursorX)
                         if (Selected)
@@ -242,14 +242,13 @@ namespace ConsoleDraw.Inputs
         private void GoIntoFolder()
         {
             CurrentPath = Path.Combine(CurrentPath, Folders[cursorX]);
-
             try
             {
                 GetFileNames();
                 CursorX = 0;
                 Draw();
             }
-            catch (UnauthorizedAccessException e)
+            catch (UnauthorizedAccessException)
             {
                 CurrentPath = Directory.GetParent(CurrentPath).FullName; //Change Path back to parent
                 new Alert("Access Denied", ParentWindow, ConsoleColor.White, "Error");
@@ -292,16 +291,14 @@ namespace ConsoleDraw.Inputs
             if (cursorX >= Folders.Count()) //File is selected
             {
                 CurrentlySelectedFile = FileNames[cursorX - Folders.Count];
-                if (ChangeItem != null)
-                    ChangeItem();
+                ChangeItem?.Invoke();
             }
             else
             {
                 if (CurrentlySelectedFile != "")
                 {
                     CurrentlySelectedFile = "";
-                    if (ChangeItem != null)
-                        ChangeItem();
+                    ChangeItem?.Invoke();
                 }
             }
         }

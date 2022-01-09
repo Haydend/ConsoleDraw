@@ -6,7 +6,7 @@ namespace InlineTestApp
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             Console.WriteLine("Test App");
 
@@ -20,7 +20,7 @@ namespace InlineTestApp
             Console.ReadLine();
 
             WindowManager.SetupWindow();
-            new Alert("This is an alert!", null);
+            _ = new Alert("This is an alert!", null);
             WindowManager.EndWindow();
             Console.WriteLine("That was the Alert");
 

@@ -15,12 +15,13 @@ namespace ConsoleDraw.Inputs
         {
             for (var i = 0; i < options.Count(); i++)
             {
-                var item = new DropdownItem(options[i], Xpostion + i, "option" + i, this);
-
-                item.Action = delegate ()
+                var item = new DropdownItem(options[i], Xpostion + i, "option" + i, this)
                 {
-                    root.Text = ((DropdownItem)CurrentlySelected).Text;
-                    root.Draw();
+                    Action = delegate ()
+                    {
+                        root.Text = ((DropdownItem)CurrentlySelected).Text;
+                        root.Draw();
+                    }
                 };
 
                 DropdownItems.Add(item);

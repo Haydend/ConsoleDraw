@@ -56,8 +56,7 @@ namespace ConsoleDraw.Inputs
 
             Draw();
 
-            if (Action != null) //If an action has been set
-                Action();
+            Action?.Invoke();
         }
 
         public void Uncheck()

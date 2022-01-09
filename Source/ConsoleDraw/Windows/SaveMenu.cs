@@ -28,10 +28,14 @@ namespace ConsoleDraw.Windows
             var openLabel = new Label("Name", PostionX + 16, PostionY + 2, "openLabel", this);
             openTxtBox = new TextBox(PostionX + 16, PostionY + 7, fileName, "openTxtBox", this, Width - 13) { Selectable = true };
 
-            saveBtn = new Button(PostionX + 18, PostionY + 2, "Save", "loadBtn", this);
-            saveBtn.Action = delegate () { SaveFile(); };
-            cancelBtn = new Button(PostionX + 18, PostionY + 9, "Cancel", "cancelBtn", this);
-            cancelBtn.Action = delegate () { ExitWindow(); };
+            saveBtn = new Button(PostionX + 18, PostionY + 2, "Save", "loadBtn", this)
+            {
+                Action = delegate () { SaveFile(); }
+            };
+            cancelBtn = new Button(PostionX + 18, PostionY + 9, "Cancel", "cancelBtn", this)
+            {
+                Action = delegate () { ExitWindow(); }
+            };
 
             Inputs.Add(fileSelect);
             Inputs.Add(openLabel);

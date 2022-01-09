@@ -58,8 +58,8 @@ namespace ConsoleDraw.Inputs
 
         public override void AddLetter(Char letter)
         {
-            String textBefore = Text.Substring(0, CursorPostion);
-            String textAfter = Text.Substring(CursorPostion, Text.Length - CursorPostion);
+            String textBefore = Text[..CursorPostion];
+            String textAfter = Text[CursorPostion..];
 
             Text = textBefore + letter + textAfter;
             CursorPostion++;
@@ -70,10 +70,10 @@ namespace ConsoleDraw.Inputs
         {
             if (CursorPostion != 0)
             {
-                String textBefore = Text.Substring(0, CursorPostion);
-                String textAfter = Text.Substring(CursorPostion, Text.Length - CursorPostion);
+                String textBefore = Text[..CursorPostion];
+                String textAfter = Text[CursorPostion..];
 
-                textBefore = textBefore.Substring(0, textBefore.Length - 1);
+                textBefore = textBefore[0..^1];
 
                 Text = textBefore + textAfter;
                 CursorPostion--;
@@ -135,7 +135,7 @@ namespace ConsoleDraw.Inputs
             if (Selected)
                 clippedPath = ' ' + Text.PadRight(Width + Offset, ' ').Substring(Offset, Width - 2);
             else
-                clippedPath = ' ' + Text.PadRight(Width, ' ').Substring(0, Width - 2);
+                clippedPath = ' ' + Text.PadRight(Width, ' ')[..(Width - 2)];
 
             WindowManager.WriteText(clippedPath + " ", Xpostion, Ypostion, TextColour, BackgroundColour);
             if (Selected)
