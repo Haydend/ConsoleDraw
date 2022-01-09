@@ -19,7 +19,7 @@ namespace ConsoleDraw.Windows.Base
 
         public List<IInput> Inputs = new();
 
-        public Window(int postionX, int postionY, int width, int height, Window parentWindow)
+        public Window(Window parentWindow, int postionX, int postionY, int width, int height)
         {
             PostionY = postionY;
             PostionX = postionX;

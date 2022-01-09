@@ -11,35 +11,35 @@ namespace ConsoleDraw.Windows
         private static int textLength = 46;
 
 
-        public Alert(string Message, Window parentWindow)
-            : base("Message", 6, (Console.WindowWidth / 2) - 25, 50, 5 + (int)Math.Ceiling(((double)Message.Count() / textLength)), parentWindow)
+        public Alert(Window parentWindow, string Message)
+            : base(parentWindow, "Message", 6, (Console.WindowWidth / 2) - 25, 50, 5 + (int)Math.Ceiling(((double)Message.Count() / textLength)))
         {
-            Create(Message, parentWindow);
+            Create(parentWindow, Message);
         }
 
         public Alert(string Message, Window parentWindow, string Title)
-            : base(Title, 6, (Console.WindowWidth / 2) - 30, 25, 5 + (int)Math.Ceiling(((double)Message.Count() / textLength)), parentWindow)
+            : base(parentWindow, Title, 6, (Console.WindowWidth / 2) - 30, 25, 5 + (int)Math.Ceiling(((double)Message.Count() / textLength)))
         {
-            Create(Message, parentWindow);
+            Create(parentWindow, Message);
         }
 
         public Alert(string Message, Window parentWindow, ConsoleColor backgroundColour)
-            : base("Message", 6, (Console.WindowWidth / 2) - 25, 50, 5 + (int)Math.Ceiling(((double)Message.Count() / textLength)), parentWindow)
+            : base(parentWindow, "Message", 6, (Console.WindowWidth / 2) - 25, 50, 5 + (int)Math.Ceiling(((double)Message.Count() / textLength)))
         {
             BackgroundColour = backgroundColour;
 
-            Create(Message, parentWindow);
+            Create(parentWindow, Message);
         }
 
         public Alert(string Message, Window parentWindow, ConsoleColor backgroundColour, string Title)
-            : base(Title, 6, (Console.WindowWidth / 2) - 25, 50, 5 + (int)Math.Ceiling(((double)Message.Count() / textLength)), parentWindow)
+            : base(parentWindow, Title, 6, (Console.WindowWidth / 2) - 25, 50, 5 + (int)Math.Ceiling(((double)Message.Count() / textLength)))
         {
             BackgroundColour = backgroundColour;
 
-            Create(Message, parentWindow);
+            Create(parentWindow, Message);
         }
 
-        private void Create(string Message, Window parentWindow)
+        private void Create(Window parentWindow, string Message)
         {
             int count = 0;
             while ((count * 45) < Message.Count())

@@ -21,8 +21,8 @@ namespace ConsoleDraw.Windows
         public string PathOfLoaded;
         public Dictionary<string, string> FileTypes;
 
-        public LoadMenu(string path, Dictionary<string, string> fileTypes, Window parentWindow)
-            : base("Load Menu", Math.Min(6, Console.WindowHeight - 22), (Console.WindowWidth / 2) - 30, 60, 20, parentWindow)
+        public LoadMenu(Window parentWindow, string path, Dictionary<string, string> fileTypes)
+            : base(parentWindow, "Load Menu", Math.Min(6, Console.WindowHeight - 22), (Console.WindowWidth / 2) - 30, 60, 20)
         {
             BackgroundColour = ConsoleColor.White;
             FileTypes = fileTypes;

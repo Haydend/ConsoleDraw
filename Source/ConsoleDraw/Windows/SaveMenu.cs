@@ -17,7 +17,7 @@ namespace ConsoleDraw.Windows
         public string FileSavedAs;
         public string PathToFile;
 
-        public SaveMenu(string fileName, string path, string data, Window parentWindow)
+        public SaveMenu(Window parentWindow, string fileName, string path, string data)
             : base("Save Menu", 6, (Console.WindowWidth / 2) - 30, 60, 20, parentWindow)
         {
             BackgroundColour = ConsoleColor.White;

@@ -13,7 +13,7 @@ namespace ConsoleDraw.Windows
         private Button cancelBtn;
         private DialogResult dr;
 
-        public DialogResult Result { get; set; }
+        public DialogResult Result = DialogResult.Cancel;
 
         public Confirm(Window parentWindow, string Message, string Title = "Confirm")
             : base(Title, 6, (Console.WindowWidth / 2) - 25, 50, 5 + (int)Math.Ceiling(((double)Message.Count() / textLength)), parentWindow)
@@ -62,7 +62,8 @@ namespace ConsoleDraw.Windows
             Draw();
             MainLoop();
 
-            return dr;
+            Result = dr;
+            return Result;
         }
 
     }

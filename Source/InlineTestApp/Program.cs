@@ -10,32 +10,21 @@ namespace InlineTestApp
         {
             Console.WriteLine("Test App");
 
-            Console.WriteLine();
-            Console.WriteLine();
-
-            for (int i = 0; i < 2; i++)
-                Console.WriteLine(i.ToString());
-
-            Console.WriteLine("Loading Alert Message");
-            Console.ReadLine();
+            Console.Write("Loading Alert Message: ");
 
             WindowManager.SetupWindow();
-            _ = new Alert("This is an alert!", null);
+            _ = new Alert(null, "This is an alert!");
             WindowManager.EndWindow();
-            Console.WriteLine("That was the Alert");
+            Console.WriteLine("Success");
 
-            Console.WriteLine("Loading Confirm Message");
-            Console.ReadLine();
-
+            Console.Write("Loading Confirm Message, result: ");
             WindowManager.SetupWindow();
             Confirm confirm = new(null, "Are you wish to run this program?");
+            DialogResult result = confirm.ShowDialog();          
             WindowManager.EndWindow();
+            Console.WriteLine(result.ToString());
 
-            if (confirm.Result == DialogResult.OK)
-                Console.WriteLine("You pressed OK");
-            else
-                Console.WriteLine("You pressed Cancel");
-
+            Console.WriteLine("Test Complete...");
             Console.ReadLine();
         }
     }

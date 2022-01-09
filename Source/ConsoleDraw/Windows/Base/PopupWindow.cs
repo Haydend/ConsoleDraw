@@ -9,8 +9,8 @@ namespace ConsoleDraw.Windows.Base
         protected ConsoleColor TitleBarColour = ConsoleColor.DarkGray;
         protected ConsoleColor TitleColour = ConsoleColor.Black;
 
-        public PopupWindow(string title, int postionX, int postionY, int width, int height, Window parentWindow)
-            : base(postionX, postionY, width, height, parentWindow)
+        public PopupWindow(Window parentWindow, string title, int postionX, int postionY, int width, int height)
+            : base(parentWindow, postionX, postionY, width, height)
         {
             Title = title;
         }
