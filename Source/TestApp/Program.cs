@@ -1,24 +1,16 @@
 ﻿using ConsoleDraw;
-using ConsoleDraw.Windows;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TestApp.Windows;
 
 namespace TestApp
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main()
         {
             //Setup
             WindowManager.UpdateWindow(100, 48);
-            WindowManager.UpdateWindow(100, 48);
             WindowManager.SetWindowTitle("Test App");
-
-            new MainWindow();
+            _ = new MainWindow();
         }
     }
 }

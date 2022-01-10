@@ -1,10 +1,6 @@
 ﻿using ConsoleDraw.Inputs.Base;
 using ConsoleDraw.Windows.Base;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ConsoleDraw.Inputs
 {
@@ -21,10 +17,10 @@ namespace ConsoleDraw.Inputs
 
         public Action Action;
 
-        public CheckBox(int x, int y, String iD, Window parentWindow) : base(x, y, 1, 3, parentWindow, iD)
+        public CheckBox(Window parentWindow, int x, int y, string iD) : base(parentWindow, x, y, 1, 3, iD)
         {
             BackgroundColour = parentWindow.BackgroundColour;
-             Selectable = true;
+            Selectable = true;
         }
 
         public override void Select()
@@ -51,18 +47,17 @@ namespace ConsoleDraw.Inputs
 
             Draw();
 
-            if (Action != null) //If an action has been set
-                Action();
+            Action?.Invoke();
         }
 
         public override void Draw()
         {
-            String Char = Checked ? "X" : " ";
+            string Char = Checked ? "X" : " ";
 
-            if(Selected)
-                WindowManager.WirteText('[' + Char + ']', Xpostion, Ypostion, SelectedTextColour, SelectedBackgroundColour);
+            if (Selected)
+                WindowManager.WriteText('[' + Char + ']', Xpostion, Ypostion, SelectedTextColour, SelectedBackgroundColour);
             else
-                WindowManager.WirteText('[' + Char + ']', Xpostion, Ypostion, TextColour, BackgroundColour);  
+                WindowManager.WriteText('[' + Char + ']', Xpostion, Ypostion, TextColour, BackgroundColour);
         }
 
         public override void CursorMoveDown()

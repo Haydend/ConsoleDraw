@@ -5,21 +5,19 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ConsoleDraw.Inputs
 {
     public class FileBrowser : Input
     {
-        public String CurrentPath { get; private set; }
-        public String CurrentlySelectedFile { get; private set; }
-        private List<String> FileNames = new List<String>();
-        private List<String> Folders;
-        private List<String> Drives;
+        public string CurrentPath { get; private set; }
+        public string CurrentlySelectedFile { get; private set; }
+        private List<string> FileNames = new();
+        private List<string> Folders;
+        private List<string> Drives;
 
         public bool IncludeFiles;
-        public String FilterByExtension = "*";
+        public string FilterByExtension = "*";
 
         private ConsoleColor BackgroundColour = ConsoleColor.DarkGray;
         private ConsoleColor TextColour = ConsoleColor.Black;
@@ -27,7 +25,7 @@ namespace ConsoleDraw.Inputs
         private ConsoleColor SelectedBackgroundColour = ConsoleColor.Gray;
 
         private int cursorX;
-        private int CursorX { get { return cursorX; } set { cursorX = value; GetCurrentlySelectedFileName(); SetOffset(); } }
+        private int CursorX { get => cursorX; set { cursorX = value; GetCurrentlySelectedFileName(); SetOffset(); } }
 
         private int Offset = 0;
         private bool Selected = false;
@@ -37,7 +35,7 @@ namespace ConsoleDraw.Inputs
         public Action ChangeItem;
         public Action SelectFile;
 
-        public FileBrowser(int x, int y, int width, int height, String path, String iD, Window parentWindow, bool includeFiles = false, string filterByExtension = "*") : base(x, y, height, width, parentWindow, iD)
+        public FileBrowser(Window parentWindow, int x, int y, int width, int height, string path, string iD, bool includeFiles = false, string filterByExtension = "*") : base(parentWindow, x, y, height, width, iD)
         {
             CurrentPath = path;
             CurrentlySelectedFile = "";
@@ -49,64 +47,64 @@ namespace ConsoleDraw.Inputs
             Selectable = true;
         }
 
-        
+
         public override void Draw()
-        { 
+        {
             WindowManager.DrawColourBlock(BackgroundColour, Xpostion, Ypostion, Xpostion + Height, Ypostion + Width);
 
             if (!ShowingDrive)
             {
-                var trimedPath = CurrentPath.PadRight(Width - 2, ' ');
+                string trimedPath = CurrentPath.PadRight(Width - 2, ' ');
                 trimedPath = trimedPath.Substring(trimedPath.Count() - Width + 2, Width - 2);
-                WindowManager.WirteText(trimedPath, Xpostion, Ypostion + 1, ConsoleColor.Gray, BackgroundColour);
+                WindowManager.WriteText(trimedPath, Xpostion, Ypostion + 1, ConsoleColor.Gray, BackgroundColour);
             }
             else
-                WindowManager.WirteText("Drives", Xpostion, Ypostion + 1, ConsoleColor.Gray, BackgroundColour);
+                WindowManager.WriteText("Drives", Xpostion, Ypostion + 1, ConsoleColor.Gray, BackgroundColour);
 
             if (!ShowingDrive)
             {
-                var i = Offset;
+                int i = Offset;
                 while (i < Math.Min(Folders.Count, Height + Offset - 1))
                 {
-                    var folderName = Folders[i].PadRight(Width - 2, ' ').Substring(0, Width - 2);
+                    string folderName = Folders[i].PadRight(Width - 2, ' ')[..(Width - 2)];
 
                     if (i == CursorX)
                         if (Selected)
-                            WindowManager.WirteText(folderName, Xpostion + i - Offset + 1, Ypostion + 1, SelectedTextColour, SelectedBackgroundColour);
+                            WindowManager.WriteText(folderName, Xpostion + i - Offset + 1, Ypostion + 1, SelectedTextColour, SelectedBackgroundColour);
                         else
-                            WindowManager.WirteText(folderName, Xpostion + i - Offset + 1, Ypostion + 1, SelectedTextColour, BackgroundColour);
+                            WindowManager.WriteText(folderName, Xpostion + i - Offset + 1, Ypostion + 1, SelectedTextColour, BackgroundColour);
                     else
-                        WindowManager.WirteText(folderName, Xpostion + i - Offset + 1, Ypostion + 1, TextColour, BackgroundColour);
+                        WindowManager.WriteText(folderName, Xpostion + i - Offset + 1, Ypostion + 1, TextColour, BackgroundColour);
 
                     i++;
                 }
 
                 while (i < Math.Min(Folders.Count + FileNames.Count, Height + Offset - 1))
                 {
-                    var fileName = FileNames[i - Folders.Count].PadRight(Width - 2, ' ').Substring(0, Width - 2);
+                    string fileName = FileNames[i - Folders.Count].PadRight(Width - 2, ' ')[..(Width - 2)];
 
                     if (i == CursorX)
                         if (Selected)
-                            WindowManager.WirteText(fileName, Xpostion + i - Offset + 1, Ypostion + 1, SelectedTextColour, SelectedBackgroundColour);
+                            WindowManager.WriteText(fileName, Xpostion + i - Offset + 1, Ypostion + 1, SelectedTextColour, SelectedBackgroundColour);
                         else
-                            WindowManager.WirteText(fileName, Xpostion + i - Offset + 1, Ypostion + 1, SelectedTextColour, BackgroundColour);
+                            WindowManager.WriteText(fileName, Xpostion + i - Offset + 1, Ypostion + 1, SelectedTextColour, BackgroundColour);
                     else
-                        WindowManager.WirteText(fileName, Xpostion + i - Offset + 1, Ypostion + 1, TextColour, BackgroundColour);
+                        WindowManager.WriteText(fileName, Xpostion + i - Offset + 1, Ypostion + 1, TextColour, BackgroundColour);
                     i++;
                 }
             }
             else
             {
-                for (var i = 0; i < Drives.Count(); i++)
+                for (int i = 0; i < Drives.Count(); i++)
                 {
                     if (i == CursorX)
                         if (Selected)
-                            WindowManager.WirteText(Drives[i], Xpostion + i - Offset + 1, Ypostion + 1, SelectedTextColour, SelectedBackgroundColour);
+                            WindowManager.WriteText(Drives[i], Xpostion + i - Offset + 1, Ypostion + 1, SelectedTextColour, SelectedBackgroundColour);
                         else
-                            WindowManager.WirteText(Drives[i], Xpostion + i - Offset + 1, Ypostion + 1, SelectedTextColour, BackgroundColour);
+                            WindowManager.WriteText(Drives[i], Xpostion + i - Offset + 1, Ypostion + 1, SelectedTextColour, BackgroundColour);
                     else
-                        WindowManager.WirteText(Drives[i], Xpostion + i - Offset + 1, Ypostion + 1, TextColour, BackgroundColour);
-                    
+                        WindowManager.WriteText(Drives[i], Xpostion + i - Offset + 1, Ypostion + 1, TextColour, BackgroundColour);
+
                 }
 
             }
@@ -120,11 +118,11 @@ namespace ConsoleDraw.Inputs
 
             try
             {
-                if(IncludeFiles)
+                if (IncludeFiles)
                     FileNames = Directory.GetFiles(CurrentPath, "*." + FilterByExtension).Select(path => System.IO.Path.GetFileName(path)).ToList();
 
                 Folders = Directory.GetDirectories(CurrentPath).Select(path => System.IO.Path.GetFileName(path)).ToList();
-                
+
                 Folders.Insert(0, "..");
 
                 if (Directory.GetParent(CurrentPath) != null)
@@ -183,7 +181,7 @@ namespace ConsoleDraw.Inputs
                 Draw();
             }
             else
-                ParentWindow.MovetoNextItemDown(Xpostion, Ypostion, Width);    
+                ParentWindow.MovetoNextItemDown(Xpostion, Ypostion, Width);
         }
 
         public override void CursorMoveUp()
@@ -194,7 +192,7 @@ namespace ConsoleDraw.Inputs
                 Draw();
             }
             else
-                ParentWindow.MovetoNextItemUp(Xpostion, Ypostion, Width); 
+                ParentWindow.MovetoNextItemUp(Xpostion, Ypostion, Width);
         }
 
         public override void CursorMoveRight()
@@ -203,7 +201,7 @@ namespace ConsoleDraw.Inputs
                 GoIntoFolder();
             else if (ShowingDrive)
                 GoIntoDrive();
-        } 
+        }
 
         public override void Enter()
         {
@@ -218,7 +216,7 @@ namespace ConsoleDraw.Inputs
             else if (ShowingDrive)
                 GoIntoDrive();
 
-            
+
         }
 
         private void GoIntoDrive()
@@ -238,20 +236,19 @@ namespace ConsoleDraw.Inputs
                 ShowingDrive = true;
                 new Alert(e.Message, ParentWindow, ConsoleColor.White);
             }
-        
+
         }
 
         private void GoIntoFolder()
         {
             CurrentPath = Path.Combine(CurrentPath, Folders[cursorX]);
-            
             try
             {
                 GetFileNames();
                 CursorX = 0;
                 Draw();
             }
-            catch (UnauthorizedAccessException e)
+            catch (UnauthorizedAccessException)
             {
                 CurrentPath = Directory.GetParent(CurrentPath).FullName; //Change Path back to parent
                 new Alert("Access Denied", ParentWindow, ConsoleColor.White, "Error");
@@ -294,16 +291,14 @@ namespace ConsoleDraw.Inputs
             if (cursorX >= Folders.Count()) //File is selected
             {
                 CurrentlySelectedFile = FileNames[cursorX - Folders.Count];
-                if (ChangeItem != null)
-                    ChangeItem();
+                ChangeItem?.Invoke();
             }
             else
             {
                 if (CurrentlySelectedFile != "")
                 {
                     CurrentlySelectedFile = "";
-                    if (ChangeItem != null)
-                        ChangeItem();
+                    ChangeItem?.Invoke();
                 }
             }
         }

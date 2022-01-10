@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ConsoleDraw.Inputs;
 using ConsoleDraw.Windows.Base;
-using ConsoleDraw.Inputs;
-using ConsoleDraw.Windows;
+using System;
+using System.IO;
 
 namespace ConsoleDraw.Windows
 {
@@ -16,27 +11,31 @@ namespace ConsoleDraw.Windows
         private Button cancelBtn;
         private TextBox openTxtBox;
         private FileBrowser fileSelect;
-        private String Text;
+        private string Text;
 
-        public Boolean FileWasSaved;
-        public String FileSavedAs;
-        public String PathToFile;
+        public bool FileWasSaved;
+        public string FileSavedAs;
+        public string PathToFile;
 
-        public SaveMenu(String fileName, String path, String data, Window parentWindow)
-            : base("Save Menu", 6, (Console.WindowWidth / 2) - 30, 60, 20, parentWindow)
+        public SaveMenu(Window parentWindow, string fileName, string path, string data)
+            : base(parentWindow, "Save Menu", 6, (Console.WindowWidth / 2) - 30, 60, 20)
         {
             BackgroundColour = ConsoleColor.White;
             Text = data;
 
-            fileSelect = new FileBrowser(PostionX + 2, PostionY + 2, 56, 12, path, "fileSelect", this);
+            fileSelect = new FileBrowser(this, PostionX + 2, PostionY + 2, 56, 12, path, "fileSelect");
 
-            var openLabel = new Label("Name", PostionX + 16, PostionY + 2, "openLabel", this);
-            openTxtBox = new TextBox(PostionX + 16, PostionY + 7, fileName, "openTxtBox", this, Width - 13) { Selectable = true };
+            Label openLabel = new(this, "Name", PostionX + 16, PostionY + 2, "openLabel");
+            openTxtBox = new TextBox(this, PostionX + 16, PostionY + 7, fileName, "openTxtBox", Width - 13) { Selectable = true };
 
-            saveBtn = new Button(PostionX + 18, PostionY + 2, "Save", "loadBtn", this);
-            saveBtn.Action = delegate() { SaveFile(); };
-            cancelBtn = new Button(PostionX + 18, PostionY + 9, "Cancel", "cancelBtn", this);
-            cancelBtn.Action = delegate() { ExitWindow(); };
+            saveBtn = new(this, PostionX + 18, PostionY + 2, "Save", "loadBtn")
+            {
+                Action = delegate () { SaveFile(); }
+            };
+            cancelBtn = new(this, PostionX + 18, PostionY + 9, "Cancel", "cancelBtn")
+            {
+                Action = delegate () { ExitWindow(); }
+            };
 
             Inputs.Add(fileSelect);
             Inputs.Add(openLabel);
@@ -50,17 +49,17 @@ namespace ConsoleDraw.Windows
             MainLoop();
         }
 
-        
+
         private void SaveFile()
         {
-            var path = fileSelect.CurrentPath;
-            var filename = openTxtBox.GetText();
+            string path = fileSelect.CurrentPath;
+            string filename = openTxtBox.GetText();
 
-            var fullFile = Path.Combine(path, filename);
+            string fullFile = Path.Combine(path, filename);
 
             try
             {
-                StreamWriter file = new StreamWriter(fullFile);
+                StreamWriter file = new(fullFile);
 
                 file.Write(Text);
 
@@ -73,11 +72,11 @@ namespace ConsoleDraw.Windows
                 ExitWindow();
             }
             catch
-            { 
+            {
                 new Alert("You do not have access", this, "Error");
             }
 
-            
+
         }
     }
 }

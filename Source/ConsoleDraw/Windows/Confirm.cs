@@ -1,54 +1,55 @@
 ﻿using ConsoleDraw.Inputs;
 using ConsoleDraw.Windows.Base;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ConsoleDraw.Windows
 {
     public class Confirm : PopupWindow
     {
         private static int textLength = 46;
-        
+
         private Button okBtn;
         private Button cancelBtn;
         private DialogResult dr;
 
-        public DialogResult Result { get; set; }
+        public DialogResult Result = DialogResult.Cancel;
 
-        public Confirm(Window parentWindow, String Message, String Title = "Confirm")
-            : base(Title, 6, (Console.WindowWidth / 2) - 25, 50, 5 + (int)Math.Ceiling(((Double)Message.Count() / textLength)), parentWindow)
+        public Confirm(Window parentWindow, string Message, string Title = "Confirm")
+            : base(parentWindow, Title, 6, (Console.WindowWidth / 2) - 25, 50, 5 + (int)Math.Ceiling(((double)Message.Count() / textLength)))
         {
             Create(Message, parentWindow);
         }
 
-        public Confirm(String Message, Window parentWindow, ConsoleColor backgroundColour, String Title = "Message")
-            : base(Title, 6, (Console.WindowWidth / 2) - 25, 50, 5 + (int)Math.Ceiling(((Double)Message.Count() / textLength)), parentWindow)
+        public Confirm(string Message, Window parentWindow, ConsoleColor backgroundColour, string Title = "Message")
+            : base(parentWindow, Title, 6, (Console.WindowWidth / 2) - 25, 50, 5 + (int)Math.Ceiling(((double)Message.Count() / textLength)))
         {
             BackgroundColour = backgroundColour;
 
             Create(Message, parentWindow);
         }
 
-        private void Create(String Message, Window parentWindow)
+        private void Create(string Message, Window parentWindow)
         {
-            var count = 0;
+            int count = 0;
             while ((count * 45) < Message.Count())
             {
-                var splitMessage = Message.PadRight(textLength * (count + 1), ' ').Substring((count * textLength), textLength);
-                var messageLabel = new Label(splitMessage, PostionX + 2 + count, PostionY + 2, "messageLabel", this);
+                string splitMessage = Message.PadRight(textLength * (count + 1), ' ').Substring((count * textLength), textLength);
+                Label messageLabel = new(this, splitMessage, PostionX + 2 + count, PostionY + 2, "messageLabel");
                 Inputs.Add(messageLabel);
 
                 count++;
             }
 
-            okBtn = new Button(PostionX + Height - 2, PostionY + 2, "OK", "OkBtn", this);
-            okBtn.Action = delegate() { ExitWindow(); dr = DialogResult.OK; };
+            okBtn = new(this, PostionX + Height - 2, PostionY + 2, "OK", "OkBtn")
+            {
+                Action = delegate () { ExitWindow(); dr = DialogResult.OK; }
+            };
 
-            cancelBtn = new Button(PostionX + Height - 2, PostionY + 8, "Cancel", "cancelBtn", this);
-            cancelBtn.Action = delegate() { ExitWindow(); dr = DialogResult.Cancel; };
+            cancelBtn = new(this, PostionX + Height - 2, PostionY + 8, "Cancel", "cancelBtn")
+            {
+                Action = delegate () { ExitWindow(); dr = DialogResult.Cancel; }
+            };
 
             Inputs.Add(okBtn);
             Inputs.Add(cancelBtn);
@@ -61,7 +62,8 @@ namespace ConsoleDraw.Windows
             Draw();
             MainLoop();
 
-            return dr;
+            Result = dr;
+            return Result;
         }
 
     }

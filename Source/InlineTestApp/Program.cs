@@ -1,45 +1,30 @@
 ﻿using ConsoleDraw;
 using ConsoleDraw.Windows;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace InlineTestApp
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main()
         {
             Console.WriteLine("Test App");
 
-            Console.WriteLine();
-            Console.WriteLine();
-
-            for (var i = 0; i < 2; i++ )
-                Console.WriteLine(i.ToString());
-
-            Console.WriteLine("Loading Alert Message");
-            Console.ReadLine();
+            Console.Write("Loading Alert Message: ");
 
             WindowManager.SetupWindow();
-            new Alert("This is an alert!", null);
+            _ = new Alert(null, "This is an alert!");
             WindowManager.EndWindow();
-            Console.WriteLine("That was the Alert");
+            Console.WriteLine("Success");
 
-            Console.WriteLine("Loading Confirm Message");
-            Console.ReadLine();
-
+            Console.Write("Loading Confirm Message, result: ");
             WindowManager.SetupWindow();
-            var confirm = new Confirm(null, "Are you wish to run this program?");
+            Confirm confirm = new(null, "Are you wish to run this program?");
+            DialogResult result = confirm.ShowDialog();          
             WindowManager.EndWindow();
+            Console.WriteLine(result.ToString());
 
-            if (confirm.Result == DialogResult.OK)
-                Console.WriteLine("You pressed OK");
-            else
-                Console.WriteLine("You pressed Cancel");
-
+            Console.WriteLine("Test Complete...");
             Console.ReadLine();
         }
     }

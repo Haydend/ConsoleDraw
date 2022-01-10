@@ -1,10 +1,7 @@
 ﻿using ConsoleDraw.Inputs.Base;
 using ConsoleDraw.Windows.Base;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ConsoleDraw.Inputs
 {
@@ -18,11 +15,11 @@ namespace ConsoleDraw.Inputs
 
         private bool Selected = false;
         public bool Checked = false;
-        public String RadioGroup;
+        public string RadioGroup;
 
         public Action Action;
 
-        public RadioButton(int x, int y, String iD, String radioGroup, Window parentWindow) : base(x, y, 1, 3, parentWindow, iD)
+        public RadioButton(Window parentWindow, int x, int y, string iD, string radioGroup) : base(parentWindow, x, y, 1, 3, iD)
         {
             RadioGroup = radioGroup;
             BackgroundColour = parentWindow.BackgroundColour;
@@ -59,8 +56,7 @@ namespace ConsoleDraw.Inputs
 
             Draw();
 
-            if (Action != null) //If an action has been set
-                Action();
+            Action?.Invoke();
         }
 
         public void Uncheck()
@@ -74,12 +70,12 @@ namespace ConsoleDraw.Inputs
 
         public override void Draw()
         {
-            String Char = Checked ? "■" : " ";
+            string Char = Checked ? "■" : " ";
 
-            if(Selected)
-                WindowManager.WirteText('[' + Char + ']', Xpostion, Ypostion, SelectedTextColour, SelectedBackgroundColour);
+            if (Selected)
+                WindowManager.WriteText('[' + Char + ']', Xpostion, Ypostion, SelectedTextColour, SelectedBackgroundColour);
             else
-                WindowManager.WirteText('[' + Char + ']', Xpostion, Ypostion, TextColour, BackgroundColour);  
+                WindowManager.WriteText('[' + Char + ']', Xpostion, Ypostion, TextColour, BackgroundColour);
         }
 
         public override void CursorMoveDown()

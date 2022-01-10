@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ConsoleDraw
 {
@@ -13,7 +8,7 @@ namespace ConsoleDraw
         {
             Console.BackgroundColor = colour;
 
-            for (var i = startX; i < endX; i++)
+            for (int i = startX; i < endX; i++)
             {
                 Console.CursorLeft = startY;
                 Console.CursorTop = i;
@@ -22,7 +17,7 @@ namespace ConsoleDraw
             }
         }
 
-        public static void WirteText(String text, int startX, int startY, ConsoleColor textColour, ConsoleColor backgroundColour)
+        public static void WriteText(string text, int startX, int startY, ConsoleColor textColour, ConsoleColor backgroundColour)
         {
             Console.CursorLeft = startY;
             Console.CursorTop = startX;
@@ -45,8 +40,9 @@ namespace ConsoleDraw
         public static void SetupWindow()
         {
             startingBufferHeight = Console.BufferHeight;
+            startingBufferWidth = Console.BufferWidth;
 
-            var whereToMove = Console.CursorTop + 1; //Move one line below visible
+            int whereToMove = Console.CursorTop + 1; //Move one line below visible
             if (whereToMove < Console.WindowHeight) //If cursor is not on bottom line of visible
                 whereToMove = Console.WindowHeight + 1;
 
@@ -70,7 +66,7 @@ namespace ConsoleDraw
             Console.ForegroundColor = startingForegroundColour;
             Console.BackgroundColor = startingBackgroundColour;
 
-            var whereToGet = startingX + 1; //Move one line below visible
+            int whereToGet = startingX + 1; //Move one line below visible
             if (whereToGet < Console.WindowHeight) //If cursor is not on bottom line of visible
                 whereToGet = Console.WindowHeight + 1;
             Console.MoveBufferArea(0, whereToGet, Console.WindowWidth, Console.WindowHeight, 0, 0);
@@ -80,6 +76,7 @@ namespace ConsoleDraw
 
             Console.CursorVisible = true;
             Console.BufferHeight = startingBufferHeight;
+            Console.BufferWidth = startingBufferWidth;
             //Console.WriteLine();
 
         }
@@ -111,10 +108,10 @@ namespace ConsoleDraw
             }
 
             Console.BackgroundColor = ConsoleColor.Gray;
-            WindowManager.DrawColourBlock(Console.BackgroundColor, 0, 0, Console.WindowHeight, Console.WindowWidth); //Flush Buffer
+            WindowManager.DrawColourBlock(Console.BackgroundColor, 0, 0, Console.BufferHeight, Console.BufferWidth); //Flush Buffer
         }
 
-        public static void SetWindowTitle(String title)
+        public static void SetWindowTitle(string title)
         {
             Console.Title = title;
         }

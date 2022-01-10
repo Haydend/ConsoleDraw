@@ -3,8 +3,6 @@ using ConsoleDraw.Windows.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ConsoleDraw.Inputs
 {
@@ -16,16 +14,16 @@ namespace ConsoleDraw.Inputs
         private ConsoleColor SelectedBackgroundColour = ConsoleColor.DarkGray;
 
         private bool Selected = false;
-        public List<DropdownItem> DropdownItems = new List<DropdownItem>();
+        public List<DropdownItem> DropdownItems = new();
         public DropdownSpread DropdownSpread;
 
-        private List<String> Options;
-        public String Text;
+        private List<string> Options;
+        public string Text;
         public int Length;
 
         public Action OnUnselect;
 
-        public Dropdown(int x, int y, List<String> options, String iD, Window parentWindow, int length = 20) : base(x, y, 1, length - 2 + 3, parentWindow, iD)
+        public Dropdown(Window parentWindow, int x, int y, List<string> options, string iD, int length = 20) : base(parentWindow, x, y, 1, length - 2 + 3, iD)
         {
             Xpostion = x;
             Ypostion = y;
@@ -39,12 +37,12 @@ namespace ConsoleDraw.Inputs
 
         public override void Draw()
         {
-            var paddedText = Text.PadRight(Length - 2, ' ').Substring(0, Length - 2);
+            string paddedText = Text.PadRight(Length - 2, ' ')[..(Length - 2)];
 
             if (Selected)
-                WindowManager.WirteText('[' + paddedText + '▼' + ']', Xpostion, Ypostion, SelectedTextColour, SelectedBackgroundColour);
+                WindowManager.WriteText('[' + paddedText + '▼' + ']', Xpostion, Ypostion, SelectedTextColour, SelectedBackgroundColour);
             else
-                WindowManager.WirteText('[' + paddedText + '▼' + ']', Xpostion, Ypostion, TextColour, BackgroudColour);
+                WindowManager.WriteText('[' + paddedText + '▼' + ']', Xpostion, Ypostion, TextColour, BackgroudColour);
         }
 
         public override void Select()
@@ -64,11 +62,10 @@ namespace ConsoleDraw.Inputs
             {
                 Selected = false;
                 Draw();
-                if(OnUnselect != null)
-                    OnUnselect();
+                OnUnselect?.Invoke();
             }
         }
 
-        
+
     }
 }

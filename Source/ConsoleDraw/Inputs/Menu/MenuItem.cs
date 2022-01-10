@@ -1,16 +1,12 @@
 ﻿using ConsoleDraw.Inputs.Base;
 using ConsoleDraw.Windows.Base;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ConsoleDraw.Inputs
 {
     public class MenuItem : Input
     {
-        private String Text = "";
+        private string Text = "";
         private ConsoleColor TextColour = ConsoleColor.White;
         private ConsoleColor BackgroudColour = ConsoleColor.DarkGray;
         private ConsoleColor SelectedTextColour = ConsoleColor.Black;
@@ -19,22 +15,22 @@ namespace ConsoleDraw.Inputs
         private bool Selected = false;
         public Action Action;
 
-        public MenuItem(String text, String iD, Window parentWindow)
-            : base(0, 0, 1, 0, parentWindow, iD)
+        public MenuItem(Window parentWindow, string text, string iD)
+            : base(parentWindow, 0, 0, 1, 0, iD)
         {
-            Text = text; 
+            Text = text;
 
             Selectable = true;
         }
 
         public override void Draw()
         {
-            var paddedText = ('[' +Text + ']').PadRight(Width, ' ');
+            string paddedText = ('[' + Text + ']').PadRight(Width, ' ');
 
             if (Selected)
-                WindowManager.WirteText(paddedText, Xpostion, Ypostion, SelectedTextColour, SelectedBackgroundColour);
+                WindowManager.WriteText(paddedText, Xpostion, Ypostion, SelectedTextColour, SelectedBackgroundColour);
             else
-                WindowManager.WirteText(paddedText, Xpostion, Ypostion, TextColour, BackgroudColour);
+                WindowManager.WriteText(paddedText, Xpostion, Ypostion, TextColour, BackgroudColour);
         }
 
         public override void Select()
@@ -44,7 +40,7 @@ namespace ConsoleDraw.Inputs
                 Selected = true;
                 Draw();
 
-               // new MenuDropdown(Xpostion + 1, Ypostion, ParentWindow);
+                // new MenuDropdown(Xpostion + 1, Ypostion, ParentWindow);
             }
         }
 

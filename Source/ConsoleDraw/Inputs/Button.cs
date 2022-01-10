@@ -1,16 +1,13 @@
 ﻿using ConsoleDraw.Inputs.Base;
 using ConsoleDraw.Windows.Base;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ConsoleDraw.Inputs
 {
     public class Button : Input
     {
-        private String Text;
+        private string Text;
         public ConsoleColor BackgroundColour = ConsoleColor.Gray;
         private ConsoleColor TextColour = ConsoleColor.Black;
 
@@ -21,7 +18,7 @@ namespace ConsoleDraw.Inputs
 
         public Action Action;
 
-        public Button(int x, int y, String text, String iD, Window parentWindow) : base(x, y, 1, text.Count() + 2, parentWindow, iD)
+        public Button(Window parentWindow, int x, int y, string text, string iD) : base(parentWindow, x, y, 1, text.Count() + 2, iD)
         {
             Text = text;
             BackgroundColour = parentWindow.BackgroundColour;
@@ -48,21 +45,20 @@ namespace ConsoleDraw.Inputs
 
         public override void Enter()
         {
-            if (Action != null) //If an action has been set
-                Action();
+            Action?.Invoke();
         }
 
         public override void Draw()
         {
-            if(Selected)
-                WindowManager.WirteText('['+Text+']', Xpostion, Ypostion, SelectedTextColour, SelectedBackgroundColour);
+            if (Selected)
+                WindowManager.WriteText('[' + Text + ']', Xpostion, Ypostion, SelectedTextColour, SelectedBackgroundColour);
             else
-                WindowManager.WirteText('[' + Text + ']', Xpostion, Ypostion, TextColour, BackgroundColour);  
+                WindowManager.WriteText('[' + Text + ']', Xpostion, Ypostion, TextColour, BackgroundColour);
         }
-        
+
         public override void CursorMoveDown()
         {
-            ParentWindow.MovetoNextItemDown(Xpostion, Ypostion , Width);
+            ParentWindow.MovetoNextItemDown(Xpostion, Ypostion, Width);
         }
 
         public override void CursorMoveRight()

@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Timers;
 
 namespace ConsoleDraw
@@ -13,7 +9,7 @@ namespace ConsoleDraw
         public int _x;
         public int _y;
         public Timer blink;
-        public Char blinkLetter;
+        public char blinkLetter;
         public ConsoleColor _background;
         private bool visible;
 
@@ -24,10 +20,10 @@ namespace ConsoleDraw
             _y = y;
             blinkLetter = letter == '\r' || letter == '\n' ? ' ' : letter;
             _background = background;
-            WindowManager.WirteText("_", x, y, ConsoleColor.White, background);
+            WindowManager.WriteText("_", x, y, ConsoleColor.White, background);
 
-            blink = new Timer(500); 
-            blink.Elapsed += new ElapsedEventHandler(BlinkCursor);
+            blink = new(500);
+            blink.Elapsed += new(BlinkCursor);
             blink.Enabled = true;
         }
 
@@ -35,24 +31,24 @@ namespace ConsoleDraw
         {
             if (visible)
             {
-                WindowManager.WirteText(" ", _x, _y, ConsoleColor.White, _background);
+                WindowManager.WriteText(" ", _x, _y, ConsoleColor.White, _background);
                 if (blink != null)
                     blink.Dispose();
                 visible = false;
             }
-            
+
         }
 
-        void BlinkCursor(object sender, ElapsedEventArgs e)
+        private void BlinkCursor(object sender, ElapsedEventArgs e)
         {
             if (_cursorShow)
             {
-                WindowManager.WirteText(blinkLetter.ToString(), _x, _y, ConsoleColor.White, _background);
+                WindowManager.WriteText(blinkLetter.ToString(), _x, _y, ConsoleColor.White, _background);
                 _cursorShow = false;
             }
             else
             {
-                WindowManager.WirteText("_", _x, _y, ConsoleColor.White, _background);
+                WindowManager.WriteText("_", _x, _y, ConsoleColor.White, _background);
                 _cursorShow = true;
             }
         }

@@ -3,24 +3,22 @@ using ConsoleDraw.Windows.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ConsoleDraw.Inputs
 {
     public class Menu : Input
     {
-        private String Text = "";
+        private string Text = "";
         private ConsoleColor TextColour = ConsoleColor.Black;
         private ConsoleColor BackgroudColour = ConsoleColor.Gray;
         private ConsoleColor SelectedTextColour = ConsoleColor.White;
         private ConsoleColor SelectedBackgroundColour = ConsoleColor.DarkGray;
 
         private bool Selected = false;
-        public List<MenuItem> MenuItems = new List<MenuItem>();
+        public List<MenuItem> MenuItems = new();
         public MenuDropdown MenuDropdown;
 
-        public Menu(String text, int x, int y, String iD, Window parentWindow) : base(x, y, 1, text.Count() + 2, parentWindow, iD)
+        public Menu(Window parentWindow, string text, int x, int y, string iD) : base(parentWindow, x, y, 1, text.Count() + 2, iD)
         {
             Text = text;
             Xpostion = x;
@@ -32,9 +30,9 @@ namespace ConsoleDraw.Inputs
         public override void Draw()
         {
             if (Selected)
-                WindowManager.WirteText('['+Text+']', Xpostion, Ypostion, SelectedTextColour, SelectedBackgroundColour);
+                WindowManager.WriteText('[' + Text + ']', Xpostion, Ypostion, SelectedTextColour, SelectedBackgroundColour);
             else
-                WindowManager.WirteText('[' + Text + ']', Xpostion, Ypostion, TextColour, BackgroudColour);
+                WindowManager.WriteText('[' + Text + ']', Xpostion, Ypostion, TextColour, BackgroudColour);
         }
 
         public override void Select()

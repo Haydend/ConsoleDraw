@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ConsoleDraw.Inputs.Base;
+﻿using ConsoleDraw.Inputs.Base;
 using ConsoleDraw.Windows.Base;
+using System;
 
 namespace ConsoleDraw.Inputs
 {
@@ -14,22 +10,25 @@ namespace ConsoleDraw.Inputs
         public ConsoleColor BarColour = ConsoleColor.Black;
 
         private int percentageComplete;
-        public int PercentageComplete {
-            get { return this.percentageComplete; }
-            set {
-                if (value < 0 || value > 100) {
-                    throw new ArgumentOutOfRangeException(String.Format("Percentage must be between 0 & 100, actual:{0}", value));     
+        public int PercentageComplete
+        {
+            get => percentageComplete;
+            set
+            {
+                if (value < 0 || value > 100)
+                {
+                    throw new ArgumentOutOfRangeException(string.Format("Percentage must be between 0 & 100, actual:{0}", value));
                 }
-                this.percentageComplete = value;
+                percentageComplete = value;
                 Draw();
             }
         }
 
-        public ProgressBar(int percentageComplete, int x, int y, int height, int width, String iD, Window parentWindow) : base(x, y, height, width, parentWindow, iD)
+        public ProgressBar(Window parentWindow, int percentageComplete, int x, int y, int height, int width, string iD) : base(parentWindow, x, y, height, width, iD)
         {
             Selectable = false;
             PercentageComplete = percentageComplete;
-    }
+        }
 
         public override void Draw()
         {
@@ -39,8 +38,8 @@ namespace ConsoleDraw.Inputs
             //WindowManager.DrawColourBlock(BackgroundColour, Xpostion, Ypostion, Xpostion + Height, Ypostion + Width);
 
 
-            WindowManager.WirteText("".PadRight(widthCompleted, '█'), Xpostion, Ypostion, BarColour, BackgroundColour);
-            WindowManager.WirteText("".PadRight(widthUncompleted, '▒'), Xpostion, Ypostion + widthCompleted, BarColour, BackgroundColour);
+            WindowManager.WriteText("".PadRight(widthCompleted, '█'), Xpostion, Ypostion, BarColour, BackgroundColour);
+            WindowManager.WriteText("".PadRight(widthUncompleted, '▒'), Xpostion, Ypostion + widthCompleted, BarColour, BackgroundColour);
         }
 
     }

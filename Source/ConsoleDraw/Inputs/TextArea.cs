@@ -3,8 +3,6 @@ using ConsoleDraw.Windows.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ConsoleDraw.Inputs
 {
@@ -15,36 +13,36 @@ namespace ConsoleDraw.Inputs
         private int CursorPostion;
 
         private int cursorDisplayX;
-        private int CursorDisplayX { get { return cursorDisplayX; } set { cursorDisplayX = value; SetOffset(); } }
+        private int CursorDisplayX { get => cursorDisplayX; set { cursorDisplayX = value; SetOffset(); } }
 
         private int CursorDisplayY;
 
         private int Offset = 0;
-        private List<String> SplitText = new List<String>();
-        private String text = "";
-        private String Text {
-            get{
-                return text;
-            } 
-            set {
+        private List<string> SplitText = new();
+        private string text = "";
+        private string Text
+        {
+            get => text;
+            set
+            {
                 if (OnChange != null && text != value)
-                    OnChange(); 
-                
+                    OnChange();
+
                 text = value;
 
                 SplitText = CreateSplitText();
             }
         }
-        private String TextWithoutNewLine { get { return RemoveNewLine(Text); } }
+        private string TextWithoutNewLine => RemoveNewLine(Text);
 
         private ConsoleColor TextColour = ConsoleColor.White;
         public ConsoleColor BackgroundColour = ConsoleColor.Blue;
 
-        private Cursor cursor = new Cursor();
+        private Cursor cursor = new();
 
         public Action OnChange;
 
-        public TextArea(int x, int y, int width, int height, String iD, Window parentWindow) : base(x, y, height, width, parentWindow, iD)
+        public TextArea(Window parentWindow, int x, int y, int width, int height, string iD) : base(parentWindow, x, y, height, width, iD)
         {
             Selectable = true;
         }
@@ -69,8 +67,8 @@ namespace ConsoleDraw.Inputs
 
         public override void AddLetter(char letter)
         {
-            String textBefore = Text.Substring(0, CursorPostion);
-            String textAfter = Text.Substring(CursorPostion, Text.Length - CursorPostion);
+            string textBefore = Text[..CursorPostion];
+            string textAfter = Text[CursorPostion..];
 
             Text = textBefore + letter + textAfter;
 
@@ -82,7 +80,7 @@ namespace ConsoleDraw.Inputs
         {
             if (CursorPostion != 0)
                 CursorPostion--;
-                       
+
             Draw();
         }
 
@@ -97,7 +95,7 @@ namespace ConsoleDraw.Inputs
 
         public override void CursorMoveDown()
         {
-            var splitText = SplitText;
+            List<string> splitText = SplitText;
 
             if (splitText.Count == CursorDisplayX + 1 || splitText.Count == 0) //Cursor at end of text in text area
             {
@@ -105,10 +103,10 @@ namespace ConsoleDraw.Inputs
                 return;
             }
 
-            var nextLine = splitText[CursorDisplayX + 1];
+            string nextLine = splitText[CursorDisplayX + 1];
 
-            var newCursor = 0;
-            for (var i = 0; i < cursorDisplayX + 1; i++)
+            int newCursor = 0;
+            for (int i = 0; i < cursorDisplayX + 1; i++)
             {
                 newCursor += splitText[i].Count();
             }
@@ -126,7 +124,7 @@ namespace ConsoleDraw.Inputs
 
         public override void CursorMoveUp()
         {
-            var splitText = SplitText;
+            List<string> splitText = SplitText;
 
             if (0 == CursorDisplayX) //Cursor at top of text area
             {
@@ -134,10 +132,10 @@ namespace ConsoleDraw.Inputs
                 return;
             }
 
-            var nextLine = splitText[CursorDisplayX - 1];
+            string nextLine = splitText[CursorDisplayX - 1];
 
-            var newCursor = 0;
-            for (var i = 0; i < cursorDisplayX - 1; i++)
+            int newCursor = 0;
+            for (int i = 0; i < cursorDisplayX - 1; i++)
             {
                 newCursor += splitText[i].Count();
             }
@@ -145,7 +143,7 @@ namespace ConsoleDraw.Inputs
             if (nextLine.Count() >= CursorDisplayY)
                 newCursor += CursorDisplayY;
             else
-                newCursor += nextLine.Where(x => x!='\n').Count();
+                newCursor += nextLine.Where(x => x != '\n').Count();
 
             CursorPostion = newCursor;
             Draw();
@@ -153,10 +151,10 @@ namespace ConsoleDraw.Inputs
 
         public override void CursorToStart()
         {
-            var splitText = SplitText;
+            List<string> splitText = SplitText;
 
-            var newCursor = 0;
-            for (var i = 0; i < cursorDisplayX; i++)
+            int newCursor = 0;
+            for (int i = 0; i < cursorDisplayX; i++)
             {
                 newCursor += splitText[i].Count();
             }
@@ -167,11 +165,11 @@ namespace ConsoleDraw.Inputs
 
         public override void CursorToEnd()
         {
-            var splitText = SplitText;
-            var currentLine = splitText[cursorDisplayX];
+            List<string> splitText = SplitText;
+            string currentLine = splitText[cursorDisplayX];
 
-            var newCursor = 0;
-            for (var i = 0; i < cursorDisplayX + 1; i++)
+            int newCursor = 0;
+            for (int i = 0; i < cursorDisplayX + 1; i++)
             {
                 newCursor += splitText[i].Count();
             }
@@ -184,10 +182,10 @@ namespace ConsoleDraw.Inputs
         {
             if (CursorPostion != 0)
             {
-                String textBefore = Text.Substring(0, CursorPostion);
-                String textAfter = Text.Substring(CursorPostion, Text.Length - CursorPostion);
+                string textBefore = Text[..CursorPostion];
+                string textAfter = Text[CursorPostion..];
 
-                textBefore = textBefore.Substring(0, textBefore.Length - 1);
+                textBefore = textBefore[0..^1];
 
                 Text = textBefore + textAfter;
                 CursorPostion--;
@@ -200,14 +198,14 @@ namespace ConsoleDraw.Inputs
             AddLetter('\n');
         }
 
-        public void SetText(String text)
+        public void SetText(string text)
         {
             Text = text;
             CursorPostion = 0;
             Draw();
         }
 
-        public String GetText()
+        public string GetText()
         {
             return Text;
         }
@@ -218,38 +216,38 @@ namespace ConsoleDraw.Inputs
 
             UpdateCursorDisplayPostion();
 
-            var lines = SplitText;
+            List<string> lines = SplitText;
 
             //Draw test area
-            for (var i = Offset; i < Height + Offset; i++)
+            for (int i = Offset; i < Height + Offset; i++)
             {
-                var line = ' ' +  "".PadRight(Width - 1, ' ');
-                if(lines.Count > i)
+                string line = ' ' + "".PadRight(Width - 1, ' ');
+                if (lines.Count > i)
                     line = ' ' + RemoveNewLine(lines[i]).PadRight(Width - 1, ' ');
 
-                WindowManager.WirteText(line, i + Xpostion - Offset, Ypostion, TextColour, BackgroundColour);
+                WindowManager.WriteText(line, i + Xpostion - Offset, Ypostion, TextColour, BackgroundColour);
             }
-               
+
             if (Selected)
                 ShowCursor();
-        
+
             //Draw Scroll Bar
             WindowManager.DrawColourBlock(ConsoleColor.White, Xpostion, Ypostion + Width, Xpostion + Height, Ypostion + Width + 1);
-            
-            double linesPerPixel = (double)lines.Count() / (Height);
-            var postion = 0;
-            if(linesPerPixel > 0)
-              postion = (int)Math.Floor(cursorDisplayX / linesPerPixel);
 
-            WindowManager.WirteText("■", Xpostion + postion, Ypostion + Width, ConsoleColor.DarkGray, ConsoleColor.White);
+            double linesPerPixel = (double)lines.Count() / (Height);
+            int postion = 0;
+            if (linesPerPixel > 0)
+                postion = (int)Math.Floor(cursorDisplayX / linesPerPixel);
+
+            WindowManager.WriteText("■", Xpostion + postion, Ypostion + Width, ConsoleColor.DarkGray, ConsoleColor.White);
         }
 
-        private List<String> CreateSplitText()
+        private List<string> CreateSplitText()
         {
-            List<String> splitText = new List<String>();
-            
-            var lastSplit = 0;
-            for (var i = 0; i < Text.Count() + 1; i++)
+            List<string> splitText = new();
+
+            int lastSplit = 0;
+            for (int i = 0; i < Text.Count() + 1; i++)
             {
                 if (Text.Count() > i && Text[i] == '\n')
                 {
@@ -258,12 +256,12 @@ namespace ConsoleDraw.Inputs
                 }
                 else if (i - lastSplit == Width - 2)
                 {
-                    splitText.Add(Text.Substring(lastSplit, i - lastSplit));
+                    splitText.Add(Text[lastSplit..i]);
                     lastSplit = i;
                 }
-                
+
                 if (i == Text.Count())
-                    splitText.Add(Text.Substring(lastSplit, Text.Count() - lastSplit));
+                    splitText.Add(Text[lastSplit..Text.Count()]);
             }
 
             return splitText.Select(x => x.Replace('\r', ' ')).ToList();
@@ -276,11 +274,11 @@ namespace ConsoleDraw.Inputs
 
         private void UpdateCursorDisplayPostion()
         {
-            var lines = SplitText;
-            var displayX = 0;
-            var displayY = 0;
+            List<string> lines = SplitText;
+            int displayX = 0;
+            int displayY = 0;
 
-            for (var i = 0; i < CursorPostion; i++)
+            for (int i = 0; i < CursorPostion; i++)
             {
                 if (lines[displayX].Count() > displayY && lines[displayX][displayY] == '\n') //Skip NewLine characters
                 {
@@ -307,7 +305,7 @@ namespace ConsoleDraw.Inputs
                 {
                     displayY--;
                 }
-                
+
             }
 
             CursorDisplayX = displayX;
@@ -328,11 +326,11 @@ namespace ConsoleDraw.Inputs
                 Offset--;
         }
 
-        private String RemoveNewLine(String text)
+        private string RemoveNewLine(string text)
         {
-            var toReturn = "";
+            string toReturn = "";
 
-            foreach (var letter in text)
+            foreach (char letter in text)
             {
                 if (letter != '\n')
                     toReturn += letter;
