@@ -58,10 +58,8 @@ namespace TestApp.Windows
             ProgressBar progressBar = new(this, 10, 39, 2, 3, 70, "progressBar");
             Label progressBarLabel = new(this, "10%", 39, 73, "oneCheckBoxLabel");
 
-            Button progressBarDownBtn = new(this, 37, 2, "Progress Down", "displaySettingsBtn") { Action = delegate () { progressBar.PercentageComplete--; progressBarLabel.SetText(string.Format("{0}%", progressBar.PercentageComplete).PadRight(4)); } };
-            Button progressBarUpBtn = new(this, 37, 18, "Progress Up", "displaySettingsBtn") { Action = delegate () { progressBar.PercentageComplete++; progressBarLabel.SetText(string.Format("{0}%", progressBar.PercentageComplete).PadRight(4)); } };
-
-
+            Button progressBarDownBtn = new(this, 37, 2, "Progress Down", "displaySettingsBtn") { Action = delegate () { if(progressBar.PercentageComplete != 0) progressBar.PercentageComplete--; progressBarLabel.SetText(string.Format("{0}%", progressBar.PercentageComplete).PadRight(4)); } };
+            Button progressBarUpBtn = new(this, 37, 18, "Progress Up", "displaySettingsBtn") { Action = delegate () { if(progressBar.PercentageComplete != 100) progressBar.PercentageComplete++; progressBarLabel.SetText(string.Format("{0}%", progressBar.PercentageComplete).PadRight(4)); } };
 
             Inputs.Add(oneBtn);
             Inputs.Add(twoBtn);
